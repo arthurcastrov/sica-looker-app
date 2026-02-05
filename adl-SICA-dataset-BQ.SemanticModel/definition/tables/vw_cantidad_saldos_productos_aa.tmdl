@@ -1,0 +1,93 @@
+table vw_cantidad_saldos_productos_aa
+	lineageTag: b20c1cfb-7f31-4884-a27a-6a60469f1ab1
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 01dfae5f-f947-4191-8764-ef235d6ac2ac
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 49904d88-1a30-4221-9c29-6a41704c1a23
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 57ad7c78-f31c-4817-b6e1-9c7a512c8c9f
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b8da2b6a-8ba4-4e12-9ad1-014a9004225d
+		summarizeBy: none
+		sourceColumn: tipo_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d4ff2f48-0faa-4e35-8b17-49218af972ef
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad_productos
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9ade4093-b48c-4137-9b4f-d64165eb6188
+		summarizeBy: sum
+		sourceColumn: cantidad_productos
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_productos
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 2c6aa794-d831-4b24-9d58-ed8e79687a7a
+		summarizeBy: sum
+		sourceColumn: saldo_productos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column clientes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0ee09840-1e91-448a-a818-675cad9b291c
+		summarizeBy: sum
+		sourceColumn: clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vw_cantidad_saldos_productos_aa = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    vw_cantidad_saldos_productos_aa_View = sica_analytics_Schema{[Name="vw_cantidad_saldos_productos_aa",Kind="View"]}[Data]
+				in
+				    vw_cantidad_saldos_productos_aa_View
+

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "3b4b006e7b2ab6dbd43e",
+  "position": {
+    "x": 0,
+    "y": 528.64429530201335,
+    "z": 1000,
+    "height": 191.35570469798657,
+    "width": 526.71140939597308,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_mc_clientes_rentables"
+                }
+              },
+              "queryRef": "Metrics.$_mc_clientes_rentables",
+              "nativeQueryRef": "$_mc_clientes_rentables"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_mc_clientes_no_rentables"
+                }
+              },
+              "queryRef": "Metrics.$_mc_clientes_no_rentables",
+              "nativeQueryRef": "$_mc_clientes_no_rentables"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Metrics"
+                  }
+                },
+                "Property": "$_mc_clientes_rentables"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

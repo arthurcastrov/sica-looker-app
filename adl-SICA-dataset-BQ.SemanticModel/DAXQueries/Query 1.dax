@@ -1,0 +1,20 @@
+EVALUATE
+VAR TablaFiltrada=FILTER(
+        sica_niif_entidades,
+        sica_niif_entidades[identificador] = 16 &&
+        sica_niif_entidades[grupo] = "Grupo Aval" &&
+        sica_niif_entidades[fecha_corte] IN DATESYTD(sica_niif_entidades[fecha_corte])
+    )
+
+
+var b=SUMMARIZE(
+            TablaFiltrada,
+			'calendar'[Year],
+            sica_niif_entidades[num_mes],
+            "TotalMes", SUM(sica_niif_entidades[valor]))
+			
+return b
+
+        
+
+	

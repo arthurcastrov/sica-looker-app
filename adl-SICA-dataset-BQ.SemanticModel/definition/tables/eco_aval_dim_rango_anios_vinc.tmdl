@@ -1,0 +1,46 @@
+table eco_aval_dim_rango_anios_vinc
+	lineageTag: 9038a3b2-970f-4bf0-8633-b0334a51f8ea
+
+	column rango_anios_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f909a3a9-f44f-4bd9-bf30-8b1624156756
+		summarizeBy: none
+		sourceColumn: rango_anios_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 774b0ebf-6684-43f6-82c3-7c94aedef6bb
+		summarizeBy: sum
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_anios_vinculacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: fc49b6fc-93da-44f1-82a7-7192657baed1
+		summarizeBy: none
+		sourceColumn: rango_anios_vinculacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_rango_anios_vinc = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_rango_anios_vinc_Table = sica_analytics_Schema{[Name="eco_aval_dim_rango_anios_vinc",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_rango_anios_vinc_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

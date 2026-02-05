@@ -1,0 +1,32 @@
+table sica_bussines_glosary
+	lineageTag: 6c57920c-37a6-4e4e-9a86-4f3858a0beb4
+
+	column nombre_concepto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 98743d16-a4e4-4be7-98d2-e87bac9b86e2
+		summarizeBy: none
+		sourceColumn: nombre_concepto
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_concepto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2371b21a-8bd1-49c2-b7aa-97db776077d1
+		summarizeBy: none
+		sourceColumn: descripcion_concepto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sica_bussines_glosary = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    sica_bussines_glosary_Table = sica_analytics_Schema{[Name="sica_bussines_glosary",Kind="Table"]}[Data]
+				in
+				    sica_bussines_glosary_Table
+

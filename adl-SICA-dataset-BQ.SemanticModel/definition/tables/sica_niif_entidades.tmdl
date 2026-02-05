@@ -1,0 +1,119 @@
+table sica_niif_entidades
+	lineageTag: 0a428f41-369f-440f-b2cb-69c4fbaf8b01
+
+	column grupo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 167f6a22-e2f7-40ca-9668-cea6f62ff747
+		summarizeBy: none
+		sourceColumn: grupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column identificador
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 77b33d32-6f11-4d34-927b-d65c3b63c49a
+		summarizeBy: sum
+		sourceColumn: identificador
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 50a47fa6-1d8c-4b3f-b660-06b9757d9202
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ee81b464-8657-4a67-a592-89dbf3937ec0
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 6499b384-4d78-4deb-99e0-d37fe1cc0a6b
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad_arreglado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ac4528d2-9227-448d-9e8d-be2471bfcc31
+		summarizeBy: none
+		sourceColumn: entidad_arreglado
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_mes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 81a2b4f9-6dab-4178-a60b-722fca83cd24
+		summarizeBy: sum
+		sourceColumn: num_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column origen
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c28b6f60-e009-4fd4-9bf3-4ad5b1683a35
+		summarizeBy: none
+		sourceColumn: origen
+
+		annotation SummarizationSetBy = Automatic
+
+	column concepto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 745bf19b-e17f-4735-b4d8-00922807ff9b
+		summarizeBy: none
+		sourceColumn: concepto
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c606133e-5ba5-42c4-bc34-cdff185f76f2
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sica_niif_entidades = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    sica_niif_entidades_Table = sica_analytics_Schema{[Name="sica_niif_entidades",Kind="Table"]}[Data]
+				in
+				    sica_niif_entidades_Table
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,47 @@
+role Zeus
+	modelPermission: read
+
+	tablePermission '1. eco_avl_fct_clientes' = FALSE()
+
+	tablePermission '2. eco_avl_fct_productos' = FALSE()
+
+	tablePermission '3 eco_aval_buro bancos' = FALSE()
+
+	tablePermission '4 eco_aval_buro_aval' = FALSE()
+
+	tablePermission '5 eco_aval_buro_completitud' = FALSE()
+
+	tablePermission '6 eco_aval_fct_clientes_pj' = FALSE()
+
+	tablePermission '7 eco_aval_fct_productos_pj' = FALSE()
+
+	tablePermission '8 eco_aval_ael_clientes_aval' = FALSE()
+
+	tablePermission eco_aval_ael_clientes_aval_cuentas_pj = FALSE()
+
+	tablePermission eco_aval_buro_aval_PJ = FALSE()
+
+	tablePermission eco_aval_buro_bancos_pj = FALSE()
+
+	tablePermission eco_aval_buro_completitud_pj = FALSE()
+
+	tablePermission eco_aval_fct_clientes_compartidos = FALSE()
+
+	tablePermission eco_aval_fct_clientes_compartidos_pj = FALSE()
+
+	tablePermission eco_aval_fct_depositos_reporte = FALSE()
+
+	tablePermission eco_aval_fct_margen_agg_productos = FALSE()
+
+	tablePermission eco_aval_flujo_dinero = FALSE()
+
+	tablePermission eco_aval_saldos_depositos = FALSE()
+
+	tablePermission eco_aval_saldos_depositos_semanal = FALSE()
+
+	tablePermission eco_aval_tc_productos = FALSE()
+
+	tablePermission eco_aval_tc_transacciones = FALSE()
+
+	annotation PBI_Id = 5d7478e301c64f4089f513ae99205d8c
+

@@ -1,0 +1,84 @@
+table dn_aval_dim_tipo_canal
+	lineageTag: 0aee5bb2-a749-4b14-8183-4dac7f795048
+
+	column codigo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 828ecdce-22ad-46d4-87a1-732797ae7af7
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column canal
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8dc4d1af-a79c-4cfc-b3a1-69d50bdabca6
+		summarizeBy: none
+		sourceColumn: canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_de_canal
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a2c34820-b84e-413d-b5e9-670118e1d9eb
+		summarizeBy: none
+		sourceColumn: tipo_de_canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column co2_equivalente_optimista
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 02bd42eb-9df8-4d23-a4eb-7f20de42675f
+		summarizeBy: sum
+		sourceColumn: co2_equivalente_optimista
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column co2_equivalente_neutro
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 3640475f-b626-43f7-a3e7-3c1091ba8287
+		summarizeBy: sum
+		sourceColumn: co2_equivalente_neutro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column co2_equivalente_pesimista
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 21d3030b-9f5b-4b54-8924-4b06473a3d35
+		summarizeBy: sum
+		sourceColumn: co2_equivalente_pesimista
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4df27dfc-8eb4-43a4-80c5-24bbe905bf52
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_dim_tipo_canal = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_dim_tipo_canal_Table = iniciativas_aval_Schema{[Name="dn_aval_dim_tipo_canal",Kind="Table"]}[Data]
+				in
+				    dn_aval_dim_tipo_canal_Table
+

@@ -1,0 +1,45 @@
+table eco_aval_dim_seg_cat
+	lineageTag: aa9645b3-fe42-4d5d-bd1b-eee814958abb
+
+	column seg_cat_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8e565c0d-28c7-406f-92eb-2079cab2754b
+		summarizeBy: none
+		sourceColumn: seg_cat_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_cat_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7b8a66e2-fde8-4b17-ab40-451538b0fdee
+		summarizeBy: none
+		sourceColumn: seg_cat_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 50d1ddaf-b1d7-43db-a25b-3799caf07029
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_seg_cat = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_seg_cat_Table = sica_analytics_Schema{[Name="eco_aval_dim_seg_cat",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_seg_cat_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

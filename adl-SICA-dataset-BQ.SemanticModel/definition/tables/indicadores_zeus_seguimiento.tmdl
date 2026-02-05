@@ -1,0 +1,95 @@
+table indicadores_zeus_seguimiento
+	lineageTag: 6c18f3d6-454f-4530-a992-1ab9020c8015
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8ab59b94-6424-427e-b524-750e68c4696f
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column id_indicador
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7be110fd-d9f2-4424-a7bf-0bb4946ade30
+		summarizeBy: none
+		sourceColumn: id_indicador
+
+		annotation SummarizationSetBy = Automatic
+
+	column unidad_de_medida
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4c3700e6-525a-469a-b7ed-7bf3b2fd953e
+		summarizeBy: none
+		sourceColumn: unidad_de_medida
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 648ab8bf-7385-41d8-9382-fe7843a919f1
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9218b665-2a15-49e6-9cc7-eb0067fc5251
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column linea_base
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 488349ab-b21a-45f3-a4d5-72aad615b0eb
+		summarizeBy: sum
+		sourceColumn: linea_base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Semana
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 68f6f256-7a6c-4b59-b7e2-4212820bd4df
+		summarizeBy: none
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column semana_num
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 36850176-c6e4-4775-90e6-938b197d7922
+		summarizeBy: sum
+		sourceColumn: semana_num
+
+		annotation SummarizationSetBy = Automatic
+
+	partition indicadores_zeus_seguimiento = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    indicadores_zeus_seguimiento_Table = sica_analytics_Schema{[Name="indicadores_zeus_seguimiento",Kind="Table"]}[Data]
+				in
+				    indicadores_zeus_seguimiento_Table
+

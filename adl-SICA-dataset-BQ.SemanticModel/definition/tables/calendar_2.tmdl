@@ -1,0 +1,193 @@
+table calendar_2
+	lineageTag: 85aa2f77-55c4-4df0-bb0d-c1c313150ef2
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c51e1e0a-3ee1-46c7-a936-95b235fec343
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YYYY_MM_DD
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0cc5993b-8d11-444c-b7c0-5f0a16a83b84
+		summarizeBy: none
+		sourceColumn: YYYY_MM_DD
+
+		annotation SummarizationSetBy = Automatic
+
+	column YYYY_MM
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f1d0fa70-3b9c-46c2-b67a-1432d177a9e7
+		summarizeBy: none
+		sourceColumn: YYYY_MM
+
+		annotation SummarizationSetBy = Automatic
+
+	column unixDate
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0f2b2801-e1ae-4642-94d6-9ebe210f8771
+		summarizeBy: sum
+		sourceColumn: unixDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f2eac600-e4b4-4000-ada4-ef9af19f9ddc
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column weekOfYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 6e99943b-3e17-4293-8015-c2797a690a17
+		summarizeBy: sum
+		sourceColumn: weekOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column dayOfYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f4daa4f8-9aca-4aa9-8bfe-a77ef15d12a2
+		summarizeBy: sum
+		sourceColumn: dayOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscalYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 4210c5e8-2184-479c-8ca1-1ad8d780d4be
+		summarizeBy: sum
+		sourceColumn: fiscalYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscalQtr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: e8ee46fa-e890-40af-8978-8819579a4273
+		summarizeBy: sum
+		sourceColumn: fiscalQtr
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOfTheYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 84cbe301-9dc1-4b18-aab7-60fc0f881536
+		summarizeBy: sum
+		sourceColumn: MonthOfTheYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthName
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a882a313-8e12-455d-92df-cf6aa6aa74d0
+		summarizeBy: none
+		sourceColumn: monthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column dayOfWeek
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: e0d82fc5-f005-4b72-87d1-6e808f7898db
+		summarizeBy: sum
+		sourceColumn: dayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column dayOfWeekName
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 28ecf6ca-fac3-41e0-bfae-ebd26382c093
+		summarizeBy: none
+		sourceColumn: dayOfWeekName
+
+		annotation SummarizationSetBy = Automatic
+
+	column isWeekday
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 5553d6d7-280d-48d5-8e8f-c1fb94525b18
+		summarizeBy: sum
+		sourceColumn: isWeekday
+
+		annotation SummarizationSetBy = Automatic
+
+	column countryRegionCode
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b15f2848-37a9-4f48-9f2a-0a2107b41907
+		summarizeBy: none
+		sourceColumn: countryRegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column holidayNameSpanish
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f3c8c480-c186-4c65-b782-c16131b38f81
+		summarizeBy: none
+		sourceColumn: holidayNameSpanish
+
+		annotation SummarizationSetBy = Automatic
+
+	column holidayNameEnglish
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 15d42fff-16e1-4167-a147-51aa9122d38c
+		summarizeBy: none
+		sourceColumn: holidayNameEnglish
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio_mes
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8e745546-8d8f-4d5b-b280-c1977f6514ef
+		summarizeBy: none
+		sourceColumn: anio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calendar_2 = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    lytics_pro_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    calendar_Table = lytics_pro_Schema{[Name="calendar",Kind="Table"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(calendar_Table, each [Date] >= fecha_inicial and [Date] <= Date.AddDays(Date.From( DateTime.FixedLocalNow() ), -1 ))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

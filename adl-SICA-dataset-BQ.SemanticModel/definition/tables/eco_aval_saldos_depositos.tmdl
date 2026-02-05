@@ -1,0 +1,93 @@
+table eco_aval_saldos_depositos
+	lineageTag: 8df35ca4-c670-4c98-b3a7-1fbff793ea5f
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 30e2d486-ae6f-4a8e-b656-a2cefa6287c2
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column estado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c42f60ec-271b-4561-9971-6814e9698f31
+		summarizeBy: none
+		sourceColumn: estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c8eee9ca-7d56-4651-9fdd-ad04ad333e13
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: e089f801-f097-4390-b974-052c5dfc1648
+		summarizeBy: sum
+		sourceColumn: saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad_productos
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 41a3b396-ad1b-4285-89f5-ca6cf6263f59
+		summarizeBy: sum
+		sourceColumn: cantidad_productos
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 845c9570-e0aa-4660-be40-fb43a9bf1eb4
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2c799484-666d-4462-8455-de8963ee12a9
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 4c408e1f-333b-4350-9cbf-d600b1d14805
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_saldos_depositos = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_saldos_depositos_Table = sica_analytics_Schema{[Name="eco_aval_saldos_depositos",Kind="Table"]}[Data]
+				in
+				    eco_aval_saldos_depositos_Table
+

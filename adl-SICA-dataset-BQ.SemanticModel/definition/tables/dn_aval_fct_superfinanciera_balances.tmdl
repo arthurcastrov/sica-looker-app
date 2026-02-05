@@ -1,0 +1,187 @@
+table dn_aval_fct_superfinanciera_balances
+	lineageTag: 085bfd81-3425-41d8-af6b-b687484f113a
+
+	column id_operaciones
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 903ed0fb-cc98-4d09-b1ad-da6dfd8fefee
+		summarizeBy: sum
+		sourceColumn: id_operaciones
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_bancos
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 592b8e84-8e30-43d6-a4f1-e507f89434f8
+		summarizeBy: sum
+		sourceColumn: total_bancos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_grupo_aval
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 76547287-b687-476e-a310-62302a1fe6a8
+		summarizeBy: sum
+		sourceColumn: total_grupo_aval
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column banco_de_bogota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 49b2dc61-b0a4-4c76-a8b1-8787580d02dc
+		summarizeBy: sum
+		sourceColumn: banco_de_bogota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column banco_popular
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 31259d7e-6de0-4e36-9e8b-3f1d3eb6d490
+		summarizeBy: sum
+		sourceColumn: banco_popular
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column bancolombia
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 51ef1a1f-9d48-44d1-a280-4d21d8a37e65
+		summarizeBy: sum
+		sourceColumn: bancolombia
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column bbva_colombia
+		dataType: double
+		sourceProviderType: double
+		lineageTag: f287d92b-288a-4872-859e-65db8b619ba6
+		summarizeBy: sum
+		sourceColumn: bbva_colombia
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column occidente
+		dataType: double
+		sourceProviderType: double
+		lineageTag: f0d0485c-db00-4f2b-ae1e-089f5a4a6ca6
+		summarizeBy: sum
+		sourceColumn: occidente
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column davivienda
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 0329fe6e-4afb-405c-aae2-8fe62904ca9e
+		summarizeBy: sum
+		sourceColumn: davivienda
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column scotiabank_colpatria
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 5a0bd11d-291d-4b91-b1c9-c99a834c33f3
+		summarizeBy: sum
+		sourceColumn: scotiabank_colpatria
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column banco_av_villas
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 0b334c93-fe45-4664-8f1f-b21ef787b31e
+		summarizeBy: sum
+		sourceColumn: banco_av_villas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lulo_bank
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 147105f2-ccd0-4620-aa44-9652f8c9e475
+		summarizeBy: sum
+		sourceColumn: lulo_bank
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rappipay_compania_de_financiamiento
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 4b5f14df-c178-4e70-bd99-0b9f39b301a2
+		summarizeBy: sum
+		sourceColumn: rappipay_compania_de_financiamiento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rubro_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6962642d-26ba-4254-9425-70dbb62cfdca
+		summarizeBy: none
+		sourceColumn: rubro_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 7a3a1d9e-ff2e-4b6c-998e-88fb66d206e4
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d3a0bcbb-9af3-4c33-bc25-0a9871f857aa
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_fct_superfinanciera_balances = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_fct_superfinanciera_balances_Table = iniciativas_aval_Schema{[Name="dn_aval_fct_superfinanciera_balances",Kind="Table"]}[Data]
+				in
+				    dn_aval_fct_superfinanciera_balances_Table
+

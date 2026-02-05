@@ -1,0 +1,1275 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1929.2990007014519,
+            "y": 425.970563046546
+          },
+          "nodeIndex": "calendar",
+          "nodeLineageTag": "32ebf4dc-c845-41fb-bfb2-fe849099bb6d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 70
+        },
+        {
+          "location": {
+            "x": 450.56308914791686,
+            "y": 52.32545891549583
+          },
+          "nodeIndex": "eco_aval_ael_clientes_aval_cuentas_pj",
+          "nodeLineageTag": "b0e07274-e1da-4b8e-8b40-c8a6feb3ece9",
+          "size": {
+            "height": 248,
+            "width": 321.70604734522675
+          },
+          "zIndex": 50
+        },
+        {
+          "location": {
+            "x": 433.11545506368748,
+            "y": 766.93865197411856
+          },
+          "nodeIndex": "eco_aval_buro_bancos_pj",
+          "nodeLineageTag": "9b2d7f1f-15cd-4430-a3ca-b12cdfa830c1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 51
+        },
+        {
+          "location": {
+            "x": 785.97213359265686,
+            "y": 816.22013562954317
+          },
+          "nodeIndex": "eco_aval_buro_completitud_pj",
+          "nodeLineageTag": "6cd80731-2029-434d-abfc-2f95bdf3ec41",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 52
+        },
+        {
+          "location": {
+            "x": 2859.8473824803536,
+            "y": 4.2043851155271916
+          },
+          "nodeIndex": "eco_aval_dim_ciiu",
+          "nodeLineageTag": "6b515b20-91b2-47aa-94f4-d8427000e70a",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 77
+        },
+        {
+          "location": {
+            "x": 3374.9231783868427,
+            "y": 19.723825032131856
+          },
+          "nodeIndex": "eco_aval_dim_estado_civil",
+          "nodeLineageTag": "62c902bb-a54e-4e0c-8459-ca2f4f45fd2b",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 53
+        },
+        {
+          "location": {
+            "x": 3104.2186494010434,
+            "y": 18.167257802760542
+          },
+          "nodeIndex": "eco_aval_dim_estado_cliente",
+          "nodeLineageTag": "43de837c-fbdc-4eb9-8d95-fe5c1d1d2153",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 54
+        },
+        {
+          "location": {
+            "x": 2583.4810804723993,
+            "y": 13.918353861183732
+          },
+          "nodeIndex": "eco_aval_dim_gender",
+          "nodeLineageTag": "b9f29d8d-bc44-47e8-bcde-204b743ee0ce",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 55
+        },
+        {
+          "location": {
+            "x": 3779.7228150063788,
+            "y": 281.11455980332073
+          },
+          "nodeIndex": "eco_aval_dim_nivel_educativo",
+          "nodeLineageTag": "b880c0bf-c502-4785-972e-93a661cb7bb1",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 56
+        },
+        {
+          "location": {
+            "x": 3774.069576753825,
+            "y": 447.75806045933513
+          },
+          "nodeIndex": "eco_aval_dim_ocupacion",
+          "nodeLineageTag": "83728660-c944-487d-abf3-c9d1044e3016",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 57
+        },
+        {
+          "location": {
+            "x": 2846.4834481920448,
+            "y": 1288.8588507532697
+          },
+          "nodeIndex": "eco_aval_dim_producto",
+          "nodeLineageTag": "3fa9c65a-faa9-4a24-954c-b922c6449854",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 83
+        },
+        {
+          "location": {
+            "x": 3095.3462366270314,
+            "y": 1115.42690609002
+          },
+          "nodeIndex": "eco_aval_dim_profesion",
+          "nodeLineageTag": "328d4dd9-a2ec-446e-be36-9702281bf826",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 72
+        },
+        {
+          "location": {
+            "x": 2546.7170813264797,
+            "y": 1110.7620820077213
+          },
+          "nodeIndex": "eco_aval_dim_rango_anios_vinc",
+          "nodeLineageTag": "9038a3b2-970f-4bf0-8633-b0334a51f8ea",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 71
+        },
+        {
+          "location": {
+            "x": 3781.4432446873311,
+            "y": 786.22613609240011
+          },
+          "nodeIndex": "eco_aval_dim_rango_edad",
+          "nodeLineageTag": "4c891d3b-be89-4145-8944-be3d14d0865e",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 58
+        },
+        {
+          "location": {
+            "x": 3777.8850410065897,
+            "y": 609.58371302271826
+          },
+          "nodeIndex": "eco_aval_dim_seg",
+          "nodeLineageTag": "9cb74d50-ec86-4476-bd0b-63aeb7ea2bfa",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 59
+        },
+        {
+          "location": {
+            "x": 3371.8525490023758,
+            "y": 1119.6758100315974
+          },
+          "nodeIndex": "eco_aval_dim_seg_cat",
+          "nodeLineageTag": "aa9645b3-fe42-4d5d-bd1b-eee814958abb",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 60
+        },
+        {
+          "location": {
+            "x": 3660.2191225398565,
+            "y": 17.660530548752657
+          },
+          "nodeIndex": "eco_aval_dim_tipo_doc",
+          "nodeLineageTag": "1c0e3d07-d6b7-46f3-af64-8da631d4cf7f",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 74
+        },
+        {
+          "location": {
+            "x": 2312.9495124622554,
+            "y": 12.869777165640244
+          },
+          "nodeIndex": "eco_aval_dim_tipo_vivienda",
+          "nodeLineageTag": "58989332-605a-483e-8c86-b78103623c42",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 61
+        },
+        {
+          "location": {
+            "x": 2253.699511440399,
+            "y": 1061.8048042284481
+          },
+          "nodeIndex": "eco_aval_dim_tp_organizacion",
+          "nodeLineageTag": "4dfe38af-3973-4d2f-8a22-e942d3d9b861",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 62
+        },
+        {
+          "location": {
+            "x": 3778.0783447643926,
+            "y": 960.87013599223326
+          },
+          "nodeIndex": "eco_aval_dim_tp_sector",
+          "nodeLineageTag": "c8de465c-490d-487e-95a4-a4b8afc01717",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 63
+        },
+        {
+          "location": {
+            "x": 3650.2070837712959,
+            "y": 1121.0520285389543
+          },
+          "nodeIndex": "eco_aval_dim_tp_sociedad",
+          "nodeLineageTag": "2fa58a12-9c0b-4574-967e-2588d541fdcd",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 73
+        },
+        {
+          "location": {
+            "x": 2880.9460349643127,
+            "y": 345.95462017335558
+          },
+          "nodeIndex": "eco_aval_fct_clientes_compartidos",
+          "nodeLineageTag": "d06617f7-988c-44e8-983d-9289f7455743",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 64
+        },
+        {
+          "location": {
+            "x": 2908.3929467706771,
+            "y": 739.24016790308292
+          },
+          "nodeIndex": "eco_aval_fct_clientes_compartidos_pj",
+          "nodeLineageTag": "bb94cf85-01d6-4d6f-86e9-6a77aa401cfe",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 65
+        },
+        {
+          "location": {
+            "x": 1456.5239375360079,
+            "y": 1138.5931249339837
+          },
+          "nodeIndex": "eco_aval_flujo_dinero",
+          "nodeLineageTag": "93e0ace9-2658-40df-83d7-76120a92eda1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 66
+        },
+        {
+          "location": {
+            "x": 808.41823825370216,
+            "y": 1206.805962404801
+          },
+          "nodeIndex": "eco_aval_sfc_tc",
+          "nodeLineageTag": "f7cb35d8-59ec-463c-8d17-f2b864242f82",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 76
+        },
+        {
+          "location": {
+            "x": 427.45447804621421,
+            "y": 1606.0513723124177
+          },
+          "nodeIndex": "eco_aval_tc_mcc",
+          "nodeLineageTag": "29a6d5fc-f419-40a6-aa19-511723b2b9c4",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 69
+        },
+        {
+          "location": {
+            "x": 159.36216749726498,
+            "y": 1159.6895494771552
+          },
+          "nodeIndex": "eco_aval_tc_productos",
+          "nodeLineageTag": "909064d5-e6d5-42c5-9f10-d00585bb5cd3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 67
+        },
+        {
+          "location": {
+            "x": 446.69869320099542,
+            "y": 1187.1970066775434
+          },
+          "nodeIndex": "eco_aval_tc_transacciones",
+          "nodeLineageTag": "03546abe-84a9-4112-93fc-d0645b0d1089",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 68
+        },
+        {
+          "location": {
+            "x": 145.10556532215844,
+            "y": 764.03696430759817
+          },
+          "nodeIndex": "eco_aval_buro_aval_PJ",
+          "nodeLineageTag": "41bdaca6-e0e5-4ead-b4d5-d77316280cea",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 75
+        },
+        {
+          "location": {
+            "x": 4056.7396045084342,
+            "y": 866.35418940713623
+          },
+          "nodeIndex": "Metrics",
+          "nodeLineageTag": "e004d385-fd2e-4650-95f3-0799697b5a30",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 35
+        },
+        {
+          "location": {
+            "x": 3239.3822894555183,
+            "y": 349.02386871818692
+          },
+          "nodeIndex": "2. eco_avl_fct_productos",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 36
+        },
+        {
+          "location": {
+            "x": 4080.7893863744903,
+            "y": 268.12668997407241
+          },
+          "nodeIndex": "variables_de_caculo",
+          "nodeLineageTag": "090d4a14-1e31-4d98-9809-a01952791a5f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 37
+        },
+        {
+          "location": {
+            "x": 2555.7228307650394,
+            "y": 344.27273339104795
+          },
+          "nodeIndex": "1. eco_avl_fct_clientes",
+          "size": {
+            "height": 313,
+            "width": 234
+          },
+          "zIndex": 38
+        },
+        {
+          "location": {
+            "x": 449.21705299161431,
+            "y": 403.90742545257353
+          },
+          "nodeIndex": "3 eco_aval_buro bancos",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 39
+        },
+        {
+          "location": {
+            "x": 4364.7710548449977,
+            "y": 236.52466700303023
+          },
+          "nodeIndex": "tipo_persona_aa",
+          "nodeLineageTag": "10742f7d-2eee-485c-addb-2234208cb75f",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 40
+        },
+        {
+          "location": {
+            "x": 150.35162123818628,
+            "y": 406.8805118032592
+          },
+          "nodeIndex": "4 eco_aval_buro_aval",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 41
+        },
+        {
+          "location": {
+            "x": 2552.8099652937681,
+            "y": 743.5066925177498
+          },
+          "nodeIndex": "6 eco_aval_fct_clientes_pj",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 42
+        },
+        {
+          "location": {
+            "x": 3243.4475165934746,
+            "y": 732.43139300347639
+          },
+          "nodeIndex": "7 eco_aval_fct_productos_pj",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 43
+        },
+        {
+          "location": {
+            "x": 126.42642341366047,
+            "y": 54.569779247009478
+          },
+          "nodeIndex": "8 eco_aval_ael_clientes_aval",
+          "size": {
+            "height": 300,
+            "width": 289.00209748768458
+          },
+          "zIndex": 44
+        },
+        {
+          "location": {
+            "x": 4306.3974744625493,
+            "y": 555.17839862770563
+          },
+          "nodeIndex": "tabla_bancos",
+          "nodeLineageTag": "d7994c42-edd5-4170-9d3e-bd3dc349d219",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 45
+        },
+        {
+          "location": {
+            "x": 4039.9772428540718,
+            "y": 1263.5904135619012
+          },
+          "nodeIndex": "flujo_dinero_agg",
+          "nodeLineageTag": "77dc2664-4d10-42ec-bddf-87f44afbbaea",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 46
+        },
+        {
+          "location": {
+            "x": 792.65996126160314,
+            "y": 409.49547565453952
+          },
+          "nodeIndex": "5 eco_aval_buro_completitud",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 47
+        },
+        {
+          "location": {
+            "x": 4352.9274323813688,
+            "y": 1268.8574173904085
+          },
+          "nodeIndex": "fecha_act_fuentes",
+          "nodeLineageTag": "4c26d02e-a0b8-4424-b133-23346aff42e6",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 48
+        },
+        {
+          "location": {
+            "x": 4346.1699524826718,
+            "y": 958.43744908754172
+          },
+          "nodeIndex": "bench_activo",
+          "nodeLineageTag": "46c1909f-551a-49cb-9f04-2fdc0df91c82",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 49
+        },
+        {
+          "location": {
+            "x": 3770.9617647116415,
+            "y": 1318.0501207042564
+          },
+          "nodeIndex": "eco_aval_fct_margen_agg_productos",
+          "nodeLineageTag": "f6cdec02-3dc9-445c-98ae-2b78cd9664a9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 4622.07617791043,
+            "y": 798.879726979532
+          },
+          "nodeIndex": "clientes_activos_dale",
+          "nodeLineageTag": "ecd4bcdf-8c04-4713-a784-35980baf0e13",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 26
+        },
+        {
+          "location": {
+            "x": 4719.8540550759371,
+            "y": 160.60149577798154
+          },
+          "nodeIndex": "sica_roles",
+          "nodeLineageTag": "bcf4b388-b8ee-4b8e-9e67-4fb0b2966066",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 27
+        },
+        {
+          "location": {
+            "x": 4958.4269871526112,
+            "y": 768.193570910522
+          },
+          "nodeIndex": "pyg_bogota",
+          "nodeLineageTag": "aa6fffd5-31a3-42f1-913e-c1e52e3c46e7",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 28
+        },
+        {
+          "location": {
+            "x": 5251.00056373895,
+            "y": 836.92592977373818
+          },
+          "nodeIndex": "eco_aval_saldos_depositos",
+          "nodeLineageTag": "8df35ca4-c670-4c98-b3a7-1fbff793ea5f",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 29
+        },
+        {
+          "location": {
+            "x": 5425.2408069919566,
+            "y": 735.324955303621
+          },
+          "nodeIndex": "eco_aval_saldos_depositos_semanal",
+          "nodeLineageTag": "6d1832f0-8de5-4d7b-924a-2c293f2a0591",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 30
+        },
+        {
+          "location": {
+            "x": 5431.1477169116288,
+            "y": 0
+          },
+          "nodeIndex": "eco_aval_fct_depositos_reporte",
+          "nodeLineageTag": "479cbc8d-6ed5-459b-a5de-f029ef273eec",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 31
+        },
+        {
+          "location": {
+            "x": 5588.721293497968,
+            "y": 0
+          },
+          "nodeIndex": "var_calculo_depositos_rpt",
+          "nodeLineageTag": "78514a7a-f3b7-49ca-aa5f-23c459c61dd4",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 32
+        },
+        {
+          "location": {
+            "x": 6306.1992411391966,
+            "y": 767.167065562529
+          },
+          "nodeIndex": "indicadores_zeus_dim_kpis",
+          "nodeLineageTag": "1010f026-318e-4f23-b43d-37f80a3f8f68",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 33
+        },
+        {
+          "location": {
+            "x": 5951.6082581219234,
+            "y": 337.30056606179704
+          },
+          "nodeIndex": "indicadores_zeus_seguimiento",
+          "nodeLineageTag": "6c18f3d6-454f-4530-a992-1ab9020c8015",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 80
+        },
+        {
+          "location": {
+            "x": 6281.5048099778569,
+            "y": 0
+          },
+          "nodeIndex": "var_indicadores_zeus",
+          "nodeLineageTag": "2d221f01-3863-4914-aea6-fb63b3d32a40",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 34
+        },
+        {
+          "location": {
+            "x": 6416.2670310438407,
+            "y": 198.59279309713347
+          },
+          "nodeIndex": "ind_zeus_visitas_semanales",
+          "nodeLineageTag": "81af8afd-2301-41ca-94f3-aac660611205",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 78
+        },
+        {
+          "location": {
+            "x": 6692.1739409635138,
+            "y": 558.33333333333326
+          },
+          "nodeIndex": "indicadores_zeus_semanas",
+          "nodeLineageTag": "6b9134d7-97d6-445e-b77e-676853c081cb",
+          "size": {
+            "height": 273.66666666666663,
+            "width": 234
+          },
+          "zIndex": 82
+        },
+        {
+          "location": {
+            "x": 6789.747517549853,
+            "y": 49.999999999999972
+          },
+          "nodeIndex": "tabla_semanas",
+          "nodeLineageTag": "0c6b981e-cc17-4574-9a96-5c31c4eee4d4",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 79
+        },
+        {
+          "location": {
+            "x": 7088.2280040558644,
+            "y": 0
+          },
+          "nodeIndex": "variables_zeus_semana_mes",
+          "nodeLineageTag": "0638f97d-5e15-49f0-824a-d68995d1823f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 24
+        },
+        {
+          "location": {
+            "x": 10906.27870133527,
+            "y": 38
+          },
+          "nodeIndex": "dn_aval_dim_bancos",
+          "nodeLineageTag": "5fd867d3-920d-421a-8fb6-4111d52cf734",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 12123.962267095074,
+            "y": 62
+          },
+          "nodeIndex": "dn_aval_dim_bancos_aval",
+          "nodeLineageTag": "40f8bf4a-6b17-443b-911f-4b0240bf0275",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 12529.856789015008,
+            "y": 62
+          },
+          "nodeIndex": "dn_aval_dim_contexto",
+          "nodeLineageTag": "cba3d260-dfae-4cef-b053-3ece1ad376bc",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 11312.173223255204,
+            "y": 38
+          },
+          "nodeIndex": "dn_aval_dim_divipola",
+          "nodeLineageTag": "e0774e3a-61f6-4d79-b5ea-f28c58f6ff9d",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 12935.751310934942,
+            "y": 74
+          },
+          "nodeIndex": "dn_aval_dim_superfinanciera_balances_rubro",
+          "nodeLineageTag": "43971b80-0708-4ae1-a230-602bb3cbceba",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 10094.489657495402,
+            "y": 26
+          },
+          "nodeIndex": "dn_aval_dim_tipo_canal",
+          "nodeLineageTag": "0aee5bb2-a749-4b14-8183-4dac7f795048",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 9282.7006136555337,
+            "y": 2
+          },
+          "nodeIndex": "dn_aval_dim_tipo_operacion",
+          "nodeLineageTag": "db514c9a-bcc1-43a2-ab28-20014c5df62a",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 11718.06774517514,
+            "y": 38
+          },
+          "nodeIndex": "dn_aval_fct_clientes_bancos",
+          "nodeLineageTag": "63c1ffdf-4874-4422-9ade-c8a8519d6b9e",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 7878.2280040558644,
+            "y": 430
+          },
+          "nodeIndex": "dn_aval_fct_desembolsos",
+          "nodeLineageTag": "6bfe13fd-fd26-4505-b749-32e0b36b2118",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 7659.1225259757985,
+            "y": 0
+          },
+          "nodeIndex": "dn_aval_fct_funnel_digital",
+          "nodeLineageTag": "b6d39fce-cf8f-4ac3-a2b8-827eea1ec244",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 8065.0170478957325,
+            "y": 0
+          },
+          "nodeIndex": "dn_aval_fct_principalidad_transversal",
+          "nodeLineageTag": "741a0ee3-ac56-4b61-9cff-64a098b9248e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 9688.5951355754678,
+            "y": 14
+          },
+          "nodeIndex": "dn_aval_fct_principalidad_trx_tc",
+          "nodeLineageTag": "43c87dc9-8464-498c-bb2c-91cb81c7a67c",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 8470.9115698156656,
+            "y": 0
+          },
+          "nodeIndex": "dn_aval_fct_superfinanciera_balances",
+          "nodeLineageTag": "085bfd81-3425-41d8-af6b-b687484f113a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 8876.8060917356,
+            "y": 0
+          },
+          "nodeIndex": "dn_aval_fct_trx_sistema_financiero",
+          "nodeLineageTag": "ad74c4b5-e983-49e8-b705-08a9e8545e4a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 13093.324887521281,
+            "y": 0
+          },
+          "nodeIndex": "dn_aval_principalidad_nomina",
+          "nodeLineageTag": "082f17b5-7ba5-4b35-8925-5029818b121f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 13500.653273104794,
+            "y": 0
+          },
+          "nodeIndex": "ini_aval_sados_bpop",
+          "nodeLineageTag": "420ae4cc-9490-40f0-abec-1ef3595b3690",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 13907.981658688304,
+            "y": 74
+          },
+          "nodeIndex": "variables_de_calculo_iniciativas",
+          "nodeLineageTag": "8738ee33-7e03-4279-8dd4-96231579ea2e",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 14065.555235274644,
+            "y": 0
+          },
+          "nodeIndex": "dn_aval_select_metrica",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 18
+        },
+        {
+          "location": {
+            "x": 15006.403580747783,
+            "y": 74
+          },
+          "nodeIndex": "Parameter",
+          "nodeLineageTag": "3025ff07-bf98-45b9-9bd9-fcfbaa480a03",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 19
+        },
+        {
+          "location": {
+            "x": 15398.040965191183,
+            "y": 74
+          },
+          "nodeIndex": "resum_gerencial_variables_de_caculo",
+          "nodeLineageTag": "3265b6d2-c642-4b22-ad79-248794d56286",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 20
+        },
+        {
+          "location": {
+            "x": 14614.766196304383,
+            "y": 14
+          },
+          "nodeIndex": "sica_niif_entidades",
+          "nodeLineageTag": "0a428f41-369f-440f-b2cb-69c4fbaf8b01",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 21
+        },
+        {
+          "location": {
+            "x": 14223.128811860983,
+            "y": 0
+          },
+          "nodeIndex": "superfinanciera_pasivos",
+          "nodeLineageTag": "59f26480-e785-4dc0-8716-03d13798716a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 15789.678349634582,
+            "y": 74
+          },
+          "nodeIndex": "tipo_persona",
+          "nodeLineageTag": "efbbbc31-6a8a-4dac-a5a7-daed99fec21a",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 23
+        },
+        {
+          "location": {
+            "x": 15947.251926220921,
+            "y": 0
+          },
+          "nodeIndex": "calendar_2",
+          "nodeLineageTag": "85aa2f77-55c4-4df0-bb0d-c1c313150ef2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16940.127326880662,
+            "y": 26
+          },
+          "nodeIndex": "indicadores_zeus_semanas_2",
+          "nodeLineageTag": "f282ccbb-557f-4348-8b8d-391f5fddcc77",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16104.82550280726,
+            "y": 0
+          },
+          "nodeIndex": "sica_saldos_clientes_pj_aa",
+          "nodeLineageTag": "bdb08596-36b2-40e3-adcb-b0873e7b7bd0",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 16522.476414843961,
+            "y": 0
+          },
+          "nodeIndex": "sica_saldos_clientes_pn_aa",
+          "nodeLineageTag": "d258a318-d178-4531-8fdd-7b3c17f77b4e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17480.960780883874,
+            "y": 72
+          },
+          "nodeIndex": "tbl_productos_aa",
+          "nodeLineageTag": "b09b6ba7-dd1c-4f44-87bd-4ba97ca73dfb",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17097.700903467,
+            "y": 0
+          },
+          "nodeIndex": "vw_cantidad_saldos_productos_aa",
+          "nodeLineageTag": "b20c1cfb-7f31-4884-a27a-6a60469f1ab1",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 17638.534357470213,
+            "y": 0
+          },
+          "nodeIndex": "superfinanciera_captaciones",
+          "nodeLineageTag": "46d41bc0-4092-4ff6-bf6f-988ddb349e05",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18062.768423820064,
+            "y": 0
+          },
+          "nodeIndex": "superfinanciera_desembolsos",
+          "nodeLineageTag": "09676c5d-c21c-43a0-9fc2-0a7f469356dd",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18220.342000406403,
+            "y": 0
+          },
+          "nodeIndex": "tbl_modalidad_cartera",
+          "nodeLineageTag": "ef8289df-7035-48bd-994c-affa2e71af25",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18377.915576992742,
+            "y": 0
+          },
+          "nodeIndex": "eco_aval_dim_rango_edad_pj",
+          "nodeLineageTag": "f11aead7-5b87-4884-92cb-10f400619618",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18535.489153579081,
+            "y": 0
+          },
+          "nodeIndex": "eco_aval_fct_clientes_compartidos_unicos",
+          "nodeLineageTag": "0dad5078-0a8e-451d-ae41-41ff1e361c25",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18693.06273016542,
+            "y": 0
+          },
+          "nodeIndex": "eco_aval_fct_clientes_compartidos_unicos_pj",
+          "nodeLineageTag": "1fd59966-b4bd-459c-be07-d7ffb1319062",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 18850.63630675176,
+            "y": 0
+          },
+          "nodeIndex": "entidad_compartidos",
+          "nodeLineageTag": "b7c5f5a1-6914-4dfc-9ac4-0120f3935e18",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 19008.2098833381,
+            "y": 0
+          },
+          "nodeIndex": "sica_bussines_glosary",
+          "nodeLineageTag": "6c57920c-37a6-4e4e-9a86-4f3858a0beb4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 10,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [],
+      "name": "Disposición 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Disposición 1",
+  "defaultDiagram": "All tables"
+}

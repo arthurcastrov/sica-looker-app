@@ -1,0 +1,36 @@
+table eco_aval_dim_nivel_educativo
+	lineageTag: b880c0bf-c502-4785-972e-93a661cb7bb1
+
+	column highest_edu_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ab03fe80-d93c-47fe-a6f6-e1252eff1a14
+		summarizeBy: none
+		sourceColumn: highest_edu_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column highest_edu_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3a1ae72e-34ec-4e3c-9561-983bb28919bf
+		summarizeBy: none
+		sourceColumn: highest_edu_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_nivel_educativo = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_nivel_educativo_Table = sica_analytics_Schema{[Name="eco_aval_dim_nivel_educativo",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_nivel_educativo_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

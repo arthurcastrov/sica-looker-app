@@ -1,0 +1,24 @@
+table var_calculo_depositos_rpt
+	lineageTag: 78514a7a-f3b7-49ca-aa5f-23c459c61dd4
+
+	column Variable
+		dataType: string
+		lineageTag: e046d7b9-3dce-4b2d-a2c0-8b8b67736689
+		summarizeBy: none
+		sourceColumn: Variable
+
+		annotation SummarizationSetBy = Automatic
+
+	partition var_calculo_depositos_rpt = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wck7MK8lMSUxRitWJVgrIL0pOzStJzEpVio0FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Variable = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Variable", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

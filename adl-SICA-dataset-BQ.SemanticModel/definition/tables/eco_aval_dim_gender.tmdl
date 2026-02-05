@@ -1,0 +1,36 @@
+table eco_aval_dim_gender
+	lineageTag: b9f29d8d-bc44-47e8-bcde-204b743ee0ce
+
+	column gender_tp_code
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6aef5d95-fce1-47ac-9681-6132634d3ab4
+		summarizeBy: none
+		sourceColumn: gender_tp_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a606f02c-8b5e-430f-a0ad-439d0086c97f
+		summarizeBy: none
+		sourceColumn: gender_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_gender = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_gender_Table = sica_analytics_Schema{[Name="eco_aval_dim_gender",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_gender_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

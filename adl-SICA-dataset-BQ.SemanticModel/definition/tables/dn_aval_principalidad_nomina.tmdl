@@ -1,0 +1,132 @@
+table dn_aval_principalidad_nomina
+	lineageTag: 082f17b5-7ba5-4b35-8925-5029818b121f
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: cbf32df4-698f-4620-9a03-95f7eded9985
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0f426204-82f9-4b29-b439-a190187b0b99
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_salario
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5372c165-f7b4-4a8d-bdb2-c1f03371f6ac
+		summarizeBy: none
+		sourceColumn: rango_salario
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleados_nomina
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 5bd27337-3a5e-48cf-8cbe-0814df7b8c59
+		summarizeBy: sum
+		sourceColumn: empleados_nomina
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleados_clientes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 90816feb-4c8c-4a4b-a797-b014d4e598db
+		summarizeBy: sum
+		sourceColumn: empleados_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column principalidad_clientes
+		dataType: double
+		sourceProviderType: double
+		lineageTag: fcabe052-7a31-446d-9ddd-6f5c8b9cbf64
+		summarizeBy: sum
+		sourceColumn: principalidad_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column salarios_empleados_nomina
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7b99ab66-e441-4cb5-870b-cfa737455976
+		summarizeBy: sum
+		sourceColumn: salarios_empleados_nomina
+
+		annotation SummarizationSetBy = Automatic
+
+	column prom_salarios_empleados_nomina
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ee671703-3bd0-48ce-a278-8f108a7f8b4c
+		summarizeBy: sum
+		sourceColumn: prom_salarios_empleados_nomina
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column salarios_empleados_clientes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0ec64c0a-dd1a-447e-8665-064057d9118d
+		summarizeBy: sum
+		sourceColumn: salarios_empleados_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column prom_salarios_empleados_clientes
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 2f8e790b-eb0d-436c-b9d1-d3d9e055e3b4
+		summarizeBy: sum
+		sourceColumn: prom_salarios_empleados_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column principalidad_salarios
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 4e307b43-bd50-4b16-803d-fa7bb7fc1fed
+		summarizeBy: sum
+		sourceColumn: principalidad_salarios
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dn_aval_principalidad_nomina = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_principalidad_nomina_View = iniciativas_aval_Schema{[Name="dn_aval_principalidad_nomina",Kind="View"]}[Data]
+				in
+				    dn_aval_principalidad_nomina_View
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

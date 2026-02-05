@@ -1,0 +1,41 @@
+table variables_de_calculo_iniciativas
+	lineageTag: 8738ee33-7e03-4279-8dd4-96231579ea2e
+
+	column variable
+		lineageTag: a2182e58-6151-4dbc-a0a2-3e4ccd8a7f1b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [variable]
+
+		annotation SummarizationSetBy = Automatic
+
+	column variable_txt
+		lineageTag: 591956e8-0f7d-4083-b212-f8a8f3001c0f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [variable_txt]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		formatString: 0
+		lineageTag: a77875d7-8850-4383-8929-42c7b90163e9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition variables_de_calculo_iniciativas = calculated
+		mode: import
+		source =
+				
+				DATATABLE("variable",STRING,"variable_txt",STRING,"Orden",INTEGER,{{"activo_cartera","Cartera Sistema Financiero",1},
+				                                                                {"nomina","Nómina",2},
+				                                                                {"nomina_salarios","Nómina Salarios",3},
+				                                                                {"trx_tc","Transacciones TC",4},
+				                                                                {"trx_td","Transacciones TD",5}
+				                                                                })
+
+	annotation PBI_Id = b59e77354ba84145a10160d38d05fd46
+

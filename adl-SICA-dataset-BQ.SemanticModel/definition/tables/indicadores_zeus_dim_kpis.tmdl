@@ -1,0 +1,33 @@
+table indicadores_zeus_dim_kpis
+	lineageTag: 1010f026-318e-4f23-b43d-37f80a3f8f68
+
+	column id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 76c181b1-777a-44bf-9acf-e1d2dc5f259f
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column kpi
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f88f93c2-0624-4e64-98ca-df42236a90cd
+		summarizeBy: none
+		sourceColumn: kpi
+
+		annotation SummarizationSetBy = Automatic
+
+	partition indicadores_zeus_dim_kpis = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    indicadores_zeus_dim_kpis_Table = sica_analytics_Schema{[Name="indicadores_zeus_dim_kpis",Kind="Table"]}[Data]
+				in
+				    indicadores_zeus_dim_kpis_Table
+

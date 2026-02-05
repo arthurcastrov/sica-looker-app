@@ -1,0 +1,94 @@
+table dn_aval_fct_principalidad_trx_tc
+	lineageTag: 43c87dc9-8464-498c-bb2c-91cb81c7a67c
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b6350d81-2ec7-4092-986d-d28282ef2abd
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d48bbf13-cb30-4bef-b260-0d82c39f9e25
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_identificacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5411e108-3493-4101-aaad-c8bba5639dfa
+		summarizeBy: none
+		sourceColumn: tipo_identificacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_identificacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d50174fc-f876-49fc-8c9a-1e45d5d47984
+		summarizeBy: none
+		sourceColumn: numero_identificacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_trx
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 5764240f-3a96-4253-bcd5-232a14148433
+		summarizeBy: sum
+		sourceColumn: valor_trx
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad_trx
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 05a04695-a8c7-4caa-8ae0-07eda6fe1b80
+		summarizeBy: sum
+		sourceColumn: cantidad_trx
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 098a42ee-b76e-4b3b-a832-e989f9d0ad78
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_principalidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e5492822-f03d-45aa-86f2-c8678ac034ef
+		summarizeBy: none
+		sourceColumn: rango_principalidad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_fct_principalidad_trx_tc = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_fct_principalidad_trx_tc_Table = iniciativas_aval_Schema{[Name="dn_aval_fct_principalidad_trx_tc",Kind="Table"]}[Data]
+				in
+				    dn_aval_fct_principalidad_trx_tc_Table
+

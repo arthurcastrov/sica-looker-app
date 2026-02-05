@@ -1,0 +1,43 @@
+table dn_aval_dim_superfinanciera_balances_rubro
+	lineageTag: 43971b80-0708-4ae1-a230-602bb3cbceba
+
+	column rubro_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7f7036cf-db47-4d9d-9c5a-5dbcb4af30f8
+		summarizeBy: none
+		sourceColumn: rubro_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	column rubro_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: e72a4a1a-47f0-40a0-b88a-08ec2ea8c7c6
+		summarizeBy: sum
+		sourceColumn: rubro_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3c92bfe6-3a27-4b42-a0f1-ddae0cdacdbd
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_dim_superfinanciera_balances_rubro = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_dim_superfinanciera_balances_rubro_Table = iniciativas_aval_Schema{[Name="dn_aval_dim_superfinanciera_balances_rubro",Kind="Table"]}[Data]
+				in
+				    dn_aval_dim_superfinanciera_balances_rubro_Table
+

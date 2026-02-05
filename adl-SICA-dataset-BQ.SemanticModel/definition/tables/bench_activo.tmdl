@@ -1,0 +1,115 @@
+table bench_activo
+	lineageTag: 46c1909f-551a-49cb-9f04-2fdc0df91c82
+
+	column modalidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 30d64611-a578-46e1-9086-74ecafe378ce
+		summarizeBy: none
+		sourceColumn: modalidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9ae9a449-c0f4-4549-ab1f-d7e3ff804271
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column concepto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 01683cfa-adb3-46f4-b4dd-ae6dbe26aa82
+		summarizeBy: none
+		sourceColumn: concepto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_banco
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0903f64f-15bf-4946-984f-c3e732fd10a4
+		summarizeBy: none
+		sourceColumn: nombre_banco
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_banco
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d826fd2c-e79f-4c03-a5ff-d06c9d4aa62e
+		summarizeBy: none
+		sourceColumn: codigo_banco
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 7fbf45cf-4664-4a02-a574-afcb566ace04
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 25388aae-06c8-4f96-ade1-be37b3bc0ea3
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: d21fa327-5591-4b60-bc7f-4f40b3ec0a72
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_aval
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2a97f22d-4e3a-4410-a52f-c36a97a264bf
+		summarizeBy: sum
+		sourceColumn: grupo_aval
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_aval_txt
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3b212fb4-8765-4c05-93ca-aca41c4ec3fa
+		summarizeBy: none
+		sourceColumn: grupo_aval_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition bench_activo = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    bench_activo_Table = sica_analytics_Schema{[Name="bench_activo",Kind="Table"]}[Data]
+				in
+				    bench_activo_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

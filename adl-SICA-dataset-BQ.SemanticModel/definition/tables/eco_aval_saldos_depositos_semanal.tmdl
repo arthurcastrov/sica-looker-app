@@ -1,0 +1,132 @@
+table eco_aval_saldos_depositos_semanal
+	lineageTag: 6d1832f0-8de5-4d7b-924a-2c293f2a0591
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 6dc1fd9f-95df-43e4-a1cd-d2df49fd7d27
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column semana
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f1d27a52-4b8f-4249-bd68-e58aafa62e21
+		summarizeBy: none
+		sourceColumn: semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: db0465bf-2687-4921-9e8f-83ac677e1fa2
+		summarizeBy: none
+		sourceColumn: estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_documento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b99c208f-6bff-4251-84a3-e89bb1568b29
+		summarizeBy: none
+		sourceColumn: tipo_documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_documento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8f3dcb8a-229b-4902-a540-dc2e92be290f
+		summarizeBy: none
+		sourceColumn: numero_documento
+
+		annotation SummarizationSetBy = Automatic
+
+	column numero_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c57e0304-dd3a-4a18-860a-fd081a0c3fbe
+		summarizeBy: none
+		sourceColumn: numero_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 9b935ac6-e146-486a-b5f9-bf9ed5feeba7
+		summarizeBy: sum
+		sourceColumn: saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4e464cf9-1b85-4579-a23f-6a26303a82a4
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5e6f8c9a-06f6-4731-9dee-80fccf48d11d
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 58a11c37-6a68-407b-a175-9aede0727987
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 56527f56-6d87-4fc1-95a9-01cb5ee5e33c
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column segmento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f2b2f38c-5741-4a4a-bbd5-24d7085ade63
+		summarizeBy: none
+		sourceColumn: segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_saldos_depositos_semanal = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_saldos_depositos_Table = sica_analytics_Schema{[Name="eco_aval_saldos_depositos_semanal",Kind="Table"]}[Data]
+				in
+				    eco_aval_saldos_depositos_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

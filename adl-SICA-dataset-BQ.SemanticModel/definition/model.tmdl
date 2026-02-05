@@ -1,0 +1,125 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	dataSourceDefaultMaxConnections: 30
+	sourceQueryCulture: en-US
+	maxParallelismPerRefresh: 24
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["1. eco_avl_fct_clientes","calendar","fecha_inicial","6 eco_aval_fct_clientes_pj","2. eco_avl_fct_productos","7 eco_aval_fct_productos_pj","eco_aval_fct_clientes_compartidos","eco_aval_fct_clientes_compartidos_pj","8 eco_aval_ael_clientes_aval","eco_aval_ael_clientes_aval_cuentas_pj","4 eco_aval_buro_aval","3 eco_aval_buro bancos","eco_aval_buro_bancos_pj","5 eco_aval_buro_completitud","eco_aval_buro_completitud_pj","eco_aval_dim_ciiu","eco_aval_dim_estado_civil","eco_aval_dim_estado_cliente","eco_aval_dim_gender","eco_aval_dim_nivel_educativo","eco_aval_dim_ocupacion","eco_aval_dim_producto","eco_aval_dim_profesion","eco_aval_dim_rango_anios_vinc","eco_aval_dim_rango_edad","eco_aval_dim_seg","eco_aval_dim_seg_cat","eco_aval_dim_tipo_doc","eco_aval_dim_tipo_vivienda","eco_aval_dim_tp_organizacion","eco_aval_dim_tp_sector","eco_aval_dim_tp_sociedad","eco_aval_flujo_dinero","eco_aval_sfc_tc","eco_aval_tc_mcc","eco_aval_tc_productos","eco_aval_tc_transacciones","eco_aval_buro_aval_PJ","Metrics","bench_activo","eco_aval_fct_margen_agg_productos","clientes_activos_dale","sica_roles","pyg_bogota","eco_aval_saldos_depositos","eco_aval_saldos_depositos_semanal","eco_aval_fct_depositos_reporte","var_calculo_depositos_rpt","indicadores_zeus_dim_kpis","indicadores_zeus_seguimiento","var_indicadores_zeus","ind_zeus_visitas_semanales","indicadores_zeus_semanas","variables_zeus_semana_mes","dn_aval_fct_clientes_bancos","dn_aval_fct_desembolsos","dn_aval_dim_tipo_operacion","dn_aval_dim_tipo_canal","dn_aval_fct_principalidad_transversal","dn_aval_fct_principalidad_trx_tc","dn_aval_fct_superfinanciera_balances","dn_aval_fct_trx_sistema_financiero","dn_aval_dim_superfinanciera_balances_rubro","dn_aval_fct_funnel_digital","dn_aval_dim_divipola","dn_aval_dim_contexto","dn_aval_dim_bancos_aval","dn_aval_dim_bancos","dn_aval_principalidad_nomina","ini_aval_sados_bpop","tipo_persona","sica_niif_entidades","superfinanciera_pasivos","calendar_2","indicadores_zeus_semanas_2","sica_saldos_clientes_pn_aa","sica_saldos_clientes_pj_aa","vw_cantidad_saldos_productos_aa","tbl_productos_aa","superfinanciera_captaciones","superfinanciera_desembolsos","tbl_modalidad_cartera","eco_aval_dim_rango_edad_pj","eco_aval_fct_clientes_compartidos_unicos","eco_aval_fct_clientes_compartidos_unicos_pj","entidad_compartidos","sica_bussines_glosary","eco_aval_fct_margen_agg_clientes","vw_margen_agg_clientes_mono_multi_producto"]
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+annotation __TEdtr = 1
+
+annotation __BNorm = 1
+
+ref table '1. eco_avl_fct_clientes'
+ref table calendar
+ref table '6 eco_aval_fct_clientes_pj'
+ref table '2. eco_avl_fct_productos'
+ref table '7 eco_aval_fct_productos_pj'
+ref table eco_aval_fct_clientes_compartidos
+ref table eco_aval_fct_clientes_compartidos_pj
+ref table '8 eco_aval_ael_clientes_aval'
+ref table eco_aval_ael_clientes_aval_cuentas_pj
+ref table '4 eco_aval_buro_aval'
+ref table '3 eco_aval_buro bancos'
+ref table eco_aval_buro_bancos_pj
+ref table '5 eco_aval_buro_completitud'
+ref table eco_aval_buro_completitud_pj
+ref table eco_aval_dim_ciiu
+ref table eco_aval_dim_estado_civil
+ref table eco_aval_dim_estado_cliente
+ref table eco_aval_dim_gender
+ref table eco_aval_dim_nivel_educativo
+ref table eco_aval_dim_ocupacion
+ref table eco_aval_dim_producto
+ref table eco_aval_dim_profesion
+ref table eco_aval_dim_rango_anios_vinc
+ref table eco_aval_dim_rango_edad
+ref table eco_aval_dim_seg
+ref table eco_aval_dim_seg_cat
+ref table eco_aval_dim_tipo_doc
+ref table eco_aval_dim_tipo_vivienda
+ref table eco_aval_dim_tp_organizacion
+ref table eco_aval_dim_tp_sector
+ref table eco_aval_dim_tp_sociedad
+ref table eco_aval_flujo_dinero
+ref table eco_aval_sfc_tc
+ref table eco_aval_tc_mcc
+ref table eco_aval_tc_productos
+ref table eco_aval_tc_transacciones
+ref table eco_aval_buro_aval_PJ
+ref table Metrics
+ref table variables_de_caculo
+ref table tipo_persona_aa
+ref table tabla_bancos
+ref table flujo_dinero_agg
+ref table fecha_act_fuentes
+ref table bench_activo
+ref table eco_aval_fct_margen_agg_productos
+ref table clientes_activos_dale
+ref table sica_roles
+ref table pyg_bogota
+ref table eco_aval_saldos_depositos
+ref table eco_aval_saldos_depositos_semanal
+ref table eco_aval_fct_depositos_reporte
+ref table var_calculo_depositos_rpt
+ref table indicadores_zeus_dim_kpis
+ref table indicadores_zeus_seguimiento
+ref table var_indicadores_zeus
+ref table ind_zeus_visitas_semanales
+ref table indicadores_zeus_semanas
+ref table tabla_semanas
+ref table variables_zeus_semana_mes
+ref table dn_aval_fct_clientes_bancos
+ref table dn_aval_fct_desembolsos
+ref table dn_aval_dim_tipo_operacion
+ref table dn_aval_dim_tipo_canal
+ref table dn_aval_fct_principalidad_transversal
+ref table dn_aval_fct_principalidad_trx_tc
+ref table dn_aval_fct_superfinanciera_balances
+ref table dn_aval_fct_trx_sistema_financiero
+ref table dn_aval_dim_superfinanciera_balances_rubro
+ref table dn_aval_fct_funnel_digital
+ref table dn_aval_dim_divipola
+ref table dn_aval_dim_contexto
+ref table dn_aval_dim_bancos_aval
+ref table dn_aval_dim_bancos
+ref table variables_de_calculo_iniciativas
+ref table dn_aval_principalidad_nomina
+ref table ini_aval_sados_bpop
+ref table dn_aval_select_metrica
+ref table resum_gerencial_variables_de_caculo
+ref table tipo_persona
+ref table Parameter
+ref table sica_niif_entidades
+ref table superfinanciera_pasivos
+ref table calendar_2
+ref table indicadores_zeus_semanas_2
+ref table sica_saldos_clientes_pn_aa
+ref table sica_saldos_clientes_pj_aa
+ref table vw_cantidad_saldos_productos_aa
+ref table tbl_productos_aa
+ref table superfinanciera_captaciones
+ref table superfinanciera_desembolsos
+ref table tbl_modalidad_cartera
+ref table eco_aval_dim_rango_edad_pj
+ref table eco_aval_fct_clientes_compartidos_unicos
+ref table eco_aval_fct_clientes_compartidos_unicos_pj
+ref table entidad_compartidos
+ref table sica_bussines_glosary
+ref table eco_aval_fct_margen_agg_clientes
+ref table vw_margen_agg_clientes_mono_multi_producto
+
+ref role Billetera
+ref role admin
+ref role Zeus
+
+ref cultureInfo en-US
+

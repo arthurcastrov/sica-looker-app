@@ -1,0 +1,176 @@
+table dn_aval_fct_trx_sistema_financiero
+	lineageTag: ad74c4b5-e983-49e8-b705-08a9e8545e4a
+
+	column subcuenta
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b9ffb352-493f-4592-9f94-3f4524f17198
+		summarizeBy: none
+		sourceColumn: subcuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_canal_de_distribucion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 981a52f9-f717-4faf-91b8-40ad15a78497
+		summarizeBy: none
+		sourceColumn: codigo_canal_de_distribucion
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_servicio_transaccional
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: db0cde81-2731-4781-bfcb-dc23600a6dd7
+		summarizeBy: sum
+		sourceColumn: codigo_servicio_transaccional
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_departamento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 387d40c0-1d42-4ea6-8c43-d20ce06b2528
+		summarizeBy: none
+		sourceColumn: codigo_departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_municipio
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8c8e35f9-ddcb-41d0-b3f3-d79d7f183c06
+		summarizeBy: none
+		sourceColumn: codigo_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_de_la_operacion_monetaria_no_monetaria
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 98cee275-aeb0-46d3-94ae-3bc77dc8d5f5
+		summarizeBy: none
+		sourceColumn: codigo_de_la_operacion_monetaria_no_monetaria
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_tipo_de_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2ddbb6f2-58d8-4817-939f-60b382bdfa2a
+		summarizeBy: none
+		sourceColumn: codigo_tipo_de_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_ciiu
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9f0d83b5-d9d6-44d0-b54a-e1292dfb17cc
+		summarizeBy: none
+		sourceColumn: codigo_ciiu
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_del_mecanismo_de_confirmacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2e379af8-a81c-4cd6-9a6a-a0156ec05a29
+		summarizeBy: none
+		sourceColumn: codigo_del_mecanismo_de_confirmacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad_de_operaciones
+		dataType: double
+		sourceProviderType: double
+		lineageTag: c9ee28bf-ce54-4984-a25d-20c980fc9c9c
+		summarizeBy: sum
+		sourceColumn: cantidad_de_operaciones
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monto_de_las_operaciones
+		dataType: double
+		sourceProviderType: double
+		lineageTag: bd67ce8c-fd69-4ed6-981d-af5ff03e10b7
+		summarizeBy: sum
+		sourceColumn: monto_de_las_operaciones
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unidad_de_captura
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 29c21ead-4d23-495a-babc-f55ea907d47b
+		summarizeBy: none
+		sourceColumn: unidad_de_captura
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9cec60a2-ad18-4ca9-8bc4-ec44a558fb7a
+		summarizeBy: none
+		sourceColumn: codigo_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column right_validacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 73372019-4a90-429e-b556-56c8fd18db3f
+		summarizeBy: none
+		sourceColumn: right_validacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b682e396-8939-47b7-8ec9-c17ecba1532d
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column periodo
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 32ff529e-d8f4-41a0-9299-389c9db7388d
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 40a38748-194c-4532-90ec-82cfa2246646
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_fct_trx_sistema_financiero = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_fct_trx_sistema_financiero_Table = iniciativas_aval_Schema{[Name="dn_aval_fct_trx_sistema_financiero",Kind="Table"]}[Data]
+				in
+				    dn_aval_fct_trx_sistema_financiero_Table
+

@@ -1,0 +1,188 @@
+table dn_aval_fct_desembolsos
+	lineageTag: 6bfe13fd-fd26-4505-b749-32e0b36b2118
+
+	column str_tipo_id_cliente
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 25fbafec-d4b5-4cae-b440-fac7d1bd447c
+		summarizeBy: none
+		sourceColumn: str_tipo_id_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_id_cliente
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 707ace4b-f99d-4961-af3b-96bea82744e8
+		summarizeBy: none
+		sourceColumn: str_id_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_nombre_cliente
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 90e1fa92-e27f-404e-8bfd-5724693c58ca
+		summarizeBy: none
+		sourceColumn: str_nombre_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column dtm_fcha_desembolso
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: f1577152-b35a-43c7-b747-e7d192c7521c
+		summarizeBy: none
+		sourceColumn: dtm_fcha_desembolso
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column str_dim_prs_prestamo_nk
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: fc057bc0-337f-48f2-af9b-ef483add44af
+		summarizeBy: none
+		sourceColumn: str_dim_prs_prestamo_nk
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_tipo_prestamo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a641b6d4-03ac-4dd4-a6fa-14140945ecc2
+		summarizeBy: none
+		sourceColumn: str_tipo_prestamo
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_cod_linea_credito
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6f01241c-97f6-4aa7-a4eb-39bd5f506c15
+		summarizeBy: none
+		sourceColumn: str_cod_linea_credito
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_nom_linea_credito
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0595d90e-0eb8-46d4-9379-bc512738c547
+		summarizeBy: none
+		sourceColumn: str_nom_linea_credito
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_modalidad_prestamo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ef07cea7-f73c-4e36-8a23-3b440e1a3e22
+		summarizeBy: none
+		sourceColumn: str_modalidad_prestamo
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_tipo_negocio
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5672ef7a-7acf-4b2b-bc54-4f651af53a71
+		summarizeBy: none
+		sourceColumn: str_tipo_negocio
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_compra_cartera
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c23e09a6-6c80-4dae-a2e5-3efbd8a411e1
+		summarizeBy: none
+		sourceColumn: str_compra_cartera
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_cod_estado_prestamo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0a9b30f7-e7a9-4185-94b8-1d99efde7bb7
+		summarizeBy: none
+		sourceColumn: str_cod_estado_prestamo
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_plazo_prestamo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9f530b9e-3ae8-4d34-9b20-caa0bcb5e934
+		summarizeBy: sum
+		sourceColumn: str_plazo_prestamo
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_tasa_interes_efectiva
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 119cb062-c630-4cab-a01d-0c6040323ed6
+		summarizeBy: sum
+		sourceColumn: num_tasa_interes_efectiva
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column num_valor_desembolso
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d42cc781-d1ff-4632-a92e-448b7e2ab0cc
+		summarizeBy: sum
+		sourceColumn: num_valor_desembolso
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 088682d9-1433-4228-a574-63c6441303ab
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_mes
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 18d08765-803c-44d1-88db-8ba1b109a7d2
+		summarizeBy: none
+		sourceColumn: fecha_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 409c885f-9711-42b1-bd7c-afecbdec4684
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_fct_desembolsos = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_fct_desembolsos_Table = iniciativas_aval_Schema{[Name="dn_aval_fct_desembolsos",Kind="Table"]}[Data]
+				in
+				    dn_aval_fct_desembolsos_Table
+

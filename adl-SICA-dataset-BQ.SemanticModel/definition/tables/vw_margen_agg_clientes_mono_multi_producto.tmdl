@@ -1,0 +1,58 @@
+table vw_margen_agg_clientes_mono_multi_producto
+	lineageTag: 2a34c44d-5a11-4802-bd6f-2be358670d82
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 371c840a-4af2-4d64-a29b-4fe07da607f6
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 749dde20-fd15-4ab9-9e75-9d3c41297c4f
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column numid
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 76bf0bd1-fdcf-4068-af6f-c13f58feb76d
+		summarizeBy: none
+		sourceColumn: numid
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad_productos
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 235529e6-f3e1-4d2f-8e11-ff0b14cc9f56
+		summarizeBy: sum
+		sourceColumn: cantidad_productos
+
+		annotation SummarizationSetBy = Automatic
+
+	partition vw_margen_agg_clientes_mono_multi_producto = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_fct_margen_agg_clientes_Table = sica_analytics_Schema{[Name="vw_margen_agg_clientes_mono_multi_producto",Kind="Table"]}[Data]
+				in
+				    eco_aval_fct_margen_agg_clientes_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

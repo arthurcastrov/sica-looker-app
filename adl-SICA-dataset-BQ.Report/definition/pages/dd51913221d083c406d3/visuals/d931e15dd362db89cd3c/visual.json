@@ -1,0 +1,383 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "d931e15dd362db89cd3c",
+  "position": {
+    "x": 0,
+    "y": 90.845637583892611,
+    "z": 1000,
+    "height": 512.21476510067112,
+    "width": 1248.6442953020132
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calendar"
+                    }
+                  },
+                  "Property": "YYYY_MM"
+                }
+              },
+              "queryRef": "calendar.YYYY_MM",
+              "nativeQueryRef": "YYYY_MM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "tabla_bancos"
+                    }
+                  },
+                  "Property": "entidad"
+                }
+              },
+              "queryRef": "tabla_bancos.entidad",
+              "nativeQueryRef": "entidad"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "indicadores_zeus_dim_kpis"
+                    }
+                  },
+                  "Property": "kpi"
+                }
+              },
+              "queryRef": "indicadores_zeus_dim_kpis.kpi",
+              "nativeQueryRef": "kpi"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$IZ_19_1_contratos_firmados_x_tipo"
+                }
+              },
+              "queryRef": "Metrics.$IZ_19_1_contratos_firmados_x_tipo",
+              "nativeQueryRef": "$IZ_19_1_contratos_firmados_x_tipo"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$IZ_19_1_contratos_firmados_x_tipo_totales"
+                }
+              },
+              "queryRef": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_totales",
+              "nativeQueryRef": "$IZ_19_1_contratos_firmados_x_tipo_totales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$IZ_19_1_contratos_firmados_x_tipo_porcentaje"
+                }
+              },
+              "queryRef": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_porcentaje",
+              "nativeQueryRef": "$IZ_19_1_contratos_firmados_x_tipo_porcentaje"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$IZ_19_1_contratos_firmados_x_tipo_totales_entidad"
+                }
+              },
+              "queryRef": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_totales_entidad",
+              "nativeQueryRef": "$IZ_19_1_contratos_firmados_x_tipo_totales_entidad"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$IZ_19_1_contratos_firmados_x_tipo_porcentaje_entidad"
+                }
+              },
+              "queryRef": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_porcentaje_entidad",
+              "nativeQueryRef": "$IZ_19_1_contratos_firmados_x_tipo_porcentaje_entidad"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "calendar"
+                  }
+                },
+                "Property": "YYYY_MM"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "134.02014712582564D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.$IZ_19_1_contratos_firmados_x_tipo"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "134.5637600085243D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_totales"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "121.80537291925415D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_porcentaje"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.9463128741171D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_totales_entidad"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "155.3758602269346D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Metrics.$IZ_19_1_contratos_firmados_x_tipo_porcentaje_entidad"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "05924ce19038843be253",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "tabla_bancos"
+              }
+            },
+            "Property": "entidad"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "t",
+              "Entity": "tabla_bancos",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "t"
+                              }
+                            },
+                            "Property": "entidad"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'DALE'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "3c3f6f6e2e744f2a731f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "indicadores_zeus_dim_kpis"
+              }
+            },
+            "Property": "kpi"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "i",
+              "Entity": "indicadores_zeus_dim_kpis",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "i"
+                          }
+                        },
+                        "Property": "kpi"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Contratos con participantes indirectos SPI'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Contratos firmados–Corporativos'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Contratos firmados–Empresas'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Contratos firmados–Gobierno'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Contratos firmados–Pymes'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+table eco_aval_dim_estado_cliente
+	lineageTag: 43de837c-fbdc-4eb9-8d95-fe5c1d1d2153
+
+	column client_st_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5ed43fc4-cad3-4181-852b-58d12329f7b7
+		summarizeBy: none
+		sourceColumn: client_st_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_st_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: cec8853e-d5a6-4556-b371-77d23d1844b4
+		summarizeBy: none
+		sourceColumn: client_st_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_estado_cliente = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_estado_cliente_Table = sica_analytics_Schema{[Name="eco_aval_dim_estado_cliente",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_estado_cliente_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,202 @@
+table eco_aval_fct_margen_agg_clientes
+	lineageTag: 2a727473-5683-49b0-b547-74db6fd86181
+
+	column tipoid
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3b5e32f3-e043-4d5d-b49a-5a367e0029fc
+		summarizeBy: none
+		sourceColumn: tipoid
+
+		annotation SummarizationSetBy = Automatic
+
+	column numid
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8371ec31-951b-467a-94a4-400eb91e3df1
+		summarizeBy: none
+		sourceColumn: numid
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 9a23fe53-04d9-48ff-91b7-fa394e1b37e2
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column codigo_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3e2ba73f-92a8-4600-b71b-16704ea6a73b
+		summarizeBy: none
+		sourceColumn: codigo_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8e0b8643-5ddb-4816-8a8c-86510baf5b76
+		summarizeBy: none
+		sourceColumn: nombre_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_canal
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 68283be5-a77e-4d6a-a384-932cb7f9e118
+		summarizeBy: none
+		sourceColumn: tipo_canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingreso
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: efd8ff0f-fa29-49dc-a2a1-3873e0094352
+		summarizeBy: sum
+		sourceColumn: ingreso
+
+		annotation SummarizationSetBy = Automatic
+
+	column costo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 47a61f01-5ee3-4a82-b5b0-dfa535013c35
+		summarizeBy: sum
+		sourceColumn: costo
+
+		annotation SummarizationSetBy = Automatic
+
+	column margen_antes_provision
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 1ec985da-794f-4fb6-9e98-13b3834a3e65
+		summarizeBy: sum
+		sourceColumn: margen_antes_provision
+
+		annotation SummarizationSetBy = Automatic
+
+	column provision
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 881ae4ad-4583-44ad-8000-64aea0dac5ad
+		summarizeBy: sum
+		sourceColumn: provision
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column castigos
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ac4f36cd-476c-4d1b-8718-ba91192fab51
+		summarizeBy: sum
+		sourceColumn: castigos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column margen_pos_provision
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 6d8ee68d-0d5b-4e88-bef6-66419e7f852d
+		summarizeBy: sum
+		sourceColumn: margen_pos_provision
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6646b7d3-0da9-4600-99e6-d98800788a74
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ec8a5f57-07df-4b51-98e8-37e1ffe7ea3d
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 45c8052c-6ee7-4904-955f-7dcc485522bf
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_cat_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0e302f8a-b873-4af9-bea0-a1d861d86778
+		summarizeBy: none
+		sourceColumn: seg_cat_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_edad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a664aef6-68e9-4671-9255-a9fae96838b7
+		summarizeBy: none
+		sourceColumn: rango_edad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_edad_pj
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7fc1a686-cf7d-4ece-a855-80ea771ba994
+		summarizeBy: none
+		sourceColumn: rango_edad_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender_tp_code
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3a6aee2a-7caa-4f38-8e6e-80a2413bec8f
+		summarizeBy: none
+		sourceColumn: gender_tp_code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_fct_margen_agg_clientes = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_fct_margen_agg_clientes_Table = sica_analytics_Schema{[Name="eco_aval_fct_margen_agg_clientes",Kind="Table"]}[Data]
+				in
+				    eco_aval_fct_margen_agg_clientes_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

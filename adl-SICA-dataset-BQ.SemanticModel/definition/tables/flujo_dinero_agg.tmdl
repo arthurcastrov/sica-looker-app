@@ -1,0 +1,57 @@
+table flujo_dinero_agg
+	lineageTag: 77dc2664-4d10-42ec-bddf-87f44afbbaea
+
+	column YYYY_MM
+		lineageTag: 555f0690-2ca3-481a-9622-bc084b05c615
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: eco_aval_flujo_dinero[YYYY_MM]
+
+		annotation SummarizationSetBy = Automatic
+
+	column banco
+		lineageTag: 50656c9c-6e31-461b-833c-c52fc353f5fe
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: eco_aval_flujo_dinero[banco]
+
+		annotation SummarizationSetBy = Automatic
+
+	column pfm_categoria
+		lineageTag: e796e5b5-2a04-4415-8ec7-8fbf927aaffe
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: eco_aval_flujo_dinero[pfm_categoria]
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_razon_social
+		lineageTag: f6ad349b-6b45-4b85-8ec9-4efccdc38b65
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: eco_aval_flujo_dinero[str_razon_social]
+
+		annotation SummarizationSetBy = Automatic
+
+	column razonsocialaportante
+		lineageTag: 36a2e2a2-f32b-4a16-938b-0ab6fca981aa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: eco_aval_flujo_dinero[razonsocialaportante]
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto_trx
+		lineageTag: d7cf591d-2d85-404a-8aba-1c02bfb0974c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [monto_trx]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition flujo_dinero_agg = calculated
+		mode: import
+		source = TOPN(100,SUMMARIZE(FILTER(eco_aval_flujo_dinero,eco_aval_flujo_dinero[str_razon_social] <> "Sin Informacion" && eco_aval_flujo_dinero[razonsocialaportante] <> "Sin informacion" && eco_aval_flujo_dinero[pfm_categoria] <> "Sin categoría (compras)" && eco_aval_flujo_dinero[banco] = SELECTEDVALUE(eco_aval_flujo_dinero[banco]) && eco_aval_flujo_dinero[YYYY_MM] = SELECTEDVALUE(eco_aval_flujo_dinero[YYYY_MM])),eco_aval_flujo_dinero[YYYY_MM],eco_aval_flujo_dinero[banco],eco_aval_flujo_dinero[pfm_categoria],eco_aval_flujo_dinero[str_razon_social],eco_aval_flujo_dinero[razonsocialaportante],"monto_trx",SUM(eco_aval_flujo_dinero[monto_trx])),[monto_trx],DESC)
+
+	annotation PBI_Id = 3e42969906bd4eeeae87fa7b3bca7b74
+

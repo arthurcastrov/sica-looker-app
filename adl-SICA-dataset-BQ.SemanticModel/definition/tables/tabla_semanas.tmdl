@@ -1,0 +1,19 @@
+table tabla_semanas
+	lineageTag: 0c6b981e-cc17-4574-9a96-5c31c4eee4d4
+
+	column Semana
+		lineageTag: cc952edd-fb24-485f-8582-dc3fb957c230
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: indicadores_zeus_seguimiento[Semana]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tabla_semanas = calculated
+		mode: import
+		source =
+				
+				DISTINCT(indicadores_zeus_seguimiento[Semana])
+
+	annotation PBI_Id = 5f4438f7343d4427a47a380623b4f252
+

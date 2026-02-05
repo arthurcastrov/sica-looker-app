@@ -1,0 +1,89 @@
+table indicadores_zeus_semanas
+	lineageTag: 6b9134d7-97d6-445e-b77e-676853c081cb
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d9448034-c6cf-4a94-a14a-b18d787de110
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column semana
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ead3b1f4-f5b2-41b8-a2ac-e1191b4a2bf7
+		summarizeBy: none
+		sourceColumn: semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column texto_semana
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b04c9347-f3dc-4dd9-8e82-b1966e70486e
+		summarizeBy: none
+		sourceColumn: texto_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column semana_numero
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f790828f-3df9-4464-b13a-70fd50aeb914
+		summarizeBy: sum
+		sourceColumn: semana_numero
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_mes
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c2c1a22a-2d3a-44ed-a861-b156543d4f53
+		summarizeBy: none
+		sourceColumn: nombre_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio_mes
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 79f96e1e-264b-4104-817e-fab2d774d273
+		summarizeBy: none
+		sourceColumn: anio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_corte_txt
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f22fb8b3-2757-474d-9c74-c63d671f4cc9
+		summarizeBy: none
+		sourceColumn: fecha_corte_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition indicadores_zeus_semanas = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    indicadores_zeus_semanas_Table = sica_analytics_Schema{[Name="indicadores_zeus_semanas",Kind="Table"]}[Data],
+				    #"Sorted Rows" = Table.Sort(indicadores_zeus_semanas_Table,{{"fecha_corte", Order.Ascending}})
+				in
+				    #"Sorted Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

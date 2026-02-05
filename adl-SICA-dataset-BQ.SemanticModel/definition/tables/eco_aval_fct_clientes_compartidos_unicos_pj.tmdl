@@ -1,0 +1,126 @@
+table eco_aval_fct_clientes_compartidos_unicos_pj
+	lineageTag: 1fd59966-b4bd-459c-be07-d7ffb1319062
+
+	column ref_num
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3b4b9898-ec09-45aa-ba69-36e832948fe0
+		summarizeBy: none
+		sourceColumn: ref_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2e001e6f-49d7-4519-8a71-98f46d2335ca
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column bank
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8be0f4d6-e828-461d-9df9-716ac0b654f5
+		summarizeBy: none
+		sourceColumn: bank
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_st_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 789cc65a-c93c-4d52-9bed-f1bc5b703f93
+		summarizeBy: none
+		sourceColumn: client_st_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_edad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4c759a85-f3c5-428d-a54d-26dd904409cc
+		summarizeBy: none
+		sourceColumn: rango_edad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_anios_vinculacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a82e0b21-f4a4-458f-94a7-c85bffccc6c6
+		summarizeBy: none
+		sourceColumn: rango_anios_vinculacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column xciiu_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 859b9058-798d-4357-957b-3d0804a58719
+		summarizeBy: none
+		sourceColumn: xciiu_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column xsociety_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c2c09d3b-3d8a-47ca-82b7-481457ed38a8
+		summarizeBy: none
+		sourceColumn: xsociety_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column xeco_sect_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 674e1cba-adf2-4cc3-861f-4ca86abc8087
+		summarizeBy: none
+		sourceColumn: xeco_sect_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column org_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ced01ce8-c04f-425b-a7d5-22e40d53cc3b
+		summarizeBy: none
+		sourceColumn: org_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column usuario
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2cca878f-8593-4204-a4bb-9bde399846e7
+		summarizeBy: none
+		sourceColumn: usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 5c7305b7-8dfa-4663-a3fa-4e17c002c496
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_fct_clientes_compartidos_unicos_pj = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_fct_clientes_compartidos_unicos_pj_Table = sica_analytics_Schema{[Name="eco_aval_fct_clientes_compartidos_unicos_pj",Kind="Table"]}[Data]
+				in
+				    eco_aval_fct_clientes_compartidos_unicos_pj_Table
+

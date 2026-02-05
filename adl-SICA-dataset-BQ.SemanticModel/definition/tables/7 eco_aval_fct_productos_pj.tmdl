@@ -1,0 +1,246 @@
+table '7 eco_aval_fct_productos_pj'
+	lineageTag: de3ab8c3-da7b-43d3-bdb4-5eadc72a01f1
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b563e190-0eb5-4f6d-ab99-c4a68f19af8d
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 982f351d-59c2-4200-af8b-da5781fe5326
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column cont_id
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7b6658ab-4a0f-4d9e-97f8-09901d63f281
+		summarizeBy: none
+		sourceColumn: cont_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d885c140-6cbe-448d-97c0-8a7fb99430c2
+		summarizeBy: none
+		sourceColumn: id_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column ref_num
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: dcc791e6-7e18-4128-a21e-bea5837a1ad7
+		summarizeBy: none
+		sourceColumn: ref_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_st_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 514dddfa-46ca-4b61-888b-39728571941c
+		summarizeBy: none
+		sourceColumn: client_st_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e5b90a32-3008-42df-b58d-4a0962f630a9
+		summarizeBy: none
+		sourceColumn: seg_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_cat_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ba9ef650-8c2e-4df3-b977-2b1f1ab1a305
+		summarizeBy: none
+		sourceColumn: seg_cat_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_seg_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 425752d1-e6e9-4891-9247-65b83fcf77cd
+		summarizeBy: none
+		sourceColumn: sub_seg_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_edad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c66ca79f-0f75-4bb2-95a4-e5e32ef87a00
+		summarizeBy: none
+		sourceColumn: rango_edad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_anios_vinculacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: dc274da8-20b3-4c6a-a934-ba0365cd48b4
+		summarizeBy: none
+		sourceColumn: rango_anios_vinculacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 33d2fd83-aed6-4b1b-9b1d-2ca724a2262f
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2732552f-fbcf-4dfa-af67-0b82f9506320
+		summarizeBy: none
+		sourceColumn: cod_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column xciiu_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 65086842-cf97-4bd2-af05-f2f6bebe53ce
+		summarizeBy: none
+		sourceColumn: xciiu_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column xsociety_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 757e6045-39a5-40e7-85bd-de9d9302d4d7
+		summarizeBy: none
+		sourceColumn: xsociety_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column xeco_sect_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: eb136e9c-933f-410a-9605-5473d4e4ded3
+		summarizeBy: none
+		sourceColumn: xeco_sect_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column org_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: dbb8375e-d02a-4430-b6aa-f7d6bd683bf6
+		summarizeBy: none
+		sourceColumn: org_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column xnum_of_empl
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5c4df6eb-2d9e-4e88-9ff5-a3aebff349a2
+		summarizeBy: none
+		sourceColumn: xnum_of_empl
+
+		annotation SummarizationSetBy = Automatic
+
+	column antiguedad_producto
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 272557d1-1806-4ec9-9692-fae2059530f0
+		summarizeBy: sum
+		sourceColumn: antiguedad_producto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad_productos
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d3157ca0-22fb-4587-8dd3-9eeac78a095a
+		summarizeBy: sum
+		sourceColumn: cantidad_productos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column margen
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 31b3014e-89c3-41c6-b410-96c5dfea416b
+		summarizeBy: sum
+		sourceColumn: margen
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column costo_fondeo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: be57fd44-7891-47d2-afa1-a6d20fac275d
+		summarizeBy: sum
+		sourceColumn: costo_fondeo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: dc93dda3-a643-485f-9412-12a8ef174bb6
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column users
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: bfb3e9ac-aea8-48d4-8e1b-cd88985573d1
+		summarizeBy: none
+		sourceColumn: users
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '7 eco_aval_fct_productos_pj' = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_fct_productos_pj_Table = sica_analytics_Schema{[Name="eco_aval_fct_productos_pj",Kind="Table"]}[Data]
+				in
+				    eco_aval_fct_productos_pj_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

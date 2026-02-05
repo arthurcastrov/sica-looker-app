@@ -1,0 +1,160 @@
+table superfinanciera_pasivos
+	lineageTag: 59f26480-e785-4dc0-8716-03d13798716a
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 32cbf6b4-60ec-42f0-bce0-4667e5bd83d2
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tipoentidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5bc8bfd7-105d-4f36-b469-a15611becc21
+		summarizeBy: none
+		sourceColumn: tipoentidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigoentidad
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7c176da1-7b08-4c8c-ab2f-8cdeb961bd99
+		summarizeBy: sum
+		sourceColumn: codigoentidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_arreglado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ef7fbef1-80f6-47ac-aeb7-705656f9bc21
+		summarizeBy: none
+		sourceColumn: nombre_arreglado
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 40c645df-0b95-4c08-9bf5-f7a2dea34a9e
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 698a5e72-d583-4d01-b747-30d589191b4b
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_uca
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d203ce52-7198-443a-b88e-16a16cc5c6b6
+		summarizeBy: none
+		sourceColumn: descripcion_uca
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_subcuenta
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b682cff6-894b-4e96-8f6b-8ea7a2da278a
+		summarizeBy: none
+		sourceColumn: nombre_subcuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column clientes
+		dataType: double
+		formatString: #,0
+		sourceProviderType: double
+		lineageTag: 9d841765-ad03-4f8e-a508-745850e0f7d5
+		summarizeBy: sum
+		sourceColumn: clientes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column cuentas
+		dataType: double
+		formatString: #,0
+		sourceProviderType: double
+		lineageTag: d361f1d3-5ed6-4ea6-8399-e010fa558727
+		summarizeBy: sum
+		sourceColumn: cuentas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column valor
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 3f38b839-3799-40ee-b7e5-79ecace805a6
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: ef70b21f-105c-45b0-ac1c-5e4029729d3e
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad_arreglado
+		dataType: string
+		lineageTag: a4a6ea7c-c054-4ca1-a234-90aea9b7206c
+		summarizeBy: none
+		sourceColumn: entidad_arreglado
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad_corto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d40386a1-ba6b-46d7-85bb-badb4dde500a
+		summarizeBy: none
+		sourceColumn: entidad_corto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition superfinanciera_pasivos = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    indicadores_zeus_seguimiento_Table = sica_analytics_Schema{[Name="superfinanciera_captaciones",Kind="Table"]}[Data],
+				    #"Filas filtradas" = Table.SelectRows(indicadores_zeus_seguimiento_Table, each ([descripcion_uca] = "TIPO DE CLIENTE")),
+				    #"Columna condicional agregada" = Table.AddColumn(#"Filas filtradas", "entidad_arreglado", each if [nombre_arreglado] = "Banco de Bogotá" then "BBOG" else if [nombre_arreglado] = "Banco De Occidente" then "BOCC" else if [nombre_arreglado] = "Banco AV Villas" then "BAVV" else if [nombre_arreglado] = "Banco Popular" then "BPOP" else "Otras")
+				in
+				    #"Columna condicional agregada"
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

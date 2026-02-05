@@ -1,0 +1,554 @@
+relationship d1bc10d3-909b-2246-b19b-1da8fbb55fe3
+	fromColumn: '1. eco_avl_fct_clientes'.date_cruce
+	toColumn: calendar.Date
+
+relationship eb5d2a3b-0ce6-464d-3c2c-de7ddf0ca1c7
+	fromColumn: '6 eco_aval_fct_clientes_pj'.date_cruce
+	toColumn: calendar.Date
+
+relationship 99c781bc-3d76-81ee-777b-5bd37a5519be
+	fromColumn: '8 eco_aval_ael_clientes_aval'.date_cruce
+	toColumn: calendar.Date
+
+relationship f5eab028-0e57-661b-2808-2461a4508c8d
+	fromColumn: eco_aval_ael_clientes_aval_cuentas_pj.date_cruce
+	toColumn: calendar.Date
+
+relationship 7bc309d2-31dd-57b1-da97-04a9aafc3a23
+	fromColumn: '4 eco_aval_buro_aval'.date_cruce
+	toColumn: calendar.Date
+
+relationship 7ce30716-2cfc-b564-e09b-238a58862dbc
+	fromColumn: '3 eco_aval_buro bancos'.date_cruce
+	toColumn: calendar.Date
+
+relationship 44a93ce2-6fdf-ee7e-0e5a-082e0aea9173
+	fromColumn: eco_aval_buro_bancos_pj.date_cruce
+	toColumn: calendar.Date
+
+relationship 87359f38-85b0-1091-d2a1-9ffcc88b9b96
+	fromColumn: eco_aval_buro_aval_PJ.date_cruce
+	toColumn: calendar.Date
+
+relationship 91a1b537-2ecc-dad3-25a1-409b8ccec1a5
+	fromColumn: '5 eco_aval_buro_completitud'.date_cruce
+	toColumn: calendar.Date
+
+relationship 265541b4-56ae-467b-7846-c337328e6974
+	fromColumn: eco_aval_buro_completitud_pj.date_cruce
+	toColumn: calendar.Date
+
+relationship e696a8d2-af0b-41e9-0e22-dc1dc8ca4520
+	fromColumn: '2. eco_avl_fct_productos'.date_cruce
+	toColumn: calendar.Date
+
+relationship 931bf754-0bc2-e2e6-42c4-d8fec265f702
+	fromColumn: '7 eco_aval_fct_productos_pj'.date_cruce
+	toColumn: calendar.Date
+
+relationship 675f6143-7be9-567f-3a55-d7e599b4b532
+	fromColumn: eco_aval_fct_clientes_compartidos.date
+	toColumn: calendar.Date
+
+relationship 6083b099-ee08-72ee-6124-9749ce81a032
+	fromColumn: eco_aval_fct_clientes_compartidos_pj.date
+	toColumn: calendar.Date
+
+relationship 76916442-b078-6ec4-7b9a-049cf1182863
+	fromColumn: eco_aval_flujo_dinero.date_cruce
+	toColumn: calendar.Date
+
+relationship d953186d-7e7f-5181-5d4c-7c84ef7cf69f
+	fromColumn: eco_aval_sfc_tc.fechacorte
+	toColumn: calendar.Date
+
+relationship 0d0073a2-d600-9cfe-1415-c56096735a5f
+	fromColumn: eco_aval_tc_productos.fecha_corte
+	toColumn: calendar.Date
+
+relationship 40cf8587-6f7b-75bf-bf07-b414464f2bdc
+	fromColumn: eco_aval_tc_transacciones.fecha_corte
+	toColumn: calendar.Date
+
+relationship 4e0f4dd6-5274-b04e-6084-385a11de9681
+	fromColumn: eco_aval_tc_transacciones.num_cod_mcc
+	toColumn: eco_aval_tc_mcc.cod_mcc
+
+relationship 638e4333-75f9-542b-55c1-717961629144
+	fromColumn: '1. eco_avl_fct_clientes'.ciiu_tp_cd
+	toColumn: eco_aval_dim_ciiu.ciiu_tp_cd
+
+relationship 328d41a4-2e54-665b-4e11-252951366b72
+	fromColumn: '6 eco_aval_fct_clientes_pj'.xciiu_tp_cd
+	toColumn: eco_aval_dim_ciiu.ciiu_tp_cd
+
+relationship 49eb75aa-4be8-d414-1ea4-d826219160a8
+	fromColumn: '2. eco_avl_fct_productos'.ciiu_tp_cd
+	toColumn: eco_aval_dim_ciiu.ciiu_tp_cd
+
+relationship dd86297c-f185-0c93-f30d-e7519c9cc0aa
+	fromColumn: '7 eco_aval_fct_productos_pj'.xciiu_tp_cd
+	toColumn: eco_aval_dim_ciiu.ciiu_tp_cd
+
+relationship eca88b6c-e4a5-d931-c5b6-3b92235914e0
+	fromColumn: '1. eco_avl_fct_clientes'.marital_st_tp_cd
+	toColumn: eco_aval_dim_estado_civil.marital_st_tp_cd
+
+relationship 2b7793e9-5aa6-aa7a-1c1d-1363de54c1cb
+	fromColumn: eco_aval_fct_clientes_compartidos.marital_st_tp_cd
+	toColumn: eco_aval_dim_estado_civil.marital_st_tp_cd
+
+relationship 9dfde693-b76e-2a2d-f557-aeec619f9403
+	fromColumn: '2. eco_avl_fct_productos'.marital_st_tp_cd
+	toColumn: eco_aval_dim_estado_civil.marital_st_tp_cd
+
+relationship c213cdbf-fe2d-5713-3c46-f44e8ecde1fe
+	fromColumn: '1. eco_avl_fct_clientes'.client_st_tp_cd
+	toColumn: eco_aval_dim_estado_cliente.client_st_tp_cd
+
+relationship cfc7d0e7-2509-a25b-16da-39129edfb3fb
+	fromColumn: '6 eco_aval_fct_clientes_pj'.client_st_tp_cd
+	toColumn: eco_aval_dim_estado_cliente.client_st_tp_cd
+
+relationship fb7d485c-e8e1-190d-a3c9-bbef460cd223
+	fromColumn: '2. eco_avl_fct_productos'.client_st_tp_cd
+	toColumn: eco_aval_dim_estado_cliente.client_st_tp_cd
+
+relationship 5778e921-bad2-4fdc-299d-964a51b6758c
+	fromColumn: '7 eco_aval_fct_productos_pj'.client_st_tp_cd
+	toColumn: eco_aval_dim_estado_cliente.client_st_tp_cd
+
+relationship 52a06b52-8aef-6dc7-9d8d-d8d5c154857a
+	fromColumn: eco_aval_fct_clientes_compartidos.client_st_tp_cd
+	toColumn: eco_aval_dim_estado_cliente.client_st_tp_cd
+
+relationship 6ceac8fb-1237-fc45-92d4-29ab92fb101e
+	fromColumn: eco_aval_fct_clientes_compartidos_pj.client_st_tp_cd
+	toColumn: eco_aval_dim_estado_cliente.client_st_tp_cd
+
+relationship 9b4ce452-a9db-73cb-e9ba-55654613e062
+	fromColumn: '1. eco_avl_fct_clientes'.gender_tp_code
+	toColumn: eco_aval_dim_gender.gender_tp_code
+
+relationship 222271eb-7abe-c8d8-1b68-676183ee7882
+	fromColumn: '2. eco_avl_fct_productos'.gender_tp_code
+	toColumn: eco_aval_dim_gender.gender_tp_code
+
+relationship 7ea49014-6561-73bf-7913-08f1e4fa534f
+	fromColumn: eco_aval_fct_clientes_compartidos.gender_tp_code
+	toColumn: eco_aval_dim_gender.gender_tp_code
+
+relationship fbfcfcc6-991e-c905-23e9-aaf1374def08
+	fromColumn: '1. eco_avl_fct_clientes'.highest_edu_tp_cd
+	toColumn: eco_aval_dim_nivel_educativo.highest_edu_tp_cd
+
+relationship ae5a1734-bdfe-fdc1-0a3b-01a4993203a1
+	fromColumn: '2. eco_avl_fct_productos'.highest_edu_tp_cd
+	toColumn: eco_aval_dim_nivel_educativo.highest_edu_tp_cd
+
+relationship 0d52beb4-a96e-c06b-e180-1b42d570e8a5
+	fromColumn: eco_aval_fct_clientes_compartidos.highest_edu_tp_cd
+	toColumn: eco_aval_dim_nivel_educativo.highest_edu_tp_cd
+
+relationship 080e5f13-9d29-8118-e1da-5e16bd1b9bd7
+	fromColumn: '1. eco_avl_fct_clientes'.occupation_tp_cd
+	toColumn: eco_aval_dim_ocupacion.occupation_tp_cd
+
+relationship 65d7fd3d-1379-22e4-88ec-d737b73685a5
+	fromColumn: eco_aval_fct_clientes_compartidos.occupation_tp_cd
+	toColumn: eco_aval_dim_ocupacion.occupation_tp_cd
+
+relationship 305a4a8f-d11a-0507-b330-212dcb8fa60c
+	fromColumn: '2. eco_avl_fct_productos'.occupation_tp_cd
+	toColumn: eco_aval_dim_ocupacion.occupation_tp_cd
+
+relationship 1e8a5268-6957-51c6-d7f7-b5583f72945d
+	fromColumn: '2. eco_avl_fct_productos'.cod_producto
+	toColumn: eco_aval_dim_producto.codigo__producto
+
+relationship a7ed7972-d64a-4440-a106-e63e00876681
+	fromColumn: '7 eco_aval_fct_productos_pj'.cod_producto
+	toColumn: eco_aval_dim_producto.codigo__producto
+
+relationship 075ab86e-5d7d-3bc1-147f-7c91d7213d2d
+	fromColumn: '1. eco_avl_fct_clientes'.profession_tp_cd
+	toColumn: eco_aval_dim_profesion.profession_tp_cd
+
+relationship 9001dcac-3b3b-d313-b6b4-4ba3c27b6461
+	fromColumn: eco_aval_fct_clientes_compartidos.profession_tp_cd
+	toColumn: eco_aval_dim_profesion.profession_tp_cd
+
+relationship 8d350106-ee62-3125-ae3c-4ed452187a76
+	fromColumn: '2. eco_avl_fct_productos'.profession_tp_cd
+	toColumn: eco_aval_dim_profesion.profession_tp_cd
+
+relationship fc9853d1-a5d4-6db7-8d2e-ce2378294509
+	fromColumn: '1. eco_avl_fct_clientes'.rango_edad
+	toColumn: eco_aval_dim_rango_edad.rango_edad
+
+relationship 39fa482a-e126-17bf-f29a-8f4c7dd9df5f
+	fromColumn: '6 eco_aval_fct_clientes_pj'.rango_edad
+	toColumn: eco_aval_dim_rango_edad.rango_edad
+
+relationship efd5e65f-3ed9-834a-4d33-b50f021bcd35
+	fromColumn: eco_aval_fct_clientes_compartidos.rango_edad
+	toColumn: eco_aval_dim_rango_edad.rango_edad
+
+relationship 87b02823-e5fe-ef0a-5704-5cbf2cebc5e7
+	fromColumn: eco_aval_fct_clientes_compartidos_pj.rango_edad
+	toColumn: eco_aval_dim_rango_edad.rango_edad
+
+relationship 6341c2ab-4414-93ab-95f5-fa49809d4e6c
+	fromColumn: '2. eco_avl_fct_productos'.rango_edad
+	toColumn: eco_aval_dim_rango_edad.rango_edad
+
+relationship 13edf6e6-4cf8-ace0-5551-c2c7fda6b275
+	fromColumn: '7 eco_aval_fct_productos_pj'.rango_edad
+	toColumn: eco_aval_dim_rango_edad.rango_edad
+
+relationship 02c65ef0-5e74-3fb0-15e1-cef0e7125ada
+	fromColumn: '1. eco_avl_fct_clientes'.seg_tp_cd
+	toColumn: eco_aval_dim_seg.seg_tp_cd
+
+relationship 0b48acb3-9ff5-695f-9500-4a1df528842e
+	fromColumn: '6 eco_aval_fct_clientes_pj'.seg_tp_cd
+	toColumn: eco_aval_dim_seg.seg_tp_cd
+
+relationship 5202fef8-49a7-c682-0cd2-788436c4bf00
+	fromColumn: '2. eco_avl_fct_productos'.seg_tp_cd
+	toColumn: eco_aval_dim_seg.seg_tp_cd
+
+relationship 523899eb-2fdb-ffbc-182b-da2f41d40068
+	fromColumn: '7 eco_aval_fct_productos_pj'.seg_tp_cd
+	toColumn: eco_aval_dim_seg.seg_tp_cd
+
+relationship 50b7910c-44a0-d86d-edb3-4ceb9bf3f980
+	fromColumn: '1. eco_avl_fct_clientes'.seg_cat_tp_cd
+	toColumn: eco_aval_dim_seg_cat.seg_cat_tp_cd
+
+relationship cd5570ad-38b8-c060-6f22-9486e03c855d
+	fromColumn: '6 eco_aval_fct_clientes_pj'.seg_cat_tp_cd
+	toColumn: eco_aval_dim_seg_cat.seg_cat_tp_cd
+
+relationship bc4e6fd6-fa26-f4f2-a25b-c5022a6f8a63
+	fromColumn: '2. eco_avl_fct_productos'.seg_cat_tp_cd
+	toColumn: eco_aval_dim_seg_cat.seg_cat_tp_cd
+
+relationship d6d554e4-276e-e848-3d34-d484b398d508
+	fromColumn: '7 eco_aval_fct_productos_pj'.seg_cat_tp_cd
+	toColumn: eco_aval_dim_seg_cat.seg_cat_tp_cd
+
+relationship d94ce8b7-6f82-a03d-f20c-dded779b50c5
+	fromColumn: '1. eco_avl_fct_clientes'.id_tp_cd
+	toColumn: eco_aval_dim_tipo_doc.id_tp_cod
+
+relationship 74677607-96f2-4d1f-61d1-32528ccdcd12
+	fromColumn: '6 eco_aval_fct_clientes_pj'.id_tp_cd
+	toColumn: eco_aval_dim_tipo_doc.id_tp_cod
+
+relationship 75a55017-5db0-0c79-77e5-fef370b4ba58
+	fromColumn: '2. eco_avl_fct_productos'.id_tp_cd
+	toColumn: eco_aval_dim_tipo_doc.id_tp_cod
+
+relationship f3aa3c3e-e697-af4d-8a0f-de2a2dd5afaf
+	fromColumn: '7 eco_aval_fct_productos_pj'.id_tp_cd
+	toColumn: eco_aval_dim_tipo_doc.id_tp_cod
+
+relationship 98d5ebdd-9b83-6f94-6348-3d538dedf301
+	fromColumn: '1. eco_avl_fct_clientes'.housing_tp_cd
+	toColumn: eco_aval_dim_tipo_vivienda.housing_tp_cd
+
+relationship 39aa0576-96d8-5e42-22c8-c8ccd62f47d1
+	fromColumn: eco_aval_fct_clientes_compartidos.housing_tp_cd
+	toColumn: eco_aval_dim_tipo_vivienda.housing_tp_cd
+
+relationship 0981096b-9a3b-5d70-6686-26a977d7fc38
+	fromColumn: '2. eco_avl_fct_productos'.housing_tp_cd
+	toColumn: eco_aval_dim_tipo_vivienda.housing_tp_cd
+
+relationship b2b89527-06ab-8b6d-67cc-92801009cb32
+	fromColumn: '6 eco_aval_fct_clientes_pj'.org_tp_cd
+	toColumn: eco_aval_dim_tp_organizacion.org_tp_cd
+
+relationship 622ad923-0056-dfa5-31cd-665902ec6d45
+	fromColumn: eco_aval_fct_clientes_compartidos_pj.org_tp_cd
+	toColumn: eco_aval_dim_tp_organizacion.org_tp_cd
+
+relationship b827b95a-ee72-46d5-49bc-f766d57f3f26
+	fromColumn: '7 eco_aval_fct_productos_pj'.org_tp_cd
+	toColumn: eco_aval_dim_tp_organizacion.org_tp_cd
+
+relationship 4b9ed191-95c8-dee1-88f9-fb01ddd0e248
+	fromColumn: '6 eco_aval_fct_clientes_pj'.xeco_sect_tp_cd
+	toColumn: eco_aval_dim_tp_sector.xeco_sect_tp_cd
+
+relationship 0595705d-72b6-9b74-e49c-69d3967e9325
+	fromColumn: eco_aval_fct_clientes_compartidos_pj.xeco_sect_tp_cd
+	toColumn: eco_aval_dim_tp_sector.xeco_sect_tp_cd
+
+relationship bc739064-4d4d-0adc-1d54-4ce1d0185e98
+	fromColumn: '7 eco_aval_fct_productos_pj'.xeco_sect_tp_cd
+	toColumn: eco_aval_dim_tp_sector.xeco_sect_tp_cd
+
+relationship fbecac9a-b40d-c7f9-c987-c987c4d2ae60
+	fromColumn: '6 eco_aval_fct_clientes_pj'.xsociety_tp_cd
+	toColumn: eco_aval_dim_tp_sociedad.xsociety_tp_cd
+
+relationship 208c0b60-9c9a-eb21-f3cf-2dda260b2961
+	fromColumn: eco_aval_fct_clientes_compartidos_pj.xsociety_tp_cd
+	toColumn: eco_aval_dim_tp_sociedad.xsociety_tp_cd
+
+relationship f101bff2-5719-545d-d930-2d6d5fb7a9fa
+	fromColumn: '7 eco_aval_fct_productos_pj'.xsociety_tp_cd
+	toColumn: eco_aval_dim_tp_sociedad.xsociety_tp_cd
+
+relationship 2dedf38e-a39f-d021-c8ad-19e1d12c8f09
+	fromColumn: '1. eco_avl_fct_clientes'.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 507bd57e-ff16-881b-ebc2-400b5db235ef
+	fromColumn: '2. eco_avl_fct_productos'.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 8002a776-9cd6-60e3-ce63-e385b492fa4a
+	fromColumn: '6 eco_aval_fct_clientes_pj'.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship d959b71a-643a-1818-b0c5-3047d7a12d0d
+	fromColumn: '7 eco_aval_fct_productos_pj'.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 17e21940-08df-c5ec-0c4b-fb15c6988eed
+	fromColumn: eco_aval_tc_productos.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship da66c483-cee0-b0db-11e5-cd3f38f75024
+	fromColumn: eco_aval_tc_transacciones.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 0fff459f-5a36-96e0-4192-2dfe683337d1
+	fromColumn: bench_activo.fecha_corte
+	toColumn: calendar.Date
+
+relationship fdde2e8f-aa16-a677-7545-7d24108eaa48
+	fromColumn: '8 eco_aval_ael_clientes_aval'.codigoactividadeconomica
+	toColumn: eco_aval_dim_ciiu.ciiu_tp_cd_corto
+
+relationship 013a0ee7-9e1e-91fc-f89c-1c16369014d7
+	fromColumn: eco_aval_fct_margen_agg_productos.date_cruce
+	toColumn: calendar.Date
+
+relationship 5643978a-f281-f37b-0dd8-00b1f77eae5c
+	fromColumn: clientes_activos_dale.fecha_corte
+	toColumn: calendar.Date
+
+relationship 48d327d0-0752-4195-e93d-4fae32762634
+	fromColumn: eco_aval_fct_margen_agg_productos.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship e0274a6a-f6d6-39b2-f32c-182f6774011c
+	fromColumn: pyg_bogota.fecha_final
+	toColumn: calendar.Date
+
+relationship e046e83b-9a95-3de6-6186-809270ad8eae
+	fromColumn: eco_aval_saldos_depositos.fecha_corte
+	toColumn: calendar.Date
+
+relationship b2ff0bf7-52be-ccd0-1905-9f1f07d38b3d
+	fromColumn: eco_aval_saldos_depositos.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 4ec51c20-8dd1-0f56-01ab-855dcb040388
+	fromColumn: '3 eco_aval_buro bancos'.entidad_final
+	toColumn: tabla_bancos.entidad
+
+relationship b3025b27-ffd1-0699-806e-ce7adbb1de00
+	fromColumn: eco_aval_buro_bancos_pj.entidad_final
+	toColumn: tabla_bancos.entidad
+
+relationship bbb16063-dd9a-3dae-0155-d07d7af3b5f3
+	fromColumn: eco_aval_fct_depositos_reporte.fecha_corte
+	toColumn: calendar.Date
+
+relationship ecfdde5a-b55a-abad-a1d0-8eaa58991898
+	fromColumn: eco_aval_fct_depositos_reporte.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 650b6430-9039-cf2c-b173-a25c3941d102
+	fromColumn: eco_aval_saldos_depositos_semanal.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 8f7f4c7d-e7e2-36ef-8151-4b054ef20ebe
+	fromColumn: eco_aval_saldos_depositos_semanal.fecha_corte
+	toColumn: calendar.Date
+
+relationship 46674d32-6a0b-011d-708e-b22ccdc137dc
+	fromColumn: indicadores_zeus_seguimiento.fecha_corte
+	toColumn: calendar.Date
+
+relationship e1afcd0b-0077-b4c6-68ca-ba7b53c880a7
+	fromColumn: indicadores_zeus_seguimiento.id_indicador
+	toColumn: indicadores_zeus_dim_kpis.id
+
+relationship f13597d7-b0f4-0948-16fb-f80a339af4f8
+	fromColumn: indicadores_zeus_seguimiento.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship a98f6d72-3e82-d0a8-c1c2-c1b7d0183a1e
+	fromColumn: ind_zeus_visitas_semanales.Entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 3c1d79e4-e30e-60aa-9061-3299f08f2ba4
+	crossFilteringBehavior: bothDirections
+	fromColumn: indicadores_zeus_semanas.fecha_corte
+	toColumn: calendar.Date
+
+relationship 35633a1e-7e60-ea2f-9c8f-25bc62e290e5
+	fromColumn: sica_niif_entidades.fecha_corte
+	toColumn: calendar.Date
+
+relationship f56005c1-8377-8df0-babd-add9c37aa86a
+	fromColumn: superfinanciera_pasivos.fecha_corte
+	toColumn: calendar.Date
+
+relationship cbb2c4c7-7a6c-d5b9-3fd3-adec3bee08e9
+	fromColumn: superfinanciera_pasivos.entidad_arreglado
+	toColumn: tabla_bancos.entidad
+
+relationship dae03a35-6373-3a04-b1f6-30a32bdf7932
+	fromColumn: sica_niif_entidades.entidad_arreglado
+	toColumn: tabla_bancos.entidad
+
+relationship be664d9b-2c3e-af21-ab20-8965dd374b1f
+	fromColumn: eco_aval_fct_margen_agg_productos.codigo_producto
+	toColumn: eco_aval_dim_producto.codigo__producto
+
+relationship dcd8a1c8-f230-225a-815b-37c8ed50fb11
+	fromColumn: sica_saldos_clientes_pn_aa.date_cruce
+	toColumn: calendar.Date
+
+relationship a3e96d14-54dd-30a6-7189-aa3e3faed1f2
+	fromColumn: sica_saldos_clientes_pj_aa.date_cruce
+	toColumn: calendar.Date
+
+relationship d4a0b6b8-e2e9-1120-0b4c-4c767bd50ac1
+	fromColumn: sica_saldos_clientes_pn_aa.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 2fcacb46-c38b-c970-4d83-335a79bbff60
+	fromColumn: sica_saldos_clientes_pj_aa.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship f02c2f54-1d2a-e9ce-5594-e4e99257a5fd
+	fromColumn: vw_cantidad_saldos_productos_aa.date_cruce
+	toColumn: calendar.Date
+
+relationship 2e503edd-3d1c-55dc-6333-0960730257ad
+	fromColumn: vw_cantidad_saldos_productos_aa.producto
+	toColumn: tbl_productos_aa.producto
+
+relationship 10655277-4b06-c296-6ab8-7780fd2b2cef
+	fromColumn: superfinanciera_captaciones.fecha_corte
+	toColumn: calendar.Date
+
+relationship 099ee29e-b438-6f9a-5c1e-ef940b943a4d
+	fromColumn: superfinanciera_desembolsos.fecha_corte
+	toColumn: calendar.Date
+
+relationship b951e6d3-2193-d33a-ec89-eddc3051b478
+	fromColumn: indicadores_zeus_seguimiento.fecha_corte
+	toColumn: calendar_2.Date
+
+relationship 3f82c8eb-5383-3590-b733-1a6f44c12a8b
+	fromColumn: eco_aval_fct_clientes_compartidos.bank
+	toColumn: tabla_bancos.entidad
+
+relationship 1fa58889-6898-836f-c7e7-bba105ffe63f
+	fromColumn: eco_aval_fct_clientes_compartidos_pj.bank
+	toColumn: tabla_bancos.entidad
+
+relationship 0326f8ca-1470-06b0-07c8-a05c469fa0e6
+	fromColumn: '1. eco_avl_fct_clientes'.rango_anios_vinculacion
+	toColumn: eco_aval_dim_rango_anios_vinc.rango_anios_vinculacion
+
+relationship d7da3781-4e24-83b6-9729-0b652fb3da11
+	fromColumn: '6 eco_aval_fct_clientes_pj'.rango_anios_vinculacion
+	toColumn: eco_aval_dim_rango_anios_vinc.rango_anios_vinculacion
+
+relationship 9924bd89-89e8-2729-9dcb-53df6badce88
+	fromColumn: '2. eco_avl_fct_productos'.rango_anios_vinculacion
+	toColumn: eco_aval_dim_rango_anios_vinc.rango_anios_vinculacion
+
+relationship 80924e52-5ef4-d7c7-4569-8f493193d46b
+	fromColumn: '7 eco_aval_fct_productos_pj'.rango_anios_vinculacion
+	toColumn: eco_aval_dim_rango_anios_vinc.rango_anios_vinculacion
+
+relationship 2239a72a-3138-6952-d7a3-ba03eca8676f
+	fromColumn: vw_cantidad_saldos_productos_aa.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 3ae9c444-6d76-960a-5947-e9a5547a5ab6
+	fromColumn: '6 eco_aval_fct_clientes_pj'.rango_edad
+	toColumn: eco_aval_dim_rango_edad_pj.rango_edad
+
+relationship d066a086-f38c-c8a1-d3d0-037297254488
+	fromColumn: '7 eco_aval_fct_productos_pj'.rango_edad
+	toColumn: eco_aval_dim_rango_edad_pj.rango_edad
+
+relationship 75e679e9-32bd-092e-33e8-ba8a3ded1284
+	fromColumn: superfinanciera_captaciones.entidad_corto
+	toColumn: tabla_bancos.entidad
+
+relationship 9a846938-7301-74d4-6c72-9f9cdab77167
+	fromColumn: eco_aval_fct_clientes_compartidos_unicos.date_cruce
+	toColumn: calendar.Date
+
+relationship 86c728e6-4311-0bbc-bc95-9632ac4214a3
+	fromColumn: eco_aval_fct_clientes_compartidos_unicos_pj.date
+	toColumn: calendar.Date
+
+relationship 74047771-cb23-41b9-75b7-c2eceb9426ab
+	fromColumn: eco_aval_fct_clientes_compartidos_unicos.bank
+	toColumn: entidad_compartidos.entidad
+
+relationship 20158212-df06-1be6-0913-55364294200d
+	fromColumn: eco_aval_fct_clientes_compartidos_unicos_pj.bank
+	toColumn: entidad_compartidos.entidad
+
+relationship af265686-fdcc-752c-8445-02c12348c2ed
+	crossFilteringBehavior: bothDirections
+	fromColumn: indicadores_zeus_semanas_2.fecha_corte
+	toColumn: calendar_2.Date
+
+relationship a58b8828-6262-577b-d3e8-d4e547856e2c
+	fromColumn: eco_aval_fct_margen_agg_clientes.date_cruce
+	toColumn: calendar.Date
+
+relationship 6fd1cc26-4f03-4248-bcd0-51aaa1004c4b
+	fromColumn: eco_aval_fct_margen_agg_clientes.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship 5931d2ac-2183-1cba-93e6-0e61fd4090d7
+	fromColumn: vw_margen_agg_clientes_mono_multi_producto.date_cruce
+	toColumn: calendar.Date
+
+relationship b790d56a-87d3-a1c4-d0fb-c768cdffdefa
+	fromColumn: vw_margen_agg_clientes_mono_multi_producto.entidad
+	toColumn: tabla_bancos.entidad
+
+relationship b543f50f-b428-1296-4dd7-cecc9864d560
+	fromColumn: eco_aval_fct_margen_agg_clientes.codigo_producto
+	toColumn: eco_aval_dim_producto.codigo__producto
+
+relationship 58816314-bc6f-3165-91b1-f6ac4d50aa19
+	fromColumn: eco_aval_fct_margen_agg_clientes.rango_edad
+	toColumn: eco_aval_dim_rango_edad.rango_edad
+
+relationship 825da354-80b6-8c20-d3bd-fe325c6c6c44
+	fromColumn: eco_aval_fct_margen_agg_clientes.rango_edad_pj
+	toColumn: eco_aval_dim_rango_edad_pj.rango_edad
+
+relationship 34f9fd73-7fe0-4e4b-d963-f64976e6474a
+	fromColumn: eco_aval_fct_margen_agg_clientes.gender_tp_code
+	toColumn: eco_aval_dim_gender.gender_tp_code
+

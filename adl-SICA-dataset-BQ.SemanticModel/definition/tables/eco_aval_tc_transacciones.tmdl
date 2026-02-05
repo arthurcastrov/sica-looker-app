@@ -1,0 +1,119 @@
+table eco_aval_tc_transacciones
+	lineageTag: 03546abe-84a9-4112-93fc-d0645b0d1089
+
+	column tipo_transaccion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: efb0deaa-1833-49d8-87f9-ee210cb24dfd
+		summarizeBy: none
+		sourceColumn: tipo_transaccion
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_cod_mcc
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 14dab9fc-bcb2-4967-ac41-fedf9c1e178b
+		summarizeBy: none
+		sourceColumn: num_cod_mcc
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor_trx
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 59f2a304-905d-43cd-ac24-9726d1e1a030
+		summarizeBy: sum
+		sourceColumn: valor_trx
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad_transaccion
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: fd3d3ee1-8376-491b-8ee2-e38db536291d
+		summarizeBy: sum
+		sourceColumn: cantidad_transaccion
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad_tarjetas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2aac5f1a-3218-496a-8c5c-c8581dd80538
+		summarizeBy: sum
+		sourceColumn: cantidad_tarjetas
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_num_plazo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 99093559-e6cc-41ba-8fa2-33ed525af058
+		summarizeBy: sum
+		sourceColumn: avg_num_plazo
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_num_tasa
+		dataType: double
+		sourceProviderType: double
+		lineageTag: a6a8ca93-bbf7-4dbe-8d9a-0969b1e5ada4
+		summarizeBy: sum
+		sourceColumn: avg_num_tasa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4182d98a-0163-43bb-b6d9-78efbbac2dc7
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8c83ca49-9be6-4173-b4e5-35baa4addfd5
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 54e8a133-fc98-4046-af1c-5dc6193c2482
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_tc_transacciones = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_tc_transacciones_Table = sica_analytics_Schema{[Name="eco_aval_tc_transacciones",Kind="Table"]}[Data]
+				in
+				    eco_aval_tc_transacciones_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,69 @@
+table eco_aval_buro_completitud_pj
+	lineageTag: 6cd80731-2029-434d-abfc-2f95bdf3ec41
+
+	column flag_buro
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 200c7988-ff38-48d0-b725-4ac1f640ce48
+		summarizeBy: sum
+		sourceColumn: flag_buro
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad_clientes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 78008955-d367-4017-8acd-24420a0b2019
+		summarizeBy: sum
+		sourceColumn: cantidad_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 1538e341-b3d4-4fce-8901-ef5d1ab036c4
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad_final
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: dfa42d01-a418-4944-a953-7a74fa4c6008
+		summarizeBy: none
+		sourceColumn: entidad_final
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b77ae261-fc01-47d0-865a-f2c04f865bf7
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_buro_completitud_pj = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_buro_completitud_pj_Table = sica_analytics_Schema{[Name="eco_aval_buro_completitud_pj",Kind="Table"]}[Data]
+				in
+				    eco_aval_buro_completitud_pj_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,56 @@
+table var_indicadores_zeus
+	lineageTag: 2d221f01-3863-4914-aea6-fb63b3d32a40
+
+	column Indicador
+		dataType: string
+		lineageTag: a31c03de-eb8a-4a3c-a1a4-a6300a0496f3
+		summarizeBy: none
+		sourceColumn: Indicador
+		sortByColumn: Orden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Indicador 2'
+		dataType: string
+		lineageTag: cd054416-2152-49d0-890c-862f44dbef25
+		summarizeBy: none
+		sourceColumn: Indicador 2
+		sortByColumn: Orden2
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		dataType: int64
+		formatString: 0
+		lineageTag: cdc50a8c-a1f5-418e-b1ff-eac7d6c307f0
+		summarizeBy: sum
+		sourceColumn: Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden2
+		dataType: int64
+		formatString: 0
+		lineageTag: 81f1df7d-d586-473c-b335-b7b3a306d448
+		summarizeBy: sum
+		sourceColumn: Orden2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition var_indicadores_zeus = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("vVbhbtowEH6VE2hSuzFpYe3a7V81oYn9WCMC26SqPw7HZTc5duYkSNvT7BWqvsF4sZ2dAIESKDBNSlCwv/t89/n8JTc3rb4WViZS5wYyVLHJIJZ8pbOHjHL+dzLoDa/fwVVuaVwImj1oQIjC/mmr0+Ir8PdtZ4VIapAK2o5JFDyCa6Qcsx+6u2mVxLhfhlopsIgN/IQUJy5lYTQPZqkUDEAFqbRkGIA6d0/2dDWB44he71DAcBAKMlpm9TUecePsvjHDf0F31qhh1lTutpT2jDzfplK9pgNSOYbmzRZV+jq3+PJqynGHSLNX+EWDPut7/uf3oVkdT3ZZy3HCSLf9xoIwCWWe7zm8KE0EUmsSGZOBz71BNIogHPSiUTjqRcNrn9VR4W8XeYRocxKUYmlMXF0ircDYrJtY+IkPdfjRVXFITPBqsWT0DS2LeAdfUCmZP7KqXfPB0jEjOSkoIb876E4ycd2CYox9A4scY/SUT8QFS5sMSRlGD2Qsx6jhpA3Dr2AsTUg7cMezjMk/Vu06nzXLWffI3ZIZjYp+LV1HwRAn4LrGC/of1wqWbvsM3hu3c4SKgSyOlZ4RGNFumHPBZwcw5CavMO7VN2fpViwfJAfmpR8PpJrn/qNwfcDllf5UBq7y+mneWG6+ive8lt3hvPN854zdbW9oozMeqxrMLyYU+YWb39NbY4KNploLVwqnnJ2VE8rYf8ru3QMaXNRUmrJ7uG8G+V2Kwh8FmGaL0VShllVYewPWEV0eyVYf9WSl3O2FJk4vd3MBXN0d2YTbzFPsQgRLrxuSTFJvUpSkyiu1sDDlHDMu2LgZ/mRgt3K1278=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Indicador = _t, #"Indicador 2" = _t, Orden = _t, Orden2 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Indicador", type text}, {"Indicador 2", type text}, {"Orden", Int64.Type}, {"Orden2", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

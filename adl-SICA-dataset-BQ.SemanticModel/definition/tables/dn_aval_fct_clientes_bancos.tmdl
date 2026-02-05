@@ -1,0 +1,73 @@
+table dn_aval_fct_clientes_bancos
+	lineageTag: 63c1ffdf-4874-4422-9ade-c8a8519d6b9e
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5d55894a-5a4c-48ae-9b5a-1e398bf6aba1
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column codigo_entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 34491c0e-c2af-43e1-8e9e-5ca87c8bcf0f
+		summarizeBy: none
+		sourceColumn: codigo_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7e5358b0-eb3e-48b2-9c71-48ba5619c0a3
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 219d2b44-4267-4807-b3b7-a46724deb335
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_clientes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: e956e1d8-9505-4514-85c2-4b4ef19fc337
+		summarizeBy: sum
+		sourceColumn: num_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ac7cb3f8-61e0-4535-9878-15064d9dd131
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_fct_clientes_bancos = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_fct_clientes_bancos_Table = iniciativas_aval_Schema{[Name="dn_aval_fct_clientes_bancos",Kind="Table"]}[Data]
+				in
+				    dn_aval_fct_clientes_bancos_Table
+

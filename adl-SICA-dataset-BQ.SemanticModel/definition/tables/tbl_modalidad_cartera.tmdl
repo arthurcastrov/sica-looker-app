@@ -1,0 +1,31 @@
+table tbl_modalidad_cartera
+	lineageTag: ef8289df-7035-48bd-994c-affa2e71af25
+
+	column modalidad
+		dataType: string
+		lineageTag: 58cd3f08-40f6-49aa-90d8-6f4bf744285e
+		summarizeBy: none
+		sourceColumn: modalidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		formatString: 0
+		lineageTag: 428751af-7e02-4f0b-958f-4512e92ca49c
+		summarizeBy: sum
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tbl_modalidad_cartera = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wcs7PKy7NzVfSUTJUitUB8XNTi5IzE3OAIkZgkbDMsszUvJREoIAxWMA3M7koP7koNSWzBKTPRCk2FgA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [modalidad = _t, orden = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"modalidad", type text}, {"orden", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

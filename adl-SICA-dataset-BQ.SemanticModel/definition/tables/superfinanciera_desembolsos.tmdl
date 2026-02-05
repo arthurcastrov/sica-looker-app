@@ -1,0 +1,195 @@
+table superfinanciera_desembolsos
+	lineageTag: 09676c5d-c21c-43a0-9fc2-0a7f469356dd
+
+	column tipo_entidad
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 4c10d017-dc83-434d-890e-c742f4821fb5
+		summarizeBy: sum
+		sourceColumn: tipo_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_entidad
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: fae26255-5f85-4a74-9bf8-dcc172a02a58
+		summarizeBy: sum
+		sourceColumn: codigo_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8c1b67ac-b557-463e-a282-67892348faee
+		summarizeBy: none
+		sourceColumn: nombre_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c138d901-31b1-4f8c-8ba4-65c635e3e088
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tipo_de_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 1d192c1f-d7c4-4616-b40f-afca12dbbf97
+		summarizeBy: none
+		sourceColumn: tipo_de_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column sexo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 1a0141ff-2b5f-4b73-b06e-49fa2e1f9cad
+		summarizeBy: none
+		sourceColumn: sexo
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_de_cr_dito
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d2132f4d-61ce-41cd-96f1-114b09592a6c
+		summarizeBy: none
+		sourceColumn: tipo_de_cr_dito
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto_de_cr_dito
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 1aedf5cc-3176-4e67-805d-345241691cef
+		summarizeBy: none
+		sourceColumn: producto_de_cr_dito
+
+		annotation SummarizationSetBy = Automatic
+
+	column plazo_de_cr_dito
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f1b5914d-56fe-4ac8-ac48-bfe8d44287cf
+		summarizeBy: none
+		sourceColumn: plazo_de_cr_dito
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_efectiva_promedio
+		dataType: double
+		sourceProviderType: double
+		lineageTag: c9f47bf5-de12-410f-bb32-ccc82dc2b733
+		summarizeBy: sum
+		sourceColumn: tasa_efectiva_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column margen_adicional_a_la
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 06c71c4f-ed92-4b54-aa72-ce126801397c
+		summarizeBy: sum
+		sourceColumn: margen_adicional_a_la
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column numero_de_creditos
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 5e055917-80ad-4772-99ee-922dd1a5651d
+		summarizeBy: sum
+		sourceColumn: numero_de_creditos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column montos_desembolsados
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 31375f5f-21d3-491e-8423-d31363f8addf
+		summarizeBy: sum
+		sourceColumn: montos_desembolsados
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column codigo_ciiu
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e931ec63-ebc4-4a05-9e26-e748fd119079
+		summarizeBy: none
+		sourceColumn: codigo_ciiu
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_municipio
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6a1c4c47-33ee-417a-bf6a-22de11b96822
+		summarizeBy: none
+		sourceColumn: codigo_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad_arreglado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4d118d4e-0e00-4ec9-9663-5cc5847b5826
+		summarizeBy: none
+		sourceColumn: entidad_arreglado
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_inicio_mes
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 88c68d91-ef1f-4f1e-8a3a-fbec08e2ed15
+		summarizeBy: none
+		sourceColumn: fecha_inicio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0473f92e-a43c-4839-b07f-db9f6494fa97
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition superfinanciera_desembolsos = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    superfinanciera_desembolsos_Table = sica_analytics_Schema{[Name="superfinanciera_desembolsos",Kind="Table"]}[Data]
+				in
+				    superfinanciera_desembolsos_Table
+

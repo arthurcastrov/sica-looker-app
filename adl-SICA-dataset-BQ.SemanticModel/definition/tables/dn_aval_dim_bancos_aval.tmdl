@@ -1,0 +1,50 @@
+table dn_aval_dim_bancos_aval
+	lineageTag: 40f8bf4a-6b17-443b-911f-4b0240bf0275
+
+	column entidad_corto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 494ace44-a775-42cd-bab1-8d69443bebce
+		summarizeBy: none
+		sourceColumn: entidad_corto
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d412ea62-c59e-4a76-a0e8-dfb3f3a0205d
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 00eb7cca-c5be-4cd4-b3e7-16abbf9628ef
+		summarizeBy: none
+		sourceColumn: codigo_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad_corto_minuscula
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ef00e7df-7e29-4704-a092-e61586e95516
+		summarizeBy: none
+		sourceColumn: entidad_corto_minuscula
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_dim_bancos_aval = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_dim_bancos_aval_Table = iniciativas_aval_Schema{[Name="dn_aval_dim_bancos_aval",Kind="Table"]}[Data]
+				in
+				    dn_aval_dim_bancos_aval_Table
+

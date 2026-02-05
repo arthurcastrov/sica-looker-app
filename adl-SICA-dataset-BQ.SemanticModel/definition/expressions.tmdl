@@ -1,0 +1,5 @@
+expression fecha_inicial = #date(2021, 1, 1) meta [IsParameterQuery=true, Type="Date", IsParameterQueryRequired=true]
+	lineageTag: f6ef35dc-1811-4d75-8e52-d19cdeac5087
+
+	annotation PBI_ResultType = Date
+

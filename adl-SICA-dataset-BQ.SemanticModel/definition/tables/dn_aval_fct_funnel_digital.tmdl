@@ -1,0 +1,167 @@
+table dn_aval_fct_funnel_digital
+	lineageTag: b6d39fce-cf8f-4ac3-a2b8-827eea1ec244
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5dff30f8-dd58-4883-b8a0-9188503a1eeb
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e706124f-efaf-4c71-a1e2-163db8692923
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 4645222b-9861-423c-b9e0-267e26fcabc4
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column grupo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c29dfd69-214f-4ce6-b161-77b0753b3d67
+		summarizeBy: none
+		sourceColumn: grupo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cant_cli_desembolso_creacion_producto
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: fe585f6c-a13a-464e-ac59-e64dfdf7b700
+		summarizeBy: sum
+		sourceColumn: cant_cli_desembolso_creacion_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cant_cli_fin_flujo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d8b50a86-63c9-4544-8374-fcee82b83be1
+		summarizeBy: sum
+		sourceColumn: cant_cli_fin_flujo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cant_cli_inicio_flujo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 6828b1cd-f586-4da8-937e-c33ce579225a
+		summarizeBy: sum
+		sourceColumn: cant_cli_inicio_flujo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cant_trx_desembolso_creacion_producto
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 19a08139-7a99-45bd-82e4-e22305445585
+		summarizeBy: sum
+		sourceColumn: cant_trx_desembolso_creacion_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cant_trx_fin_flujo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d40da7c6-8dbd-4662-b32e-b7bd4f4105bb
+		summarizeBy: sum
+		sourceColumn: cant_trx_fin_flujo
+
+		annotation SummarizationSetBy = Automatic
+
+	column cant_trx_inicio_flujo
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 6f0ea734-3545-4d85-863b-5628ee0bc148
+		summarizeBy: sum
+		sourceColumn: cant_trx_inicio_flujo
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 194955d1-32cb-4f5a-be15-b895ea4ac25d
+		summarizeBy: sum
+		sourceColumn: monto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tiempo_prom_flujo_asignacion
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ac1c8ff8-3e61-439e-b058-3c98f76ba3ed
+		summarizeBy: sum
+		sourceColumn: tiempo_prom_flujo_asignacion
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tiempo_prom_flujo_inicio_fin
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 253288b7-4bdb-4944-9647-9df983089706
+		summarizeBy: sum
+		sourceColumn: tiempo_prom_flujo_inicio_fin
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tiempo_prom_flujo_inicio_fin_desembolso
+		dataType: double
+		sourceProviderType: double
+		lineageTag: aba1462c-5556-469c-ad46-f00a20c55309
+		summarizeBy: sum
+		sourceColumn: tiempo_prom_flujo_inicio_fin_desembolso
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2671cb74-8c49-4a1c-ab28-b23a6575e31b
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_fct_funnel_digital = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_fct_funnel_digital_Table = iniciativas_aval_Schema{[Name="dn_aval_fct_funnel_digital",Kind="Table"]}[Data]
+				in
+				    dn_aval_fct_funnel_digital_Table
+

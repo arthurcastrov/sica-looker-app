@@ -1,0 +1,57 @@
+table ind_zeus_visitas_semanales
+	lineageTag: 81af8afd-2301-41ca-94f3-aac660611205
+
+	column Entidad
+		dataType: string
+		lineageTag: 7d9d32e2-5447-404e-a7d3-dbe46444100b
+		summarizeBy: none
+		sourceColumn: Entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		dataType: string
+		lineageTag: 5eade91c-9335-4408-b844-13cefc2e319b
+		summarizeBy: none
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'visitas ejecutadas'
+		dataType: int64
+		formatString: 0
+		lineageTag: b3f75af7-e980-45c4-a2da-f52022c929e4
+		summarizeBy: sum
+		sourceColumn: visitas ejecutadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'visitas planeadas'
+		dataType: int64
+		formatString: 0
+		lineageTag: ea4dba0b-c684-463b-8984-6934ddc55047
+		summarizeBy: sum
+		sourceColumn: visitas planeadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'contratos firmados'
+		dataType: int64
+		formatString: 0
+		lineageTag: 459e4e93-9b67-45f8-91d3-d617507e6fe9
+		summarizeBy: sum
+		sourceColumn: contratos firmados
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ind_zeus_visitas_semanales = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("ddExDoMwDAXQq1SZGRJi43gsDB2DVIkFMTB0bO8/lm9RFZC8WEi8ON/xPIe+r4/QhOfrvX7WW9o+U4moihrD0lxNi7/CJtkx2UwxUxxDZkyW/Dd1GM55WLbSiSOQhhVCHYHeHYIKO4J+FxxvGet4zkFoxNkRyEFoxOQInCQ8BhdH4GTGGHSY5T5Nl/1Ee/vEjrH9JNthGx2DLCrWTByCMGrbifvMyxc=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Entidad = _t, Semana = _t, #"visitas ejecutadas" = _t, #"visitas planeadas" = _t, #"contratos firmados" = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Entidad", type text}, {"Semana", type text}, {"visitas ejecutadas", Int64.Type}, {"visitas planeadas", Int64.Type}, {"contratos firmados", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

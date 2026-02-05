@@ -1,0 +1,36 @@
+table eco_aval_dim_profesion
+	lineageTag: 328d4dd9-a2ec-446e-be36-9702281bf826
+
+	column profession_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b6e50e6e-f433-476a-8454-3dd28a054eef
+		summarizeBy: none
+		sourceColumn: profession_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column profession_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: bd13dbab-6e24-45cd-9e88-425669e6665b
+		summarizeBy: none
+		sourceColumn: profession_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_profesion = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_profesion_Table = sica_analytics_Schema{[Name="eco_aval_dim_profesion",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_profesion_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,51 @@
+table dn_aval_dim_contexto
+	lineageTag: cba3d260-dfae-4cef-b053-3ece1ad376bc
+
+	column tipo_dolor
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a232ea55-45b4-4dc8-969f-56b32cd66fe3
+		summarizeBy: none
+		sourceColumn: tipo_dolor
+
+		annotation SummarizationSetBy = Automatic
+
+	column variable
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c04e42ff-0ceb-4fd7-b82e-de36c70d9f90
+		summarizeBy: none
+		sourceColumn: variable
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ab597a51-6067-48f6-b3a7-d254638fcc76
+		summarizeBy: none
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ceaffea6-1c77-4cd5-b19b-e8b031ab1d9c
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_dim_contexto = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_dim_contexto_Table = iniciativas_aval_Schema{[Name="dn_aval_dim_contexto",Kind="Table"]}[Data]
+				in
+				    dn_aval_dim_contexto_Table
+

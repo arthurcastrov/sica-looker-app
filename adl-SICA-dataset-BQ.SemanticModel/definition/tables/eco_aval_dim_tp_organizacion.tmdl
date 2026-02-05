@@ -1,0 +1,36 @@
+table eco_aval_dim_tp_organizacion
+	lineageTag: 4dfe38af-3973-4d2f-8a22-e942d3d9b861
+
+	column org_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f7210262-0bff-4040-8d69-f15f6b7766e3
+		summarizeBy: none
+		sourceColumn: org_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column org_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8107f7fa-fcb4-4226-a67f-39b734f8f437
+		summarizeBy: none
+		sourceColumn: org_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_tp_organizacion = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_tp_organizacion_Table = sica_analytics_Schema{[Name="eco_aval_dim_tp_organizacion",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_tp_organizacion_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

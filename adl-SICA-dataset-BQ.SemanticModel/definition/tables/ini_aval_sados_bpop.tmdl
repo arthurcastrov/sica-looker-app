@@ -1,0 +1,144 @@
+table ini_aval_sados_bpop
+	lineageTag: 420ae4cc-9490-40f0-abec-1ef3595b3690
+
+	column fecha_apertura
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 17671739-1a02-40fc-a5cc-c8065e720df4
+		summarizeBy: none
+		sourceColumn: fecha_apertura
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column numero_cuenta
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 593aa0f9-edea-4d17-a139-d200679f0cb6
+		summarizeBy: none
+		sourceColumn: numero_cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column channel
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: eed6b57f-1e3a-49b3-95a3-05d930bf7a05
+		summarizeBy: none
+		sourceColumn: channel
+
+		annotation SummarizationSetBy = Automatic
+
+	column transactionid
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 67c2f0de-ac07-44fe-a303-bf22f96c2f2d
+		summarizeBy: none
+		sourceColumn: transactionid
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_detalle
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ec72c8aa-5d90-44c0-a1b2-f0022a06d175
+		summarizeBy: none
+		sourceColumn: tipo_detalle
+
+		annotation SummarizationSetBy = Automatic
+
+	column utm_campaign
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 17700c20-6862-4b8b-a3d0-bdbfe77e1348
+		summarizeBy: none
+		sourceColumn: utm_campaign
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 7fa3f796-f0c6-4fbb-954c-8649dbed2cdb
+		summarizeBy: sum
+		sourceColumn: saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column process_date
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2393db30-ab3e-421e-9aae-dcd414d68b45
+		summarizeBy: none
+		sourceColumn: process_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column utm_medium
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ba7ef5c9-73ab-4424-a49d-a7c4347a3afb
+		summarizeBy: none
+		sourceColumn: utm_medium
+
+		annotation SummarizationSetBy = Automatic
+
+	column utm_content
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 26f8fcf0-d208-433d-9545-9c173753ea54
+		summarizeBy: none
+		sourceColumn: utm_content
+
+		annotation SummarizationSetBy = Automatic
+
+	column utm_source
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 21791acb-5cd0-4090-8514-b5b8e78ac562
+		summarizeBy: none
+		sourceColumn: utm_source
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f21f1c16-afa5-4547-ad95-c29b79550291
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio_mes
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9b433a43-a41c-4c78-8be1-6770dfc8eeb0
+		summarizeBy: none
+		sourceColumn: anio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ini_aval_sados_bpop = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    ini_aval_sados_bpop_Table = iniciativas_aval_Schema{[Name="ini_aval_sados_bpop",Kind="Table"]}[Data]
+				in
+				    ini_aval_sados_bpop_Table
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

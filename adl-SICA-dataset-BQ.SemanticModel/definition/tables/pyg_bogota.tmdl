@@ -1,0 +1,83 @@
+table pyg_bogota
+	lineageTag: aa6fffd5-31a3-42f1-913e-c1e52e3c46e7
+
+	column tipo_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7d087ead-67cd-4c1e-bf6c-5565d3cf3a2f
+		summarizeBy: none
+		sourceColumn: tipo_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column rubro
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 14647f7d-9967-4aa2-913b-26bae96bd664
+		summarizeBy: none
+		sourceColumn: rubro
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ebbc8a1b-95cf-40e8-8fc5-e000d7b6a549
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_canal
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9df802b9-fd8a-42af-b662-afb3673103f6
+		summarizeBy: none
+		sourceColumn: tipo_canal
+
+		annotation SummarizationSetBy = Automatic
+
+	column valor
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 20da18d7-55c3-44ab-94cb-892939bce6b4
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_final
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 08d536c4-0fe7-4be4-ae48-639fd7359ef6
+		summarizeBy: none
+		sourceColumn: fecha_final
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 48ef4505-bc23-436b-84a4-a3eaa3f6499d
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition pyg_bogota = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    pyg_bogota_Table = sica_analytics_Schema{[Name="pyg_bogota",Kind="Table"]}[Data]
+				in
+				    pyg_bogota_Table
+

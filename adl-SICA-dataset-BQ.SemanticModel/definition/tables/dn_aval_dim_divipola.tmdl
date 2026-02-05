@@ -1,0 +1,69 @@
+table dn_aval_dim_divipola
+	lineageTag: e0774e3a-61f6-4d79-b5ea-f28c58f6ff9d
+
+	column codigo_departamento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 05f5f2ae-e24c-4ea1-abed-23ab525a62b7
+		summarizeBy: none
+		sourceColumn: codigo_departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_municipio
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 233b3985-ceb6-4785-ab1e-b885c4cab2c1
+		summarizeBy: none
+		sourceColumn: codigo_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_departamento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 966a685c-9806-4e58-b5b8-4b9116aadba5
+		summarizeBy: none
+		sourceColumn: nombre_departamento
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_municipio
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0d24aad5-8c75-47b5-acab-f37b34a03b46
+		summarizeBy: none
+		sourceColumn: nombre_municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_municipio_isla_area_no_municipalizada
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c06a8b4f-9844-4746-9379-2157a1e7d079
+		summarizeBy: none
+		sourceColumn: tipo_municipio_isla_area_no_municipalizada
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: e22d9739-fa6a-47a6-9b53-765e5bb66480
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_dim_divipola = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_dim_divipola_Table = iniciativas_aval_Schema{[Name="dn_aval_dim_divipola",Kind="Table"]}[Data]
+				in
+				    dn_aval_dim_divipola_Table
+

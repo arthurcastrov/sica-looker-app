@@ -1,0 +1,89 @@
+table eco_aval_ael_clientes_aval_cuentas_pj
+	lineageTag: b0e07274-e1da-4b8e-8b40-c8a6feb3ece9
+
+	column flag_pj
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 862cdd84-49ac-40f4-b492-ded8decd519c
+		summarizeBy: sum
+		sourceColumn: flag_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_aho_cte_pj
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 041c8217-2151-4c73-896c-79968b94bd39
+		summarizeBy: sum
+		sourceColumn: cuentas_aho_cte_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_clientes_con_cuenta
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: dfd8565e-8d54-462e-a266-f17f3569efaf
+		summarizeBy: sum
+		sourceColumn: num_clientes_con_cuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 06c4abd4-f08b-488b-a210-90fc92555940
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: d662f6c6-1a48-41e1-8464-44239b5cf093
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 1ba8f899-81b4-431b-b9cf-9e530bde3ef8
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column rn
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2c23145b-98f2-4f8e-a5ef-0afab2441fad
+		summarizeBy: sum
+		sourceColumn: rn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_ael_clientes_aval_cuentas_pj = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_ael_clientes_aval_cuentas_pj_Table = sica_analytics_Schema{[Name="eco_aval_ael_clientes_aval_cuentas_pj",Kind="Table"]}[Data]
+				in
+				    eco_aval_ael_clientes_aval_cuentas_pj_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

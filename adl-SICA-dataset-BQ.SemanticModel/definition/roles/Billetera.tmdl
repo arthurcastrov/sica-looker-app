@@ -1,0 +1,37 @@
+role Billetera
+	modelPermission: read
+
+	tablePermission '1. eco_avl_fct_clientes' = FALSE()
+
+	tablePermission '2. eco_avl_fct_productos' = FALSE()
+
+	tablePermission '6 eco_aval_fct_clientes_pj' = FALSE()
+
+	tablePermission '7 eco_aval_fct_productos_pj' = FALSE()
+
+	tablePermission '8 eco_aval_ael_clientes_aval' = FALSE()
+
+	tablePermission bench_activo = FALSE()
+
+	tablePermission clientes_activos_dale = FALSE()
+
+	tablePermission eco_aval_ael_clientes_aval_cuentas_pj = FALSE()
+
+	tablePermission eco_aval_fct_clientes_compartidos = FALSE()
+
+	tablePermission eco_aval_fct_clientes_compartidos_pj = FALSE()
+
+	tablePermission eco_aval_fct_margen_agg_productos = FALSE()
+
+	tablePermission eco_aval_flujo_dinero = FALSE()
+
+	tablePermission eco_aval_sfc_tc = FALSE()
+
+	tablePermission eco_aval_tc_mcc = FALSE()
+
+	tablePermission eco_aval_tc_productos = FALSE()
+
+	tablePermission eco_aval_tc_transacciones = FALSE()
+
+	annotation PBI_Id = 2875d136221f4066ad79a5f21de8850f
+

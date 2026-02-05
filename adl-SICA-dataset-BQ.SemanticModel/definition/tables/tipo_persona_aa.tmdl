@@ -1,0 +1,27 @@
+table tipo_persona_aa
+	lineageTag: 10742f7d-2eee-485c-addb-2234208cb75f
+
+	column tipo_persona
+		lineageTag: 3a3f379d-ee45-4026-92c0-3990df10ba04
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [tipo_persona]
+
+		annotation SummarizationSetBy = Automatic
+
+	column homologado_tp
+		lineageTag: 537abe72-f858-4fa9-8055-9b5d645bece7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [homologado_tp]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tipo_persona_aa = calculated
+		mode: import
+		source =
+				
+				DATATABLE("tipo_persona",STRING,"homologado_tp",STRING,{{"N","Natural"}})
+
+	annotation PBI_Id = d2727f827abd485893b9577cdd7f9cec
+

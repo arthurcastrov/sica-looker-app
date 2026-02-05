@@ -1,0 +1,31 @@
+table variables_zeus_semana_mes
+	lineageTag: 0638f97d-5e15-49f0-824a-d68995d1823f
+
+	column variable
+		dataType: string
+		lineageTag: 94b52ffa-5dce-4dd8-bc00-96bf87e15784
+		summarizeBy: none
+		sourceColumn: variable
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		dataType: int64
+		formatString: 0
+		lineageTag: cf86efee-bca6-489e-a08a-b54f7b7a4dc6
+		summarizeBy: sum
+		sourceColumn: Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition variables_zeus_semana_mes = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45W8k3NKy5NzFHSUTJUitWJVgpOzU3MA/ONlGJjAQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [variable = _t, Orden = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"variable", type text}, {"Orden", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

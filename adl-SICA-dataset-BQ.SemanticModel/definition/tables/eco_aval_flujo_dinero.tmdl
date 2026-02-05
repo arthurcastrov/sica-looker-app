@@ -1,0 +1,151 @@
+table eco_aval_flujo_dinero
+	lineageTag: 93e0ace9-2658-40df-83d7-76120a92eda1
+
+	column numeroidaportante
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 13e551b4-bac2-4454-ae7a-2cc3293897b9
+		summarizeBy: none
+		sourceColumn: numeroidaportante
+
+		annotation SummarizationSetBy = Automatic
+
+	column razonsocialaportante
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 002b9f24-2284-4458-a568-c120bc3c1d91
+		summarizeBy: none
+		sourceColumn: razonsocialaportante
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_type
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3284b2e1-e1ea-4fd9-9de4-cd74d51bcb0f
+		summarizeBy: none
+		sourceColumn: id_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_client
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6756e974-7844-44ad-ba0f-18df138e0d35
+		summarizeBy: none
+		sourceColumn: id_client
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0447268d-ae1f-4d44-9502-90a1ee38260c
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column pfm_categoria
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0cb9b90e-1813-42ad-b88b-e16aad97f142
+		summarizeBy: none
+		sourceColumn: pfm_categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column str_razon_social
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0bfdf688-e956-4977-a48e-afae1afd1170
+		summarizeBy: none
+		sourceColumn: str_razon_social
+
+		annotation SummarizationSetBy = Automatic
+
+	column id_cliente_esteblecimiento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e982ca07-8f46-4fdf-90da-947294026c5d
+		summarizeBy: none
+		sourceColumn: id_cliente_esteblecimiento
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto_trx
+		dataType: double
+		sourceProviderType: double
+		lineageTag: e238c916-a3c1-453d-a409-814a7f01e6d4
+		summarizeBy: sum
+		sourceColumn: monto_trx
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad_trx
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 37bddf6e-7bc9-4787-a1f8-8ea3d4eee483
+		summarizeBy: sum
+		sourceColumn: cantidad_trx
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 174f3c71-cad1-4599-95ca-fe4ca00d3b0c
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column banco
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ba77361d-547a-4599-803a-6913df388220
+		summarizeBy: none
+		sourceColumn: banco
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2158043f-e0cc-43da-adf0-a1c057ce272d
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column YYYY_MM
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2659a437-2612-4948-bd2c-8030ba2e0a43
+		summarizeBy: none
+		sourceColumn: YYYY_MM
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_flujo_dinero = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_flujo_dinero_Table = sica_analytics_Schema{[Name="eco_aval_flujo_dinero",Kind="Table"]}[Data]
+				in
+				    eco_aval_flujo_dinero_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

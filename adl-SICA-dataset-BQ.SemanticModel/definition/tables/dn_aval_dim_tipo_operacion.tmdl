@@ -1,0 +1,96 @@
+table dn_aval_dim_tipo_operacion
+	lineageTag: db514c9a-bcc1-43a2-ab28-20014c5df62a
+
+	column codigo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b98b1374-b2fc-4c7e-987f-06ac4eefeecc
+		summarizeBy: none
+		sourceColumn: codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column operaciones_monetarias_y_no_monetarias
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6f29777c-296b-4c77-beaf-a801067d5dbc
+		summarizeBy: none
+		sourceColumn: operaciones_monetarias_y_no_monetarias
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad_que_reporta
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e3679dc1-eaa6-495e-aa4e-2b8e357cf5e3
+		summarizeBy: none
+		sourceColumn: entidad_que_reporta
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8de44fbf-af3c-414c-bb81-b53cc9efc0ee
+		summarizeBy: none
+		sourceColumn: tipo
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_operacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6abc9c87-08b0-4f00-b13e-f2a40b4d9e3a
+		summarizeBy: none
+		sourceColumn: grupo_operacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column co2
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4fc63605-7e08-40a4-af0e-eaeea958f95a
+		summarizeBy: none
+		sourceColumn: co2
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a0ac8c25-5cf3-45a6-a750-8fda4cae06df
+		summarizeBy: none
+		sourceColumn: tipo_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6f72cbbf-0b07-4e5f-9d11-28e37d18640f
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column cat_pagos_grupo_operacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 76632334-44e4-4970-b17f-e8385e18559a
+		summarizeBy: none
+		sourceColumn: cat_pagos_grupo_operacion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_dim_tipo_operacion = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_dim_tipo_operacion_Table = iniciativas_aval_Schema{[Name="dn_aval_dim_tipo_operacion",Kind="Table"]}[Data]
+				in
+				    dn_aval_dim_tipo_operacion_Table
+

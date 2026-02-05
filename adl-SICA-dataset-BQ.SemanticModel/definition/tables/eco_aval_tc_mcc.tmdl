@@ -1,0 +1,54 @@
+table eco_aval_tc_mcc
+	lineageTag: 29a6d5fc-f419-40a6-aa19-511723b2b9c4
+
+	column cod_mcc
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2e69ac0a-c804-4d9e-94c7-a9edb5f9f8c1
+		summarizeBy: none
+		sourceColumn: cod_mcc
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_mcc
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 89be63be-31b0-4657-89ec-80ae373566e0
+		summarizeBy: none
+		sourceColumn: descripcion_mcc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_actividad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7513dde7-e6aa-4865-a985-3991c7b5b187
+		summarizeBy: none
+		sourceColumn: cod_actividad
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 740577a5-23b5-433f-9e12-0d7bf92d4c12
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_tc_mcc = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_tc_mcc_Table = sica_analytics_Schema{[Name="eco_aval_tc_mcc",Kind="Table"]}[Data]
+				in
+				    eco_aval_tc_mcc_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

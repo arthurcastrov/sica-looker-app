@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "adl-SICA-dataset-BQ"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0b66cafd-c56c-4a1a-8e27-66039585cd5d"
+  }
+}

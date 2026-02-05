@@ -1,0 +1,40 @@
+table variables_de_caculo
+	lineageTag: 090d4a14-1e31-4d98-9809-a01952791a5f
+
+	column variables
+		lineageTag: 6a68a25a-185c-4783-8553-b8541fbb567e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [variables]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column1
+		lineageTag: 427d9530-d213-4198-a218-aec2d41bb189
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Column1]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column2
+		formatString: 0
+		lineageTag: be2cab8a-9bc6-4d66-913a-13e29f251c67
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column2]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition variables_de_caculo = calculated
+		mode: import
+		source =
+				
+				DATATABLE("variables",STRING,"Column1",STRING,"Column2",INTEGER,{{"antiguedad_producto","Prom. Antiguedad Producto",1},
+				                                                                {"cantidad_clientes","Cantidad Clientes",2},
+				                                                                {"cantidad_productos","Cantidad Productos",3},
+				                                                                {"margen_pos_provision","Margen Neto Financiero",4},
+				                                                                {"promedio productos cliente","Promedio Productos por Cliente",5}})
+
+	annotation PBI_Id = d4d240b12d3944b4b1654cccc972e94f
+

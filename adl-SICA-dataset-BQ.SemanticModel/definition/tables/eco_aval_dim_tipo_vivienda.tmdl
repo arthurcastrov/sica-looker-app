@@ -1,0 +1,36 @@
+table eco_aval_dim_tipo_vivienda
+	lineageTag: 58989332-605a-483e-8c86-b78103623c42
+
+	column housing_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 04f04e1a-2e39-46a7-b247-44a7ad1e44c4
+		summarizeBy: none
+		sourceColumn: housing_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column housing_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: baeff967-1478-40c8-a1ed-4000b9f08416
+		summarizeBy: none
+		sourceColumn: housing_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_tipo_vivienda = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_tipo_vivienda_Table = sica_analytics_Schema{[Name="eco_aval_dim_tipo_vivienda",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_tipo_vivienda_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

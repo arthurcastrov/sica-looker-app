@@ -1,0 +1,48 @@
+table Parameter
+	lineageTag: 3025ff07-bf98-45b9-9bd9-fcfbaa480a03
+
+	column Parameter
+		lineageTag: 70f207ef-08f3-4537-867b-796d4ed698a3
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: 784b3f12-d38b-4b71-bd3b-af7b577774af
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: c2d74ae3-f14b-4809-b459-139eb79c7e11
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Parameter = calculated
+		mode: import
+		source =
+				{
+				    ("$_cant_clientes", NAMEOF('Metrics'[$_cant_clientes]), 0),
+				    ("$_num_productos", NAMEOF('Metrics'[$_num_productos]), 1)
+				}
+
+	annotation PBI_Id = 873cb4bc43994603b44e1f37b09b8fec
+

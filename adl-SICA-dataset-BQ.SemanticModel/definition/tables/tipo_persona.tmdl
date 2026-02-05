@@ -1,0 +1,42 @@
+table tipo_persona
+	lineageTag: efbbbc31-6a8a-4dac-a5a7-daed99fec21a
+
+	column tipo_persona
+		dataType: string
+		lineageTag: dd98ecac-2491-46b8-a342-bb6367bd45a0
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_persona_largo
+		dataType: string
+		lineageTag: addd9558-cbd4-452f-b7d6-6635262fcbcd
+		summarizeBy: none
+		sourceColumn: tipo_persona_largo
+		sortByColumn: Orden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		dataType: int64
+		formatString: 0
+		lineageTag: 412d0c1e-6f2e-4c0c-980a-194a496e4ca1
+		summarizeBy: sum
+		sourceColumn: Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tipo_persona = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WCvBT0lEKSC0qzs9LVPBLLCktSswBihgqxeoAJb2QJL1Kiw6vTclMTgSKGYGlQ/JLwIphtLFSbCwA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [tipo_persona = _t, tipo_persona_largo = _t, Orden = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"tipo_persona", type text}, {"tipo_persona_largo", type text}, {"Orden", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

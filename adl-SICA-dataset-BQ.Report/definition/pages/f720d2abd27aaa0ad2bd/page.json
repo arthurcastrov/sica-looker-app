@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "f720d2abd27aaa0ad2bd",
+  "displayName": "Page 5",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visibility": "HiddenInViewMode",
+  "visualInteractions": [
+    {
+      "source": "be054f4b60008923d628",
+      "target": "f85abea7b619b2451d57",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e29bf5d0a408006b8ac1",
+      "target": "9bff8067a02a9d602e90",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e29bf5d0a408006b8ac1",
+      "target": "21dbf991144ed2c71975",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e29bf5d0a408006b8ac1",
+      "target": "f85abea7b619b2451d57",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e29bf5d0a408006b8ac1",
+      "target": "be054f4b60008923d628",
+      "type": "NoFilter"
+    },
+    {
+      "source": "be054f4b60008923d628",
+      "target": "a052b069c5c2a5a48000",
+      "type": "DataFilter"
+    },
+    {
+      "source": "4241cdff03ed51ed3408",
+      "target": "6333afbba30d6060dea0",
+      "type": "DataFilter"
+    }
+  ]
+}

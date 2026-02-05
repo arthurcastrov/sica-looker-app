@@ -1,0 +1,135 @@
+table dn_aval_fct_principalidad_transversal
+	lineageTag: 741a0ee3-ac56-4b61-9cff-64a098b9248e
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 49610c4b-2988-464b-9c55-f1d37153cda3
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tipo_id
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 73eb954a-b02b-4d40-aeed-17c8e7a86af9
+		summarizeBy: none
+		sourceColumn: tipo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_id
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8eca5ac7-197a-461e-bc14-463464fdc286
+		summarizeBy: none
+		sourceColumn: num_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f7192b81-edc2-46e0-854b-d12dcc99813c
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_principalidad_trx_tc
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 21fc6955-efc2-40c0-840c-dcf398e0bb45
+		summarizeBy: none
+		sourceColumn: rango_principalidad_trx_tc
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_principalidad_cartera
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: bbf5053c-f89f-4e2c-ba94-15d87ce0ae53
+		summarizeBy: none
+		sourceColumn: rango_principalidad_cartera
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bavv
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9efca002-7777-4ea4-ac0c-4652657fe04b
+		summarizeBy: none
+		sourceColumn: nomina_bavv
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bbog
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c1127b27-a538-4ebf-8d5b-baf005c935c2
+		summarizeBy: none
+		sourceColumn: nomina_bbog
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bocc
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c6bfc500-bc6d-4797-a0a5-6822cb1b93cb
+		summarizeBy: none
+		sourceColumn: nomina_bocc
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bpop
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 46d79b4b-397e-4891-808b-39963e6bbaf5
+		summarizeBy: none
+		sourceColumn: nomina_bpop
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 403ec1ce-fd7a-4ae4-8053-7fd9207134cf
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column users
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 1c80a3a1-1b77-42b1-bd43-53bbbf24cab9
+		summarizeBy: none
+		sourceColumn: users
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_transversal
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: dc3ca2d6-04cc-438c-8d4a-9a6768be2956
+		summarizeBy: none
+		sourceColumn: rango_transversal
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_fct_principalidad_transversal = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_fct_principalidad_transversal_Table = iniciativas_aval_Schema{[Name="dn_aval_fct_principalidad_transversal",Kind="Table"]}[Data]
+				in
+				    dn_aval_fct_principalidad_transversal_Table
+

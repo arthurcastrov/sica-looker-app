@@ -1,0 +1,144 @@
+table superfinanciera_captaciones
+	lineageTag: 46d41bc0-4092-4ff6-bf6f-988ddb349e05
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 352cf4cc-b8ca-4c9e-91f7-f6efa6441075
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tipoentidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0f5a1311-63d5-43dc-a60a-6ea1342349fa
+		summarizeBy: none
+		sourceColumn: tipoentidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigoentidad
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 309526c8-0412-4ff1-b884-4cc440c431b4
+		summarizeBy: sum
+		sourceColumn: codigoentidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_arreglado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0fe99874-5d3b-4513-84d0-3ff16befd791
+		summarizeBy: none
+		sourceColumn: nombre_arreglado
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 137e7d36-3286-4012-813f-27b6644d1f4d
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4bfa2687-f384-49b3-adc8-84ab68aede7b
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion_uca
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c70e96cc-290c-4406-a15c-8644bc3ad3db
+		summarizeBy: none
+		sourceColumn: descripcion_uca
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_subcuenta
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 36d2856c-5603-4ff6-8265-0a5395701a3b
+		summarizeBy: none
+		sourceColumn: nombre_subcuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column clientes
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 472fd01e-ccde-4ab7-965a-b9b112fa0ebb
+		summarizeBy: sum
+		sourceColumn: clientes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cuentas
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 3aaa1e54-60da-4f97-a8a4-85cc0f83e553
+		summarizeBy: sum
+		sourceColumn: cuentas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column valor
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 49bdc338-8835-4140-bb69-f01f63a2a007
+		summarizeBy: sum
+		sourceColumn: valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: fc6bf66a-39d8-4c90-a7b2-9db422fada9b
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad_corto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 636fbed9-997d-4e75-ae1b-f7c1ec4a7056
+		summarizeBy: none
+		sourceColumn: entidad_corto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition superfinanciera_captaciones = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    superfinanciera_captaciones_Table = sica_analytics_Schema{[Name="superfinanciera_captaciones",Kind="Table"]}[Data]
+				in
+				    superfinanciera_captaciones_Table
+

@@ -1,0 +1,83 @@
+table sica_roles
+	lineageTag: bcf4b388-b8ee-4b8e-9e67-4fb0b2966066
+
+	column usuario
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f2a47a03-baa9-416f-9b36-3eadf27f4dc8
+		summarizeBy: none
+		sourceColumn: usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column correo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: cffee464-32be-42ff-b29e-4fab24e344dd
+		summarizeBy: none
+		sourceColumn: correo
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7c252320-a0b2-499d-8619-ea85574dea63
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rol
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 10b4d7b0-489c-4670-bff9-d0bfcea1b458
+		summarizeBy: none
+		sourceColumn: rol
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 3022678c-1352-4e56-b211-e2516d3aaaa2
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_corto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c4950df8-a1dc-449a-ad95-0072cfe581ee
+		summarizeBy: none
+		sourceColumn: nombre_corto
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d39106bc-a2b1-47de-bafb-75ce61fedd08
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sica_roles = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    sica_roles_Table = sica_analytics_Schema{[Name="sica_roles",Kind="Table"]}[Data]
+				in
+				    sica_roles_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

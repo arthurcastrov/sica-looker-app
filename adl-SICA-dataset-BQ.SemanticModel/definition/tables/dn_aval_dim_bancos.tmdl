@@ -1,0 +1,69 @@
+table dn_aval_dim_bancos
+	lineageTag: 5fd867d3-920d-421a-8fb6-4111d52cf734
+
+	column tipo_entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 97910fee-e5f3-4fa3-b3d8-5cb65eafdfc5
+		summarizeBy: none
+		sourceColumn: tipo_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7302b8d1-6e8d-4aba-959d-754eded2b6e1
+		summarizeBy: none
+		sourceColumn: codigo_entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 57c6ea06-0954-484f-b7b7-2bedeb69e9d4
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_grupo_Aval
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ba81d2f9-c1b2-4921-8033-8165613231e9
+		summarizeBy: none
+		sourceColumn: flag_grupo_Aval
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_sistema
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2ffcba59-b06a-4592-94b7-4442a3ed5150
+		summarizeBy: none
+		sourceColumn: flag_sistema
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: b85978c7-75d7-4f02-9fc1-a24026d2bd9d
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_dim_bancos = m
+		mode: directQuery
+		source =
+				let
+				    Origen = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Origen{[Name="adl-analytics-project"]}[Data],
+				    iniciativas_aval_Schema = #"adl-analytics-project"{[Name="iniciativas_aval",Kind="Schema"]}[Data],
+				    dn_aval_dim_bancos_Table = iniciativas_aval_Schema{[Name="dn_aval_dim_bancos",Kind="Table"]}[Data]
+				in
+				    dn_aval_dim_bancos_Table
+

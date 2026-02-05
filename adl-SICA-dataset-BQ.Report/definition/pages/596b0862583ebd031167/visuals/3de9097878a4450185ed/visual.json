@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "3de9097878a4450185ed",
+  "position": {
+    "x": 18.362416107382547,
+    "y": 189.4228187919463,
+    "z": 0,
+    "height": 369.18120805369125,
+    "width": 1165.5302013422818,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calendar"
+                    }
+                  },
+                  "Property": "YYYY_MM"
+                }
+              },
+              "queryRef": "calendar.YYYY_MM",
+              "nativeQueryRef": "YYYY_MM",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_mc_margen_promedio"
+                }
+              },
+              "queryRef": "Metrics.$_mc_margen_promedio",
+              "nativeQueryRef": "$_mc_margen_promedio"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_mc_margen_promedio_cliente"
+                }
+              },
+              "queryRef": "Metrics.$_mc_margen_promedio_cliente",
+              "nativeQueryRef": "$_mc_margen_promedio_cliente"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "calendar"
+                  }
+                },
+                "Property": "YYYY_MM"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

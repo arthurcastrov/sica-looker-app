@@ -1,0 +1,45 @@
+table resum_gerencial_variables_de_caculo
+	lineageTag: 3265b6d2-c642-4b22-ad79-248794d56286
+
+	column variables
+		lineageTag: a91112e7-1307-476d-aae0-827291bc1ccc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [variables]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Indicador'
+		lineageTag: 7350340e-70aa-4398-addc-5d5c5eb70cf6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Nombre Indicador]
+		sortByColumn: Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		formatString: 0
+		lineageTag: ea8da841-7edd-406b-82b0-eeb9b1021305
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition resum_gerencial_variables_de_caculo = calculated
+		mode: import
+		source = ```
+				
+				DATATABLE("variables",STRING,"Nombre Indicador",STRING,"Orden",INTEGER,{{"clientes_activos","Clientes Activos",1},
+				                                                                {"total_productos_pasivo","Total Productos Pasivo",2},
+				                                                                {"total_productos_activo","Total Productos Activo",3},
+				                                                                {"saldos_productos_pasivo","Saldos Productos Pasivo",4},
+				                                                                {"saldos_productos_activo","Saldos Productos Activo",5},
+				                                                                {"margen_cliente","Margen por cliente Productos Activo",6},
+				                                                                {"indice_retencion","Índice de retención",7}                                                                
+				                                                                })
+				```
+
+	annotation PBI_Id = 5b000c64ed094546aaa185220ea42778
+

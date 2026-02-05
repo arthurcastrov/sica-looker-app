@@ -1,0 +1,31 @@
+EVALUATE
+
+var indicador = SELECTEDVALUE(resum_gerencial_variables_de_caculo[variables])
+var tipo_persona_var = SELECTEDVALUE(tipo_persona[tipo_persona])
+
+var clientes_pn = [$_cant_clientes]
+var clientes_pj = [$_cant_clientes]
+
+var productos_pn_pasivo = CALCULATE([$_num_productos],'2. eco_avl_fct_productos'[cod_producto] <= "0103")
+var productos_pj_pasivo = CALCULATE([$_num_productos_pj],'7 eco_aval_fct_productos_pj'[cod_producto] <= "0103")
+
+var productos_pn_activo = CALCULATE([$_num_productos],'2. eco_avl_fct_productos'[cod_producto] >= "0103")
+var productos_pj_activo = CALCULATE([$_num_productos_pj],'7 eco_aval_fct_productos_pj'[cod_producto] >= "0103")
+
+var saldo_pasivo_pn = [$_saldo_act_depositos_aval_PN]
+var saldo_pasivo_pj = [$_saldo_act_depositos_aval_PJ]
+
+var saldo_activo_pn = [$_total_saldo_obligaciones]
+var saldo_activo_pj = [$_total_saldo_obligaciones_PJ]
+
+RETURN
+SWITCH(TRUE(),
+        indicador= "clientes_activos" && tipo_persona = "PN",FORMAT(clientes_pn,"#,0"),
+        indicador="total_productos_pasivo" && tipo_persona = "PN",FORMAT(productos_pn_pasivo,"#,0"),
+        indicador="total_productos_activo" && tipo_persona = "PN",FORMAT(productos_pn_activo,"#,0"),
+        indicador="saldos_productos_pasivo" && tipo_persona = "PN",FORMAT(saldo_pasivo_pn,"$ #,0"),
+        indicador="saldos_productos_activo" && tipo_persona = "PN",FORMAT(saldo_activo_pn,"$ #,0"),
+
+
+        
+        "0")

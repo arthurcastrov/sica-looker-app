@@ -1,0 +1,182 @@
+table eco_aval_tc_productos
+	lineageTag: 909064d5-e6d5-42c5-9f10-d00585bb5cd3
+
+	column franquicia
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7e392703-701e-4412-81fb-8b932ab9b8fc
+		summarizeBy: none
+		sourceColumn: franquicia
+
+		annotation SummarizationSetBy = Automatic
+
+	column bin
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d1d7057c-524d-4fdb-84fb-1ba537dace0d
+		summarizeBy: none
+		sourceColumn: bin
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f85b4f70-fd80-4cde-9ee0-62fd6d80d084
+		summarizeBy: none
+		sourceColumn: estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column cod_bloqueo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8e1278cb-3c59-4a62-b434-a683c25a03f7
+		summarizeBy: none
+		sourceColumn: cod_bloqueo
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_num_dias_mora
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d2e0ffd0-d050-4049-bfad-fc7d04eea2c7
+		summarizeBy: sum
+		sourceColumn: avg_num_dias_mora
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_cupo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 2094f346-a119-4d94-870e-72f88e5a4aa2
+		summarizeBy: sum
+		sourceColumn: avg_cupo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_deuda_actual
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 748afb6b-655e-457d-9eb2-dcf21b6b4909
+		summarizeBy: sum
+		sourceColumn: avg_deuda_actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_cupo_disponible
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ea6ba471-82df-4b78-b9aa-9400541f5adc
+		summarizeBy: sum
+		sourceColumn: avg_cupo_disponible
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_cupo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: b60ae149-b5e6-4511-b7cd-36fc9aaf33eb
+		summarizeBy: sum
+		sourceColumn: sum_cupo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_deuda_actual
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 0faee2c5-fdf7-4627-845d-3371567b0d76
+		summarizeBy: sum
+		sourceColumn: sum_deuda_actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sum_cupo_disponible
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 81dd75fa-d71a-47fb-a94c-9c16bf39a223
+		summarizeBy: sum
+		sourceColumn: sum_cupo_disponible
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cantidad_tarjetas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 87bafe41-529b-4105-b30e-6576e1e61b88
+		summarizeBy: sum
+		sourceColumn: cantidad_tarjetas
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad_usuarios
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 966e2359-2204-4102-b04b-eef65f150fd4
+		summarizeBy: sum
+		sourceColumn: cantidad_usuarios
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 52133cfa-3e62-4593-bf16-e38fa7c44e4e
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2d606735-a121-4858-8e0d-4aa6d835ad9f
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: c40d5d4a-536c-4130-b269-ddd8347ef66d
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_tc_productos = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_tc_productos_Table = sica_analytics_Schema{[Name="eco_aval_tc_productos",Kind="Table"]}[Data]
+				in
+				    eco_aval_tc_productos_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

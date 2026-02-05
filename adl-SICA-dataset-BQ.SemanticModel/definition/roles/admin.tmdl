@@ -1,0 +1,37 @@
+role admin
+	modelPermission: read
+
+	tablePermission '1. eco_avl_fct_clientes'
+
+	tablePermission '2. eco_avl_fct_productos'
+
+	tablePermission '6 eco_aval_fct_clientes_pj'
+
+	tablePermission '7 eco_aval_fct_productos_pj'
+
+	tablePermission '8 eco_aval_ael_clientes_aval'
+
+	tablePermission bench_activo
+
+	tablePermission clientes_activos_dale
+
+	tablePermission eco_aval_ael_clientes_aval_cuentas_pj
+
+	tablePermission eco_aval_fct_clientes_compartidos
+
+	tablePermission eco_aval_fct_clientes_compartidos_pj
+
+	tablePermission eco_aval_fct_margen_agg_productos
+
+	tablePermission eco_aval_flujo_dinero
+
+	tablePermission eco_aval_sfc_tc
+
+	tablePermission eco_aval_tc_productos
+
+	tablePermission eco_aval_tc_transacciones
+
+	tablePermission flujo_dinero_agg
+
+	annotation PBI_Id = e20bcd8b691b4ec8bc3402eca7fbb497
+

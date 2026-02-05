@@ -1,0 +1,164 @@
+table eco_aval_sfc_tc
+	lineageTag: f7cb35d8-59ec-463c-8d17-f2b864242f82
+
+	column tipoentidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 614473a7-d7b5-4842-a125-6943c9ba48b0
+		summarizeBy: none
+		sourceColumn: tipoentidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigoentidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4cc305b1-0d1d-4dab-9128-88baeb09a48e
+		summarizeBy: none
+		sourceColumn: codigoentidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombreentidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8b627d98-45a1-4958-826f-290fca3a5f65
+		summarizeBy: none
+		sourceColumn: nombreentidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fechacorte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 4b6933d7-9f33-44a4-ac17-8dc6013ac2e2
+		summarizeBy: none
+		sourceColumn: fechacorte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column cod_uca
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ea5ed095-97ff-43ff-b46f-d7489c349896
+		summarizeBy: none
+		sourceColumn: cod_uca
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_uca
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 48da63a7-c4db-431c-a8b4-b41de5292e0b
+		summarizeBy: none
+		sourceColumn: nombre_uca
+
+		annotation SummarizationSetBy = Automatic
+
+	column subcuenta
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7b5416bb-0c8c-44d3-a4b7-82de8c5240c8
+		summarizeBy: none
+		sourceColumn: subcuenta
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ef6849e7-9df7-4946-bbc2-68d38238afa4
+		summarizeBy: none
+		sourceColumn: descripcion
+
+		annotation SummarizationSetBy = Automatic
+
+	column persona_natural
+		dataType: double
+		sourceProviderType: double
+		lineageTag: f9c0a358-6cef-4d56-9e32-23db8c6ac982
+		summarizeBy: sum
+		sourceColumn: persona_natural
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column persona_juridica
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 3b6704b1-525c-4903-a185-e6386050b7e0
+		summarizeBy: sum
+		sourceColumn: persona_juridica
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_tarjetas
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 5322cb34-9e5d-4727-afad-10178d424390
+		summarizeBy: sum
+		sourceColumn: total_tarjetas
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: ea0a1775-5a9a-4fde-a076-7964edf20bc2
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_aval_txt
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f62666de-003c-49d9-851a-1fe8c8e4aea5
+		summarizeBy: none
+		sourceColumn: grupo_aval_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	column grupo_aval
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c818a94b-e201-4315-9920-b02692ec1cd8
+		summarizeBy: sum
+		sourceColumn: grupo_aval
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidades_aval_txt
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 92b24cc8-252a-43e5-a9c5-ea3a64a53f5c
+		summarizeBy: none
+		sourceColumn: entidades_aval_txt
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_sfc_tc = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_sfc_tc_Table = sica_analytics_Schema{[Name="eco_aval_sfc_tc",Kind="Table"]}[Data]
+				in
+				    eco_aval_sfc_tc_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

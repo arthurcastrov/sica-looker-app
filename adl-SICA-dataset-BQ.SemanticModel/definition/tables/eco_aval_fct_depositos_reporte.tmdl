@@ -1,0 +1,289 @@
+table eco_aval_fct_depositos_reporte
+	lineageTag: 479cbc8d-6ed5-459b-a5de-f029ef273eec
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: fcf9f59f-2c6b-4cc7-abf9-c1e9bb7fecf7
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5d8aa321-bfef-4593-b844-814f95efb016
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column segmento
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 64278fe6-7432-4543-a8fb-bd4192b1adc5
+		summarizeBy: none
+		sourceColumn: segmento
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b1de5c06-d530-4fe4-9ecc-d7707ff22a41
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column caracteristica_remuneracion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 25d4730e-dd59-421c-91e3-b44321d2c99a
+		summarizeBy: none
+		sourceColumn: caracteristica_remuneracion
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_inicio_mes
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 7eadb195-48e3-473a-a311-1c7166f2476e
+		summarizeBy: sum
+		sourceColumn: saldo_inicio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column saldo_fin_mes
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 2d0fc2f8-417f-460c-9b21-9f607e8bd35a
+		summarizeBy: sum
+		sourceColumn: saldo_fin_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column flujos_netos
+		dataType: double
+		sourceProviderType: double
+		lineageTag: a2cb0e99-7ce9-48e8-a5b3-1c63cae341e2
+		summarizeBy: sum
+		sourceColumn: flujos_netos
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column saldo_promedio_mes
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 0bd93a9a-f2c2-43cf-ac82-fe4dd7814698
+		summarizeBy: sum
+		sourceColumn: saldo_promedio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column saldo_promedio_cliente
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 8593a3bd-039c-4031-b4f4-d4e8c341894c
+		summarizeBy: sum
+		sourceColumn: saldo_promedio_cliente
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column clientes_inicio_mes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f599b1a1-a156-4b75-9945-bd1f63ab5af7
+		summarizeBy: sum
+		sourceColumn: clientes_inicio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column nuevos_clientes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2504d211-be4c-4aa7-825a-9507bbde58c4
+		summarizeBy: sum
+		sourceColumn: nuevos_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column cierre_relacion_clientes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d3983495-f2de-4113-8699-a0898caf9d00
+		summarizeBy: sum
+		sourceColumn: cierre_relacion_clientes
+
+		annotation SummarizationSetBy = Automatic
+
+	column clientes_fin_mes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 09ce02f4-b235-4b4e-8c25-8cc192b35d46
+		summarizeBy: sum
+		sourceColumn: clientes_fin_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_activas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 8faad5e1-aa53-443b-99d1-1927b15094d3
+		summarizeBy: sum
+		sourceColumn: cuentas_activas
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_aperturadas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 6b97ea06-1ed2-4816-b558-43dac983d4db
+		summarizeBy: sum
+		sourceColumn: cuentas_aperturadas
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_canceladas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f86f10f1-f7d5-4cdf-b053-9068d367305c
+		summarizeBy: sum
+		sourceColumn: cuentas_canceladas
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_inactivas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 53837c13-91ad-44cc-b04c-613432238e19
+		summarizeBy: sum
+		sourceColumn: cuentas_inactivas
+
+		annotation SummarizationSetBy = Automatic
+
+	column activacion_inactivacion
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: bb481434-cd50-477c-a3e4-980c4a7c434c
+		summarizeBy: sum
+		sourceColumn: activacion_inactivacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column tasa_retencion
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 227f2142-a81e-4857-82f1-b9d0cbe49268
+		summarizeBy: sum
+		sourceColumn: tasa_retencion
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tasa_cancelacion
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 29758623-c0a3-4ec1-8211-c0aa2208b321
+		summarizeBy: sum
+		sourceColumn: tasa_cancelacion
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tasa_efectiva_rendimiento
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 976279a4-a2da-4a24-b867-e9eaca7461cc
+		summarizeBy: sum
+		sourceColumn: tasa_efectiva_rendimiento
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9ea2e8ce-6954-405e-88f9-be2813cf255c
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_activas_inicio_mes
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 27083798-c891-4f1f-98bc-6208612e9bb3
+		summarizeBy: sum
+		sourceColumn: cuentas_activas_inicio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_activas_inicio_que_siguen_activas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0ced8515-cb8e-4680-89c2-7669b7f661d5
+		summarizeBy: sum
+		sourceColumn: cuentas_activas_inicio_que_siguen_activas
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_activas_inicio_que_no_siguen_activas
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 114832f4-0dd6-40ce-a506-7dcc12894f1d
+		summarizeBy: sum
+		sourceColumn: cuentas_activas_inicio_que_no_siguen_activas
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 465f93f4-e9d8-4e07-ad98-a6f9fab43b2f
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_fct_depositos_reporte = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_fct_depositos_reporte_Table = sica_analytics_Schema{[Name="eco_aval_fct_depositos_reporte",Kind="Table"]}[Data]
+				in
+				    eco_aval_fct_depositos_reporte_Table
+

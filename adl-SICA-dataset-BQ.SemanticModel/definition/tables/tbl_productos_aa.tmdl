@@ -1,0 +1,23 @@
+table tbl_productos_aa
+	lineageTag: b09b6ba7-dd1c-4f44-87bd-4ba97ca73dfb
+
+	column producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 21795c4a-87a5-421d-84aa-2c11c04bbc98
+		summarizeBy: none
+		sourceColumn: producto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tbl_productos_aa = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    tbl_productos_aa_Table = sica_analytics_Schema{[Name="tbl_productos_aa",Kind="Table"]}[Data]
+				in
+				    tbl_productos_aa_Table
+

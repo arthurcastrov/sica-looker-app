@@ -1,0 +1,415 @@
+table '8 eco_aval_ael_clientes_aval'
+	lineageTag: dc0967ae-bf64-4df7-96d6-9a5e11c2d6a3
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2ba99776-62b9-48c4-8640-639b2c04c6e3
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column anio_mes
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f0df1f49-3a9f-4c40-9be0-f7b2ca60ff55
+		summarizeBy: none
+		sourceColumn: anio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipoidaportante_id
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a5c67546-2f45-4c0c-ba96-92b157cb7e4e
+		summarizeBy: none
+		sourceColumn: tipoidaportante_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroidaportante
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: efb48423-f6ed-451e-ac9f-7d8cb22b5030
+		summarizeBy: none
+		sourceColumn: numeroidaportante
+
+		annotation SummarizationSetBy = Automatic
+
+	column razonsocialaportante
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 21acf37f-43d7-4383-9834-159c79613238
+		summarizeBy: none
+		sourceColumn: razonsocialaportante
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipoidempleado_id
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 7e19e93a-3285-433c-b298-83519ea63a8d
+		summarizeBy: none
+		sourceColumn: tipoidempleado_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroidempleado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 13e7aebd-521a-4b4a-b38e-98ebf22adb58
+		summarizeBy: none
+		sourceColumn: numeroidempleado
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_empleado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ea846c70-355f-4e08-bd0b-b0f02b526e0a
+		summarizeBy: none
+		sourceColumn: nombre_empleado
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipocotizante
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a3068a8a-2d94-4719-8478-3db4f0155cd7
+		summarizeBy: none
+		sourceColumn: tipocotizante
+
+		annotation SummarizationSetBy = Automatic
+
+	column salariomensual
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d07321e2-5a72-486f-acee-c9862128ff86
+		summarizeBy: sum
+		sourceColumn: salariomensual
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombreadministradoraccf
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8c1cc49f-0550-4339-857c-a8a4fcbaccae
+		summarizeBy: none
+		sourceColumn: nombreadministradoraccf
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombreadministradoraeps
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 4881521d-c88f-487a-8dd0-0f752e7fb1df
+		summarizeBy: none
+		sourceColumn: nombreadministradoraeps
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombreadministradoraafp
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 646da39a-5a6a-4bc8-9032-0d64a15cba48
+		summarizeBy: none
+		sourceColumn: nombreadministradoraafp
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciudad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5f0deb41-8c66-4a93-b7f1-17f70a3a84a9
+		summarizeBy: none
+		sourceColumn: ciudad
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciudadempleado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 17a91a67-dcc3-448f-a12e-707f7b333d77
+		summarizeBy: none
+		sourceColumn: ciudadempleado
+
+		annotation SummarizationSetBy = Automatic
+
+	column departamentoempleado
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d4b7ab72-b0e1-4cd1-8f77-f0781548c0ba
+		summarizeBy: none
+		sourceColumn: departamentoempleado
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigoactividadeconomica
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0112f2c2-436a-4516-aae9-f26b528c3542
+		summarizeBy: none
+		sourceColumn: codigoactividadeconomica
+
+		annotation SummarizationSetBy = Automatic
+
+	column descripcionclaseaportante
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 39def7bc-ed5e-4472-b182-524a061156af
+		summarizeBy: none
+		sourceColumn: descripcionclaseaportante
+
+		annotation SummarizationSetBy = Automatic
+
+	column numeroempleados
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a13f3cd6-3758-4fff-b395-207371cfc35b
+		summarizeBy: sum
+		sourceColumn: numeroempleados
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_salario
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e8b234a7-79e6-4711-8a97-599e2030f054
+		summarizeBy: none
+		sourceColumn: rango_salario
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bocc_pn
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: e5b2a522-3686-4911-80f4-b381f28e3229
+		summarizeBy: sum
+		sourceColumn: flag_bocc_pn
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bavv_pn
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a5022682-9a40-4d43-a0d7-9404acdb0425
+		summarizeBy: sum
+		sourceColumn: flag_bavv_pn
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bpop_pn
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 673e5070-b166-42e9-b9aa-1a92429fa149
+		summarizeBy: sum
+		sourceColumn: flag_bpop_pn
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bbog_pn
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9502408c-ae5b-4cf1-8abb-8ebc3bfa6820
+		summarizeBy: sum
+		sourceColumn: flag_bbog_pn
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bocc_pj
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: fd972cee-2dba-4439-8422-f1b512f733a1
+		summarizeBy: sum
+		sourceColumn: flag_bocc_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bavv_pj
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d838d38a-1d57-49a4-bc01-0eb860dc3aed
+		summarizeBy: sum
+		sourceColumn: flag_bavv_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bpop_pj
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f5ece64b-2915-4f94-915a-649b035f22e8
+		summarizeBy: sum
+		sourceColumn: flag_bpop_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_bbog_pj
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: b97c47c4-dc64-480f-b4cb-47ea451a4d6f
+		summarizeBy: sum
+		sourceColumn: flag_bbog_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bavv
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 216598a1-42c1-4602-a7e8-aab3ec7d7159
+		summarizeBy: none
+		sourceColumn: nomina_bavv
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bbog
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 99944c94-f4cb-46b1-8167-8eb696606da6
+		summarizeBy: none
+		sourceColumn: nomina_bbog
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bocc
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 80e4f3bc-1e84-4f82-8a41-fee8bba35af6
+		summarizeBy: none
+		sourceColumn: nomina_bocc
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_bpop
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 9abcdcbd-9ee9-4776-9483-403f19113a3f
+		summarizeBy: none
+		sourceColumn: nomina_bpop
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_aval_pn
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c70adc3c-666c-4a62-b258-edcee8077014
+		summarizeBy: sum
+		sourceColumn: flag_aval_pn
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_aval_pj
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: b3aab015-6a6f-4aad-b75d-782e5a4a978c
+		summarizeBy: sum
+		sourceColumn: flag_aval_pj
+
+		annotation SummarizationSetBy = Automatic
+
+	column nomina_aval_pn
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 90ba3f09-f8a0-450a-b771-1a9d12de7e07
+		summarizeBy: none
+		sourceColumn: nomina_aval_pn
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuenta_aho_cte
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e95180d2-2d02-4f38-8fc6-4bece4af62d8
+		summarizeBy: none
+		sourceColumn: cuenta_aho_cte
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_aho_cte_pj_bavv
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b8834172-354f-4814-8195-6b1f7df8c590
+		summarizeBy: none
+		sourceColumn: cuentas_aho_cte_pj_bavv
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_aho_cte_pj_bbog
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e985705c-848c-4c75-9056-88ef9afc0afb
+		summarizeBy: none
+		sourceColumn: cuentas_aho_cte_pj_bbog
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_aho_cte_pj_bocc
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d84f3292-a999-4c45-9ac0-0bceb87b7db6
+		summarizeBy: none
+		sourceColumn: cuentas_aho_cte_pj_bocc
+
+		annotation SummarizationSetBy = Automatic
+
+	column cuentas_aho_cte_pj_bpop
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a73a5f58-8738-4866-83f0-158e8ad9e5cd
+		summarizeBy: none
+		sourceColumn: cuentas_aho_cte_pj_bpop
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 49e5503b-456b-4937-afa0-a39a035dfce1
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 565a9d4b-934b-43ec-b46f-72a81687aa68
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition '8 eco_aval_ael_clientes_aval' = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_ael_clientes_aval_Table = sica_analytics_Schema{[Name="eco_aval_ael_clientes_aval",Kind="Table"]}[Data]
+				in
+				    eco_aval_ael_clientes_aval_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,45 @@
+table eco_aval_dim_producto
+	lineageTag: 3fa9c65a-faa9-4a24-954c-b922c6449854
+
+	column codigo__producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8a5b8851-ff9a-43fa-a4cb-d26d489ddd8e
+		summarizeBy: none
+		sourceColumn: codigo__producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_producto
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 3d7bd167-dd74-4a70-8288-077f73e643d3
+		summarizeBy: none
+		sourceColumn: nombre_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column activo_pasivo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f55b4a43-ece9-4e43-989c-4c1781d25e62
+		summarizeBy: none
+		sourceColumn: activo_pasivo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_producto = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_producto_Table = sica_analytics_Schema{[Name="eco_aval_dim_producto",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_producto_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

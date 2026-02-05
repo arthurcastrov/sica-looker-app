@@ -1,0 +1,36 @@
+table eco_aval_dim_estado_civil
+	lineageTag: 62c902bb-a54e-4e0c-8459-ca2f4f45fd2b
+
+	column marital_st_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 32a41156-8efc-40e7-a7dd-5a29bdd33607
+		summarizeBy: none
+		sourceColumn: marital_st_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column marital_st_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 698bad6d-0563-4af0-88cf-50b72955faaa
+		summarizeBy: none
+		sourceColumn: marital_st_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_estado_civil = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_estado_civil_Table = sica_analytics_Schema{[Name="eco_aval_dim_estado_civil",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_estado_civil_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

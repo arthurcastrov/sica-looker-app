@@ -1,0 +1,538 @@
+table sica_saldos_clientes_pj_aa
+	lineageTag: bdb08596-36b2-40e3-adcb-b0873e7b7bd0
+
+	column tipo_id
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 57956bfd-d75c-4a4e-a672-641d10c723e9
+		summarizeBy: none
+		sourceColumn: tipo_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_id
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6a3b8962-f526-47b0-87d1-8299a746e9c2
+		summarizeBy: none
+		sourceColumn: num_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_persona
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f695372a-40d1-4290-9cf0-f3354960fca3
+		summarizeBy: none
+		sourceColumn: tipo_persona
+
+		annotation SummarizationSetBy = Automatic
+
+	column flag_gobierno
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 78ce953b-e427-4c39-959f-325b2d05f2c2
+		summarizeBy: sum
+		sourceColumn: flag_gobierno
+
+		annotation SummarizationSetBy = Automatic
+
+	column aho_cant_productos
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 74870a3d-ac86-4667-b2c8-6320a0687ce8
+		summarizeBy: sum
+		sourceColumn: aho_cant_productos
+
+		annotation SummarizationSetBy = Automatic
+
+	column aho_saldo_actual
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 437b2222-1dea-4dd7-bc88-feceddefb26f
+		summarizeBy: sum
+		sourceColumn: aho_saldo_actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column aho_saldo_promedio
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 0aeaf371-a4e8-4263-884c-024bdfff1a5e
+		summarizeBy: sum
+		sourceColumn: aho_saldo_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cor_cant_productos
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0e0a0024-0993-4afa-abef-84a713167a14
+		summarizeBy: sum
+		sourceColumn: cor_cant_productos
+
+		annotation SummarizationSetBy = Automatic
+
+	column cor_saldo_actual
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 317aa8cd-aca2-47d8-80bd-b7d1c5d02bb9
+		summarizeBy: sum
+		sourceColumn: cor_saldo_actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cor_saldo_promedio
+		dataType: double
+		sourceProviderType: double
+		lineageTag: a47b0a86-54d0-4839-9429-cbe2aa2c45a5
+		summarizeBy: sum
+		sourceColumn: cor_saldo_promedio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cdt_cant_productos
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 1c3bfef9-dabe-4abd-a6f9-928cc94eedbf
+		summarizeBy: sum
+		sourceColumn: cdt_cant_productos
+
+		annotation SummarizationSetBy = Automatic
+
+	column cdt_saldo_actual
+		dataType: double
+		sourceProviderType: double
+		lineageTag: fdaab25f-4904-4d3e-9616-1cb11dceb13e
+		summarizeBy: sum
+		sourceColumn: cdt_saldo_actual
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_otro_valor_inicial
+		dataType: double
+		sourceProviderType: double
+		lineageTag: af37336b-f0a0-49ae-9d65-bd61fc3a49b7
+		summarizeBy: sum
+		sourceColumn: act_otro_valor_inicial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_leasing_valor_inicial
+		dataType: double
+		sourceProviderType: double
+		lineageTag: b9f046aa-dd20-4d49-944d-6ec3170dfc77
+		summarizeBy: sum
+		sourceColumn: act_leasing_valor_inicial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_cartera_ord_valor_inicial
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 466ce1d9-9231-42c6-b28a-67274bbd889c
+		summarizeBy: sum
+		sourceColumn: act_cartera_ord_valor_inicial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_tdc_rotativo_valor_inicial
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 37d72adf-a289-4cac-a951-e5e4d1a5c342
+		summarizeBy: sum
+		sourceColumn: act_tdc_rotativo_valor_inicial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_factoring_valor_inicial
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 68a38da6-0416-414f-b9fa-9a2c20c54d0f
+		summarizeBy: sum
+		sourceColumn: act_factoring_valor_inicial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_sobregiro_valor_inicial
+		dataType: double
+		sourceProviderType: double
+		lineageTag: d49d924b-80ae-4904-a33d-42154af51ec5
+		summarizeBy: sum
+		sourceColumn: act_sobregiro_valor_inicial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_otro_valor_cuota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 81c4c773-b7b1-456f-933c-0b8b4994e7f4
+		summarizeBy: sum
+		sourceColumn: act_otro_valor_cuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_leasing_valor_cuota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: e7f40e3a-6f2c-46d4-b087-b6d9314ba4ce
+		summarizeBy: sum
+		sourceColumn: act_leasing_valor_cuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_cartera_ord_valor_cuota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 79229904-70b1-4c53-b5d1-8d6efccf9369
+		summarizeBy: sum
+		sourceColumn: act_cartera_ord_valor_cuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_tdc_rotativo_valor_cuota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 2a0c5110-20dc-409e-8433-1db09ad58ba0
+		summarizeBy: sum
+		sourceColumn: act_tdc_rotativo_valor_cuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_factoring_valor_cuota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ea977452-1e07-4938-b2cb-da348c618778
+		summarizeBy: sum
+		sourceColumn: act_factoring_valor_cuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_sobregiro_valor_cuota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: ab210adb-4957-44ab-9462-fce69b78f2db
+		summarizeBy: sum
+		sourceColumn: act_sobregiro_valor_cuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_otro_saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 3c93e0f6-dbe1-4e3b-9f6f-75bbcc76f2fd
+		summarizeBy: sum
+		sourceColumn: act_otro_saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_leasing_saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 56b77a03-c170-45d1-a1f5-ace058ed37c1
+		summarizeBy: sum
+		sourceColumn: act_leasing_saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_cartera_ord_saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 0f3c3a4a-5934-44a8-9307-f10dd8257dcb
+		summarizeBy: sum
+		sourceColumn: act_cartera_ord_saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_tdc_rotativo_saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: de413ab3-a179-4712-a300-5aad0754ddc2
+		summarizeBy: sum
+		sourceColumn: act_tdc_rotativo_saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_factoring_saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: e55e01ea-3d3e-4f3b-b956-a584d477d8f0
+		summarizeBy: sum
+		sourceColumn: act_factoring_saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_sobregiro_saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: e1385f52-6707-424e-b824-b9a27a7400ab
+		summarizeBy: sum
+		sourceColumn: act_sobregiro_saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_otro_cant_oblig
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: ecc97564-41fd-468d-b563-f2ec0fa8226c
+		summarizeBy: sum
+		sourceColumn: act_otro_cant_oblig
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_leasing_cant_oblig
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 391acc8c-7222-46f3-b0ed-ea731dbfc4bf
+		summarizeBy: sum
+		sourceColumn: act_leasing_cant_oblig
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_cartera_ord_cant_oblig
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 12934bc1-c545-48cd-8d59-4e5a4d0fcf23
+		summarizeBy: sum
+		sourceColumn: act_cartera_ord_cant_oblig
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_tdc_rotativo_cant_oblig
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 23d25cc3-a043-4ef4-9230-7d4d7d4aea10
+		summarizeBy: sum
+		sourceColumn: act_tdc_rotativo_cant_oblig
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_factoring_cant_oblig
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 5868386a-3d52-43b0-92cf-ead4716d2179
+		summarizeBy: sum
+		sourceColumn: act_factoring_cant_oblig
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_sobregiro_cant_oblig
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d17a70b2-83ec-4953-9611-00f74b0e3567
+		summarizeBy: sum
+		sourceColumn: act_sobregiro_cant_oblig
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_max_dias_mora
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 1584ae11-5a85-4d75-8ea8-001fe87834df
+		summarizeBy: sum
+		sourceColumn: act_max_dias_mora
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_calificacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 94ac5b1f-d208-4869-9c83-97b066622393
+		summarizeBy: none
+		sourceColumn: act_calificacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column act_tot_valor_inicial
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 3def22a9-a246-46aa-9872-dfc50157b8b3
+		summarizeBy: sum
+		sourceColumn: act_tot_valor_inicial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_tot_valor_cuota
+		dataType: double
+		sourceProviderType: double
+		lineageTag: f61012b0-67a7-4e57-a525-7e6deee5bc50
+		summarizeBy: sum
+		sourceColumn: act_tot_valor_cuota
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_tot_saldo
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 47655719-de21-4d48-9ede-a626ba6d8602
+		summarizeBy: sum
+		sourceColumn: act_tot_saldo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column act_tot_cant_oblig
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d3272ec1-b1e7-4c16-95b1-c076804a55f4
+		summarizeBy: sum
+		sourceColumn: act_tot_cant_oblig
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 2a67111e-4d03-47d8-b51b-9b85a9c3c812
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column periodo
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 69e56fa0-0e5b-48bb-8a58-b81924c3ab77
+		summarizeBy: none
+		sourceColumn: periodo
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e4a2e360-cb28-4cbe-b5f1-6857f01c3d08
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 32183e59-ef36-4665-8c22-0101ed4bdd06
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	column cant_obligaciones_tot
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 10d52825-f19c-4210-bda3-3dac351ec9dc
+		summarizeBy: sum
+		sourceColumn: cant_obligaciones_tot
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_obligaciones_tot
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 5496d6d0-f8f6-410e-bee3-51c547c1657a
+		summarizeBy: sum
+		sourceColumn: saldo_obligaciones_tot
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cant_depositos_tot
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 1d6d0bb1-4951-45ef-b43b-6218bb56a56f
+		summarizeBy: sum
+		sourceColumn: cant_depositos_tot
+
+		annotation SummarizationSetBy = Automatic
+
+	column saldo_depositos_tot
+		dataType: double
+		sourceProviderType: double
+		lineageTag: 01ed6662-e9ef-47da-b55e-47f17f04afc6
+		summarizeBy: sum
+		sourceColumn: saldo_depositos_tot
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition sica_saldos_clientes_pj_aa = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    sica_saldos_clientes_pj_aa_Table = sica_analytics_Schema{[Name="sica_saldos_clientes_pj_aa",Kind="Table"]}[Data]
+				in
+				    sica_saldos_clientes_pj_aa_Table
+

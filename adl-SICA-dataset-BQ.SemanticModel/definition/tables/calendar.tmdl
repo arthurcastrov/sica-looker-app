@@ -1,0 +1,226 @@
+table calendar
+	lineageTag: 32ebf4dc-c845-41fb-bfb2-fe849099bb6d
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: e5aee9f6-3fbc-432c-82d5-ed991c171b7e
+		summarizeBy: none
+		sourceColumn: Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column unixDate
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 87fb5851-aa5d-472a-8ded-d118a16bfd8d
+		summarizeBy: sum
+		sourceColumn: unixDate
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0e8d469d-d7e9-4f9a-821d-f8ddf60ec61e
+		summarizeBy: sum
+		sourceColumn: Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column weekOfYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a29729de-d944-4bfd-8081-655d1c9d8961
+		summarizeBy: sum
+		sourceColumn: weekOfYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dayOfYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 95c34a14-7296-45e9-8c04-1fef6f35d002
+		summarizeBy: sum
+		sourceColumn: dayOfYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscalYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 989d5d05-774f-4447-8496-d22cafd2b734
+		summarizeBy: sum
+		sourceColumn: fiscalYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fiscalQtr
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c563d659-f44e-4263-ac52-3439c5c137af
+		summarizeBy: sum
+		sourceColumn: fiscalQtr
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthOfTheYear
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: ff70cabb-6b27-4bb5-9890-0db30dedc7b9
+		summarizeBy: sum
+		sourceColumn: MonthOfTheYear
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthName
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 23c3b0fc-2146-46a6-8895-a6bf829e3cb6
+		summarizeBy: none
+		sourceColumn: monthName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dayOfWeek
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f9936354-66e9-42f2-8ce5-b3027568e1de
+		summarizeBy: sum
+		sourceColumn: dayOfWeek
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column dayOfWeekName
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: fec82ba3-219a-4318-966f-81a3c89e27fe
+		summarizeBy: none
+		sourceColumn: dayOfWeekName
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column isWeekday
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: aa68b4fb-8d52-4656-9248-6a2ebb6d4652
+		summarizeBy: sum
+		sourceColumn: isWeekday
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column countryRegionCode
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: dc959b14-4991-4613-a8e9-d23e08bad698
+		summarizeBy: none
+		sourceColumn: countryRegionCode
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column holidayNameSpanish
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ebe97ed2-0a5d-4e51-b82b-adc050d3d610
+		summarizeBy: none
+		sourceColumn: holidayNameSpanish
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column holidayNameEnglish
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6586e86c-fdbb-401c-b43b-38b406116a03
+		summarizeBy: none
+		sourceColumn: holidayNameEnglish
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column YYYY_MM_DD
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: a8fd2939-15d8-43d4-8a20-061d8ab51e9a
+		summarizeBy: none
+		sourceColumn: YYYY_MM_DD
+
+		annotation SummarizationSetBy = Automatic
+
+	column YYYY_MM
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 25605e79-13c1-4bf6-a259-0044a7352079
+		summarizeBy: none
+		sourceColumn: YYYY_MM
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio_mes
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5e90f5fd-1530-4357-aa75-b345193e4aeb
+		summarizeBy: none
+		sourceColumn: anio_mes
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calendar = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    lytics_pro_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    calendar_Table = lytics_pro_Schema{[Name="calendar",Kind="Table"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(calendar_Table, each [Date] >= fecha_inicial and [Date] <= Date.AddDays(Date.From( DateTime.FixedLocalNow() ), -1 ))
+				in
+				    #"Filtered Rows"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

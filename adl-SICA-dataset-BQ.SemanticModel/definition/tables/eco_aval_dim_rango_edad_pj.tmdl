@@ -1,0 +1,42 @@
+table eco_aval_dim_rango_edad_pj
+	lineageTag: f11aead7-5b87-4884-92cb-10f400619618
+
+	column rango_edad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: e0b8848f-e840-4fb9-80c0-d6fb048e54e6
+		summarizeBy: none
+		sourceColumn: rango_edad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_edad_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 481ad8d4-cf6a-4bb2-a40e-9c216e79a3a5
+		summarizeBy: none
+		sourceColumn: rango_edad_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	column orden
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 0e6c57b7-944d-4290-8456-5794e5ded563
+		summarizeBy: sum
+		sourceColumn: orden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_rango_edad_pj = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_rango_edad_pj_Table = sica_analytics_Schema{[Name="eco_aval_dim_rango_edad_pj",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_rango_edad_pj_Table
+

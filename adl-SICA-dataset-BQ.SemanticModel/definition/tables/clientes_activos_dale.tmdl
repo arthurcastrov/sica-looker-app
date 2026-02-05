@@ -1,0 +1,72 @@
+table clientes_activos_dale
+	lineageTag: ecd4bcdf-8c04-4713-a784-35980baf0e13
+
+	column clientidtype
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d92fb583-acd0-4491-b292-929d4e645a44
+		summarizeBy: none
+		sourceColumn: clientidtype
+
+		annotation SummarizationSetBy = Automatic
+
+	column clientid
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 83bc73fb-f345-4046-8309-68cd8334fab8
+		summarizeBy: none
+		sourceColumn: clientid
+
+		annotation SummarizationSetBy = Automatic
+
+	column entidad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ef890977-9a52-45e1-989c-80ed499ec4de
+		summarizeBy: none
+		sourceColumn: entidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column users
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f49581b5-e826-4d0e-a442-9e66674caf39
+		summarizeBy: none
+		sourceColumn: users
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_corte
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 3c15b8aa-0a06-4f61-97bc-59a7cd6e6f64
+		summarizeBy: none
+		sourceColumn: fecha_corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 0df5af72-8b4e-44f7-a7ea-0f264216cdab
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition clientes_activos_dale = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    clientes_activos_dale_Table = sica_analytics_Schema{[Name="clientes_activos_dale",Kind="Table"]}[Data]
+				in
+				    clientes_activos_dale_Table
+

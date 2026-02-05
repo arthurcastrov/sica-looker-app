@@ -1,0 +1,127 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "5afc81280e2cec6a1443",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "height": 345.02013422818789,
+    "width": 835.00671140939585,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "calendar"
+                    }
+                  },
+                  "Property": "YYYY_MM"
+                }
+              },
+              "queryRef": "calendar.YYYY_MM",
+              "nativeQueryRef": "YYYY_MM",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_valor_transacciones_tc"
+                }
+              },
+              "queryRef": "Metrics.$_valor_transacciones_tc",
+              "nativeQueryRef": "$_valor_transacciones_tc"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_tc_cantidad_tarjetas"
+                }
+              },
+              "queryRef": "Metrics.$_tc_cantidad_tarjetas",
+              "nativeQueryRef": "$_tc_cantidad_tarjetas"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$tc_ticket_promedio"
+                }
+              },
+              "queryRef": "Metrics.$tc_ticket_promedio",
+              "nativeQueryRef": "$tc_ticket_promedio"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_tc_cantidad_trx_x_usuario"
+                }
+              },
+              "queryRef": "Metrics.$_tc_cantidad_trx_x_usuario",
+              "nativeQueryRef": "$_tc_cantidad_trx_x_usuario"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_tc_promediodeutatarjeta"
+                }
+              },
+              "queryRef": "Metrics.$_tc_promediodeutatarjeta",
+              "nativeQueryRef": "$_tc_promediodeutatarjeta"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Metrics"
+                    }
+                  },
+                  "Property": "$_tc_%_utilizacion"
+                }
+              },
+              "queryRef": "Metrics.$_tc_%_utilizacion",
+              "nativeQueryRef": "$_tc_%_utilizacion"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,19 @@
+table tabla_bancos
+	lineageTag: d7994c42-edd5-4170-9d3e-bd3dc349d219
+
+	column entidad
+		lineageTag: 9909561b-81d2-4fec-a96e-d8b03aa1b115
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: 1. eco_avl_fct_clientes[entidad]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition tabla_bancos = calculated
+		mode: import
+		source =
+				
+				DISTINCT('1. eco_avl_fct_clientes'[entidad])
+
+	annotation PBI_Id = 27164569ce124795a5c9d14efa6efd96
+

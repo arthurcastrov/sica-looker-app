@@ -1,0 +1,69 @@
+table fecha_act_fuentes
+	lineageTag: 4c26d02e-a0b8-4424-b133-23346aff42e6
+
+	column Fuente
+		lineageTag: 32c3bf6a-a9b2-4b79-8ea8-d944ab7dee9e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Fuente]
+		sortByColumn: Orden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Indicador
+		lineageTag: d28b601f-e887-4809-af06-5efdec409d28
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Indicador]
+		sortByColumn: Orden_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Llave
+		lineageTag: 5448a8ca-20e4-4058-91d7-8dcd99259c69
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Llave]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden
+		formatString: 0
+		lineageTag: e43a9060-10eb-4851-85c6-e2626ba94804
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orden_2
+		formatString: 0
+		lineageTag: 3d217624-bbcd-4c47-a8e6-76332d289d98
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden_2]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fecha_act_fuentes = calculated
+		mode: import
+		source =
+				
+				DATATABLE(
+				    "Fuente",STRING,"Indicador",STRING,"Llave",STRING,"Orden",INTEGER,"Orden_2",INTEGER,{
+				        {"Persona Natural (MDM - CRM)","Persona Natural (MDM - CRM)","Persona Natural (MDM - CRM)",1,1},
+				        {"Persona Juridica (MDM - CRM)","Persona Juridica (MDM - CRM)","Persona Juridica (MDM - CRM)",2,1},
+				        {"Margen","Bogota","Margen-Bogota",3,1},
+				        {"Margen","Occidente","Margen-Occidente",3,2},
+				        {"Margen","Popular","Margen-Popular",3,3},
+				        {"Margen","Av Villas","Margen-Villas",3,4},
+				        {"Buró Persona Natural","Buró Persona Natural","Buró Persona Natural",4,1},
+				        {"Buró Persona Juridica","Buró Persona Juridica","Buró Persona Juridica",4,2},
+				        {"Aportes","Aportes","Aportes",5,1},
+				        {"Tarjeta de Crédito (TRX)","Tarjeta de Crédito (TRX)","Tarjeta de Crédito (TRX)",6,1},
+				        {"Tarjeta de Crédito (SFC)","Tarjeta de Crédito (SFC)","Tarjeta de Crédito (SFC)",7,1}
+				        }
+				    )
+
+	annotation PBI_Id = 5b5bd4bc8fd24d4db087080a8bafac90
+

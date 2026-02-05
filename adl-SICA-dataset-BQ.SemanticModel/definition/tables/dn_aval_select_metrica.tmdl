@@ -1,0 +1,29 @@
+table dn_aval_select_metrica
+	lineageTag: 41ebf908-6d74-446b-9565-e57289bd0b0f
+
+	column orden
+		formatString: 0
+		lineageTag: 605d5d31-2fee-4f33-893a-0ec9a6d1559a
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orden]
+
+		annotation SummarizationSetBy = Automatic
+
+	column metrica
+		lineageTag: 648652ae-7fb0-4777-8698-c6c0e348cfb0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [metrica]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dn_aval_select_metrica = calculated
+		mode: import
+		source =
+				DATATABLE("orden",INTEGER,"metrica", STRING, {{1, "Cantidad"},
+				                                                                {2, "Tiempo"}
+				                                                                })
+
+	annotation PBI_Id = fad315674bb543be84d4e5a78dabafcf
+

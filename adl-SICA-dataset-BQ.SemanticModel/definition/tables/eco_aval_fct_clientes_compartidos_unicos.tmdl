@@ -1,0 +1,217 @@
+table eco_aval_fct_clientes_compartidos_unicos
+	lineageTag: 0dad5078-0a8e-451d-ae41-41ff1e361c25
+
+	column ref_num
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: ab253672-af9b-47fa-97ce-990af57962c6
+		summarizeBy: none
+		sourceColumn: ref_num
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_cruce
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 56cd4293-da9d-4049-a7fa-7e8414b54f72
+		summarizeBy: none
+		sourceColumn: date_cruce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column bank
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: c439a895-c0d2-45fc-a4c4-89bcf9b68eda
+		summarizeBy: none
+		sourceColumn: bank
+
+		annotation SummarizationSetBy = Automatic
+
+	column client_st_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b4d6282a-1fcd-4aab-83f3-4b61dab2874e
+		summarizeBy: none
+		sourceColumn: client_st_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column marital_st_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 54a52470-3d51-41c7-9b62-3bee8d9f9dd4
+		summarizeBy: none
+		sourceColumn: marital_st_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column highest_edu_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: de3d49cf-47a8-4650-b756-c70c39d86d50
+		summarizeBy: none
+		sourceColumn: highest_edu_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender_tp_code
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 89c88cd5-5c83-4a57-9140-9d68d0931ea0
+		summarizeBy: none
+		sourceColumn: gender_tp_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column profession_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 869afddd-6d8f-4b9e-9aed-de9a1031a6b3
+		summarizeBy: none
+		sourceColumn: profession_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column occupation_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: f25883d5-aa9c-4605-b8b9-c0ef5cd0a392
+		summarizeBy: none
+		sourceColumn: occupation_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column housing_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 8b2d9263-1ed7-497b-90cc-fb8c858e4ccf
+		summarizeBy: none
+		sourceColumn: housing_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column birthplace_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 36195a8c-fcea-4ae5-b01a-b8c5c1cf7ef4
+		summarizeBy: none
+		sourceColumn: birthplace_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_city_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 6e7294ae-f56d-462a-b157-83bbf11ffb08
+		summarizeBy: none
+		sourceColumn: birth_city_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column birth_state_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 30bbca94-6cd5-4dd9-a565-cedadbf8d694
+		summarizeBy: none
+		sourceColumn: birth_state_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column children_ct
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 4ad78a84-0081-4577-a64c-fd2d3e756f0e
+		summarizeBy: sum
+		sourceColumn: children_ct
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciiu_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: cb21ae1e-feb2-4f95-a4b6-ca4bdcb26f10
+		summarizeBy: none
+		sourceColumn: ciiu_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 888d89db-bb4c-4724-96f4-78150839612e
+		summarizeBy: none
+		sourceColumn: seg_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column seg_cat_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 5baa768c-9ad7-4ba6-a8a3-bfa9739b978d
+		summarizeBy: none
+		sourceColumn: seg_cat_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_seg_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: b4169709-ceb7-4184-b445-88d222d33bf7
+		summarizeBy: none
+		sourceColumn: sub_seg_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_edad
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: d8450617-9b1a-4ff7-a555-a40b6d7dab30
+		summarizeBy: none
+		sourceColumn: rango_edad
+
+		annotation SummarizationSetBy = Automatic
+
+	column rango_anios_vinculacion
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 0838dfcf-dc57-477c-be42-cf685c336f1b
+		summarizeBy: none
+		sourceColumn: rango_anios_vinculacion
+
+		annotation SummarizationSetBy = Automatic
+
+	column usuario
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 17afc8e3-b652-4bab-aabe-fb218f0705f1
+		summarizeBy: none
+		sourceColumn: usuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_carga
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f639be7e-04ac-4e20-a1ee-aa3e99e5407c
+		summarizeBy: none
+		sourceColumn: fecha_carga
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_fct_clientes_compartidos_unicos = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_fct_clientes_compartidos_unicos_Table = sica_analytics_Schema{[Name="eco_aval_fct_clientes_compartidos_unicos",Kind="Table"]}[Data]
+				in
+				    eco_aval_fct_clientes_compartidos_unicos_Table
+

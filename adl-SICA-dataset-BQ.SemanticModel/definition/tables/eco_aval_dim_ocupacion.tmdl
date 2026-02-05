@@ -1,0 +1,36 @@
+table eco_aval_dim_ocupacion
+	lineageTag: 83728660-c944-487d-abf3-c9d1044e3016
+
+	column occupation_tp_cd
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 1e2aedfe-5331-4d74-9a9b-c5ba089de9a5
+		summarizeBy: none
+		sourceColumn: occupation_tp_cd
+
+		annotation SummarizationSetBy = Automatic
+
+	column occupation_tp_ds
+		dataType: string
+		sourceProviderType: nvarchar(16384)
+		lineageTag: 79b4b7c1-4652-43be-a193-eefb8402db91
+		summarizeBy: none
+		sourceColumn: occupation_tp_ds
+
+		annotation SummarizationSetBy = Automatic
+
+	partition eco_aval_dim_ocupacion = m
+		mode: directQuery
+		source =
+				let
+				    Source = GoogleBigQuery.Database([BillingProject="adl-analytics-project"]),
+				    #"adl-analytics-project" = Source{[Name="adl-analytics-project"]}[Data],
+				    sica_analytics_Schema = #"adl-analytics-project"{[Name="sica_analytics",Kind="Schema"]}[Data],
+				    eco_aval_dim_ocupacion_Table = sica_analytics_Schema{[Name="eco_aval_dim_ocupacion",Kind="Table"]}[Data]
+				in
+				    eco_aval_dim_ocupacion_Table
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
