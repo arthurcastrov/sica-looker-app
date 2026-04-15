@@ -25,44 +25,44 @@ export const Dashboard = () => {
   ];
 
   const breakdownData = [
-    { 
-      title: 'Cartera', 
-      totalValue: '$173.391.598', 
-      totalPct: '0,82', 
+    {
+      title: 'Cartera',
+      totalValue: '$173.391.598',
+      totalPct: '0,82',
       isPositive: true,
-      entities: breakdownEntities 
+      entities: breakdownEntities
     },
-    { 
-      title: 'Captaciones', 
-      totalValue: '$172.520.469.484', 
-      totalPct: '0,68', 
+    {
+      title: 'Captaciones',
+      totalValue: '$172.520.469.484',
+      totalPct: '0,68',
       isPositive: false,
-      entities: breakdownEntities 
+      entities: breakdownEntities
     },
-    { 
-      title: 'Desembolsos', 
-      totalValue: '$172.520.469.484', 
-      totalPct: '0,68', 
+    {
+      title: 'Desembolsos',
+      totalValue: '$172.520.469.484',
+      totalPct: '0,68',
       isPositive: false,
-      entities: breakdownEntities 
+      entities: breakdownEntities
     }
   ];
 
   return (
     <div className="page-content">
-      
+
       {/* Sección 1: KPIs */}
       <section>
         <h2 className="section-title">¿Cómo están mis indicadores claves de negocio y mis indicadores de Rentabilidad? (Período 2025-09)</h2>
         <div className="kpi-container">
-          
+
           <div className="kpi-row">
             <h3 className="kpi-row-title">Tasas (Definir)</h3>
             <div className="kpi-grid">
               {kpiDataRates.map((d, i) => (
                 <KpiCard key={i} {...d} />
               ))}
-              <a href="#" className="compare-link">Comparar</a>
+
             </div>
           </div>
 
@@ -72,7 +72,7 @@ export const Dashboard = () => {
               {kpiDataEfficiency.map((d, i) => (
                 <KpiCard key={i} {...d} />
               ))}
-              <a href="#" className="compare-link">Comparar</a>
+
             </div>
           </div>
 

@@ -8,6 +8,14 @@ import clientesPorGenero from '../data/clientesPorGenero.json';
 import clientesPorEntidadMes from '../data/clientesPorEntidadMes.json';
 import generoPorEntidad from '../data/generoPorEntidad.json';
 
+//importar imagenes entidades
+import avalLogo from '../assets/aval-logo.jpeg';
+import bavvLogo from '../assets/bavv-logo.jpeg';
+import bbogLogo from '../assets/bbog-logo.jpeg';
+import boccLogo from '../assets/bocc-logo.jpeg';
+import bpopLogo from '../assets/bpop-logo.jpeg';
+import daleLogo from '../assets/dale-logo.jpeg';
+
 const ENTITY_COLORS = {
   BBOG: '#FBBF24',
   BAVV: '#DC2626',
@@ -16,20 +24,34 @@ const ENTITY_COLORS = {
   DALE: '#111827',
 };
 
+const ENTITY_IMAGES = {
+  BAVV: bavvLogo,
+  BBOG: bbogLogo,
+  BOCC: boccLogo,
+  BPOP: bpopLogo,
+  DALE: daleLogo
+};
+
 const formatNumber = (n) => n?.toLocaleString('es-CO') ?? '—';
 
 export const Clientes = () => {
-  // Total AVAL = sum of all entities
-  const totalAval = useMemo(() =>
-    clientesPorEntidad.reduce((acc, e) => acc + e.usuarios_unicos_PN, 0), []);
+  // Total AVAL = unique clients across all entities (from Looker, not a sum)
+  const totalAval = useMemo(() => {
+    const avalEntry = clientesPorEntidad.find(e => e.entidad === 'AVAL');
+    return avalEntry?.usuarios_unicos_PN ?? 0;
+  }, []);
+
+  // Entity-only data (excluding the AVAL group total)
+  const entitiesData = useMemo(() =>
+    clientesPorEntidad.filter(e => e.entidad !== 'AVAL'), []);
 
   // Pie chart data
   const pieData = useMemo(() =>
-    clientesPorEntidad.map(e => ({
+    entitiesData.map(e => ({
       name: e.entidad,
       value: e.usuarios_unicos_PN,
       color: ENTITY_COLORS[e.entidad] || '#9CA3AF',
-    })), []);
+    })), [entitiesData]);
 
   // Gender data (only M and F, excluding nulls)
   const genderKnown = useMemo(() =>
@@ -83,7 +105,8 @@ export const Clientes = () => {
           <label style={{ margin: 0 }}>Filtrar por</label>
           <select defaultValue="Persona Natural">
             <option value="Persona Natural">Persona Natural</option>
-            <option value="Empresa">Empresa</option>
+            <option value="Persona Jurídica">Persona Jurídica</option>
+            <option value="Total">Total</option>
           </select>
         </div>
       </section>
@@ -101,17 +124,18 @@ export const Clientes = () => {
         {/* Tarjeta Aval */}
         <div className="kpi-container aval-overview-card">
           <div className="aval-total-col">
-            <div className="brand-logo" style={{ alignItems: 'flex-start', fontSize: '1.5rem', marginBottom: '1rem' }}>
-              <small>Grupo</small>
-              <span>AVAL</span>
-            </div>
+            <img src={avalLogo} alt="Grupo AVAL" style={{ width: '80px', objectFit: 'contain', marginBottom: '1rem' }} />
             <div className="kpi-value" style={{ fontSize: '1.5rem' }}>{formatNumber(totalAval)}</div>
             <div className="kpi-title" style={{ marginTop: '0.25rem' }}>Clientes Activos</div>
           </div>
           <div className="aval-entities-grid">
-            {clientesPorEntidad.map(e => (
+            {entitiesData.map(e => (
               <div key={e.entidad} className="entity-mini-card">
-                <div className="entity-circle-mock" style={{ backgroundColor: ENTITY_COLORS[e.entidad] || '#E5E7EB' }} />
+                <img
+                  src={ENTITY_IMAGES[e.entidad]}
+                  alt={e.entidad}
+                  className="entity-logo"
+                />
                 <div>
                   <div className="kpi-value" style={{ fontSize: '1rem' }}>{formatNumber(e.usuarios_unicos_PN)}</div>
                   <div className="kpi-title">Clientes {e.entidad}</div>
@@ -200,8 +224,8 @@ export const Clientes = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
             <h3 style={{ fontSize: '1rem', color: 'var(--text-main)', margin: 0 }}>Distribución de género AVAL</h3>
             <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#FCA5A5' }}/> Femenino</span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#60A5FA' }}/> Masculino</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#FCA5A5' }} /> Femenino</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#60A5FA' }} /> Masculino</span>
             </div>
           </div>
           <div style={{ display: 'flex', gap: '2rem' }}>
@@ -225,8 +249,8 @@ export const Clientes = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
             <h3 style={{ fontSize: '1rem', color: 'var(--text-main)', margin: 0 }}>Distribución de género en las entidades</h3>
             <div style={{ display: 'flex', gap: '1rem', fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#FCA5A5' }}/> Femenino</span>
-              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#60A5FA' }}/> Masculino</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#FCA5A5' }} /> Femenino</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: '#60A5FA' }} /> Masculino</span>
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>

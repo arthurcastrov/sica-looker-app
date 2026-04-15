@@ -1,15 +1,15 @@
 [
-  {"entidad": "BBOG", "gender": "Masculino", "usuarios_unicos_PN": 4549991},
-  {"entidad": "BBOG", "gender": "Femenino", "usuarios_unicos_PN": 3655070},
-  {"entidad": "BBOG", "gender": "Sin información", "usuarios_unicos_PN": 1508472},
-  {"entidad": "BOCC", "gender": "Masculino", "usuarios_unicos_PN": 1718623},
-  {"entidad": "BOCC", "gender": "Femenino", "usuarios_unicos_PN": 1270452},
-  {"entidad": "BOCC", "gender": "Sin información", "usuarios_unicos_PN": 205284},
-  {"entidad": "BAVV", "gender": "Masculino", "usuarios_unicos_PN": 1202427},
-  {"entidad": "BAVV", "gender": "Femenino", "usuarios_unicos_PN": 1057621},
+  {"entidad": "BAVV", "gender": "Masculino", "usuarios_unicos_PN": 1213264},
+  {"entidad": "BAVV", "gender": "Femenino", "usuarios_unicos_PN": 1066917},
   {"entidad": "BAVV", "gender": "Sin información", "usuarios_unicos_PN": 33176},
-  {"entidad": "BPOP", "gender": "Masculino", "usuarios_unicos_PN": 881607},
-  {"entidad": "BPOP", "gender": "Femenino", "usuarios_unicos_PN": 728688},
-  {"entidad": "BPOP", "gender": "Sin información", "usuarios_unicos_PN": 268824},
-  {"entidad": "DALE", "gender": "Sin información", "usuarios_unicos_PN": 4452632}
+  {"entidad": "BBOG", "gender": "Masculino", "usuarios_unicos_PN": 4559132},
+  {"entidad": "BBOG", "gender": "Femenino", "usuarios_unicos_PN": 3662789},
+  {"entidad": "BBOG", "gender": "Sin información", "usuarios_unicos_PN": 1572020},
+  {"entidad": "BOCC", "gender": "Masculino", "usuarios_unicos_PN": 686360},
+  {"entidad": "BOCC", "gender": "Femenino", "usuarios_unicos_PN": 594072},
+  {"entidad": "BOCC", "gender": "Sin información", "usuarios_unicos_PN": 7672},
+  {"entidad": "BPOP", "gender": "Masculino", "usuarios_unicos_PN": 818912},
+  {"entidad": "BPOP", "gender": "Femenino", "usuarios_unicos_PN": 691874},
+  {"entidad": "BPOP", "gender": "Sin información", "usuarios_unicos_PN": 279999},
+  {"entidad": "DALE", "gender": "Sin información", "usuarios_unicos_PN": 4496562}
 ]

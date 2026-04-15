@@ -22,9 +22,9 @@ export const BreakdownCard = ({ title, totalValue, totalPct, isPositive, entitie
     <div className="breakdown-card">
       <div className="breakdown-header">
         <span className="breakdown-title">{title}</span>
-        <a href="#" className="breakdown-link">Ver Participación de Mercado</a>
+
       </div>
-      
+
       <div className="breakdown-main-value">
         <span className="kpi-value">{totalValue}</span>
         <span className={`badge ${isPositive ? 'success' : 'danger'}`}>

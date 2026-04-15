@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileText } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import avalLogo from '../assets/aval-logo.jpeg';
 
 export const Navbar = () => {
   return (
@@ -11,10 +12,7 @@ export const Navbar = () => {
           <FileText size={28} color="#111827" />
           <h1 className="header-title">Resumen Gerencial Visión Aval</h1>
         </div>
-        <div className="brand-logo">
-          <small>Grupo</small>
-          <span>AVAL</span>
-        </div>
+        <img src={avalLogo} alt="Grupo AVAL" style={{ width: '80px', objectFit: 'contain' }} />
       </div>
 
       {/* Filtros */}
@@ -22,22 +20,26 @@ export const Navbar = () => {
         <div className="filter-group">
           <label>Año</label>
           <select defaultValue="2025">
+            <option value="2026">2026</option>
             <option value="2025">2025</option>
-            <option value="2024">2024</option>
           </select>
         </div>
         <div className="filter-group">
           <label>Períodos</label>
           <select defaultValue="2025-9">
-            <option value="2025-9">2025-9</option>
-            <option value="2025-8">2025-8</option>
+            <option value="2026-3">2026-03</option>
+            <option value="2026-2">2026-02</option>
           </select>
         </div>
         <div className="filter-group">
           <label>Entidad</label>
           <select defaultValue="Todas">
             <option value="Todas">Todas</option>
-            <option value="Bogota">Bogotá</option>
+            <option value="Bogota">BAVV</option>
+            <option value="Bogota">BBOG</option>
+            <option value="Bogota">BOCC</option>
+            <option value="Bogota">BPOP</option>
+            <option value="Bogota">DALE</option>
           </select>
         </div>
       </div>
