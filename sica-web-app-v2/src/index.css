@@ -292,7 +292,8 @@ body {
 .page-content {
   flex: 1;
   padding: 2rem;
-  max-width: 1440px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* ---- Section Titles ---- */
@@ -550,6 +551,21 @@ body {
 }
 
 /* ---- AVAL Overview Card ---- */
+.aval-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(196, 198, 208, 0.15);
+}
+
+.aval-header-logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
 .aval-overview {
   display: flex;
   gap: 0;
@@ -597,16 +613,20 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .entity-mini-card {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1.25rem;
+  gap: 0.5rem;
+  padding: 1rem;
   border-bottom: 1px solid rgba(196, 198, 208, 0.15);
   border-right: 1px solid rgba(196, 198, 208, 0.15);
   transition: var(--transition);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .entity-mini-card:hover {
@@ -621,27 +641,37 @@ body {
   border-bottom: none;
 }
 
+.entity-mini-card > div {
+  min-width: 0;
+  overflow: hidden;
+  flex: 1;
+}
+
 .entity-logo {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-sm);
   object-fit: contain;
   flex-shrink: 0;
 }
 
 .entity-mini-value {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .entity-mini-label {
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: var(--text-light);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  word-wrap: break-word;
 }
 
 /* ---- Cohort Table ---- */

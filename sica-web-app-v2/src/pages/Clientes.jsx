@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { User, CreditCard } from 'lucide-react';
-import { PieChart, Pie, Cell, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Cell } from 'recharts';
 
 import clientesPorEntidad from '../data/clientesPorEntidad.json';
 import clientesPorGenero from '../data/clientesPorGenero.json';
@@ -33,11 +33,11 @@ export const Clientes = () => {
   const entitiesData = useMemo(() =>
     clientesPorEntidad.filter(e => e.entidad !== 'AVAL'), []);
 
-  const pieData = useMemo(() =>
+  const barData = useMemo(() =>
     entitiesData.map(e => ({
       name: e.entidad,
       value: e.usuarios_unicos_PN,
-      color: ENTITY_COLORS[e.entidad] || '#9CA3AF',
+      fill: ENTITY_COLORS[e.entidad] || '#9CA3AF',
     })), [entitiesData]);
 
   const genderKnown = useMemo(() =>
@@ -94,11 +94,13 @@ export const Clientes = () => {
       {/* Top Row: AVAL Overview + Cohort Table */}
       <section className="grid-2 section-gap">
         {/* AVAL Overview Card */}
-        <div className="aval-overview animate-in">
-          <div className="aval-total-section">
-            <img src={avalLogo} alt="Grupo AVAL" className="aval-logo" />
-            <div className="aval-total-value">{formatNumber(totalAval)}</div>
-            <div className="aval-total-label">Clientes Activos</div>
+        <div className="card animate-in" style={{ padding: 0, overflow: 'hidden' }}>
+          <div className="aval-header-row">
+            <img src={avalLogo} alt="Grupo AVAL" className="aval-header-logo" />
+            <div>
+              <div className="aval-total-value" style={{ color: 'var(--text-main)' }}>{formatNumber(totalAval)}</div>
+              <div className="aval-total-label" style={{ color: 'var(--text-light)', opacity: 1 }}>Clientes Activos AVAL</div>
+            </div>
           </div>
           <div className="aval-entities-section">
             {entitiesData.map(e => (
@@ -142,28 +144,33 @@ export const Clientes = () => {
         </div>
       </section>
 
-      {/* Middle Row: Donut + Line Chart */}
+      {/* Middle Row: Bar Chart + Line Chart */}
       <section className="grid-2-1 section-gap">
-        {/* Donut Chart */}
+        {/* Horizontal Bar Chart */}
         <div className="card animate-in">
           <div className="card-title">Cantidad de Clientes</div>
           <div className="chart-legend">
-            {pieData.map(entry => (
+            {barData.map(entry => (
               <span key={entry.name} className="chart-legend-item">
-                <span className="chart-legend-dot" style={{ backgroundColor: entry.color }} />
+                <span className="chart-legend-dot" style={{ backgroundColor: entry.fill }} />
                 {entry.name}
               </span>
             ))}
           </div>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 220 }}>
-            <PieChart width={220} height={220}>
-              <Pie data={pieData} innerRadius={65} outerRadius={85} paddingAngle={3} dataKey="value"
-                label={({ name, percent }) => `${name} (${(percent * 100).toFixed(1)}%)`}
-                labelLine={{ stroke: '#c4c6d0', strokeWidth: 1 }}>
-                {pieData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
-              </Pie>
-              <Tooltip formatter={(v) => formatNumber(v)} />
-            </PieChart>
+          <div style={{ height: 220 }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={barData} layout="vertical" margin={{ top: 5, right: 30, left: 10, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(196,198,208,0.3)" horizontal={false} />
+                <XAxis type="number" tick={{ fontSize: 10, fill: '#747780' }} tickFormatter={(v) => `${(v / 1000000).toFixed(1)}M`} />
+                <YAxis type="category" dataKey="name" tick={{ fontSize: 11, fill: '#181c1f', fontWeight: 600 }} width={50} />
+                <Tooltip formatter={(v) => formatNumber(v)} />
+                <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={18}>
+                  {barData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.fill} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
 
