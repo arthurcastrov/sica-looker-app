@@ -166,4 +166,22 @@ view: niif_entidades {
     description: "Gastos Intereses / Ingresos Intereses"
     value_format: "0.00%"
   }
+
+  # ---- YTD ----
+  # Cuando filtras por un mes (ej: fecha_corte_month = "2025-11"),
+  # este measure calcula el promedio desde Enero hasta ese mes (2025-01 → 2025-11).
+  # Usa un subquery correlacionado: no requiere parámetro, funciona directo con filtros de API.
+
+  measure: promedio_ytd_valor {
+    type: number
+    sql: (
+      SELECT AVG(sub.valor)
+      FROM `adl-analytics-project.sica_analytics.sica_niif_entidades` sub
+      WHERE sub.fecha_corte >= DATE_TRUNC(${TABLE}.fecha_corte, YEAR)
+        AND sub.fecha_corte <= LAST_DAY(${TABLE}.fecha_corte, MONTH)
+    ) ;;
+    label: "Promedio YTD Valor"
+    description: "Promedio del valor YTD. Filtra un mes (ej: 2025-11) y calcula el promedio desde Enero hasta ese mes."
+    value_format: "$#,##0.00"
+  }
 }
